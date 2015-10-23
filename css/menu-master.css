@@ -1,0 +1,6 @@
+
+#search-box input[type=text]{
+    padding: 0;
+    padding-left: 10px;
+    border : 1px solid black;
+}
