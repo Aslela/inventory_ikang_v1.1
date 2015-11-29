@@ -1,9 +1,4 @@
 var error = 1;
-var base_url = window.location.origin;
-
-if(base_url =="http://localhost"){
-    base_url = base_url+"/inv_ikang";
-}
    
    function validate_number(evt) {
         var theEvent = evt || window.event;
@@ -22,7 +17,7 @@ if(base_url =="http://localhost"){
         	 
         if(inputan==""){ // jika nama kosong
             $("#lbl-kode").addClass("has-error");
-    		$("#err_kode").html("<span class='label label-danger'><i class='glyphicon glyphicon-remove'></i></span>");
+    		$("#err_kode").html("<span class='label label-danger'>Must be filled!</span>");
     		$("#err_kode").fadeIn(1000);
     		error = 1;
 		}else{
@@ -38,7 +33,7 @@ if(base_url =="http://localhost"){
         	 
         if(inputan==""){ // jika nama kosong
             $("#lbl-nama").addClass("has-error");
-            $("#err_nama").html("<span class='label label-danger'><i class='glyphicon glyphicon-remove'></i></span>");
+            $("#err_nama").html("<span class='label label-danger'>Must be filled!</span>");
     		$("#err_nama").fadeIn(1000);
     		error = 1;
                     
@@ -55,7 +50,7 @@ if(base_url =="http://localhost"){
         	 
         if(inputan==""){ // jika nama kosong
     		$("#lbl-hb").addClass("has-error");
-            $("#err_hb").html("<span class='label label-danger'><i class='glyphicon glyphicon-remove'></i></span>");
+            $("#err_hb").html("<span class='label label-danger'>Must be filled!</span>");
     		$("#err_hb").fadeIn(1000);
     		error = 1;
                 
@@ -72,7 +67,7 @@ if(base_url =="http://localhost"){
         	 
         if(inputan==""){ // jika nama kosong
             $("#lbl-hj").addClass("has-error");
-            $("#err_hj").html("<span class='label label-danger'><i class='glyphicon glyphicon-remove'></i></span>");
+            $("#err_hj").html("<span class='label label-danger'>Must be filled!</span>");
     		$("#err_hj").fadeIn(1000);
     		error = 1;
                 
@@ -90,7 +85,7 @@ if(base_url =="http://localhost"){
         	 
         if(inputan==""){ // jika nama kosong
             $("#lbl-qty").addClass("has-error");
-            $("#err_qty").html("<span class='label label-danger'><i class='glyphicon glyphicon-remove'></i></span>");
+            $("#err_qty").html("<span class='label label-danger'>Must be filled!</span>");
     		$("#err_qty").fadeIn(1000);
     		error = 1;
                     
@@ -107,7 +102,7 @@ if(base_url =="http://localhost"){
         	 
         if(inputan==""){ // jika nama kosong
             $("#lbl-limit").addClass("has-error");
-            $("#err_limit").html("<span class='label label-danger'><i class='glyphicon glyphicon-remove'></i></span>");
+            $("#err_limit").html("<span class='label label-danger'>Must be filled!</span>");
     		$("#err_limit").fadeIn(1000);
     		error = 1;
                     
@@ -125,7 +120,7 @@ if(base_url =="http://localhost"){
         if(inputan!=""){ // jika nama kosong
             $("#lbl-kategori").removeClass("has-error");
             $("#err_kategori").fadeIn(1000);
-            $("#err_kategori").html(""); 
+            $("#err_kategori").html("Must be filled!");
             error = 0; // setting error 0;
 		}
     }
@@ -137,7 +132,7 @@ if(base_url =="http://localhost"){
         if(err==false){
             if($("#kode_barang").val()==""){
                 $("#lbl-kode").addClass("has-error");
-                $("#err_kode").html("<span class='label label-danger'><i class='glyphicon glyphicon-remove'></i></span>");
+                $("#err_kode").html("<span class='label label-danger'>Must be filled!</span>");
                 $("#err_kode").fadeIn(1000);
                 error = 1;
                 err=true;
@@ -147,7 +142,7 @@ if(base_url =="http://localhost"){
         if(err==false){
             if($("#nama_barang").val()==""){
                 $("#lbl-nama").addClass("has-error");
-           	    $("#err_nama").html("<span class='label label-danger'><i class='glyphicon glyphicon-remove'></i></span>");
+           	    $("#err_nama").html("<span class='label label-danger'>Must be filled!</span>");
                 $("#err_nama").fadeIn(1000);
                 error = 1;
                 err=true;
@@ -158,7 +153,7 @@ if(base_url =="http://localhost"){
         if(err==false){
             if($("#select_kategori").val()==""){
            	    $("#lbl-kategori").addClass("has-error");
-                $("#err_kategori").html("<span class='label label-danger'><i class='glyphicon glyphicon-remove'></i></span>");
+                $("#err_kategori").html("<span class='label label-danger'>Must be filled!</span>");
 				$("#err_kategori").fadeIn(1000);
    
                 error = 1;
@@ -169,7 +164,7 @@ if(base_url =="http://localhost"){
          if(err==false){
             if($("#select_subkategori").val()==""){
                 $("#lbl-kategori").addClass("has-error");
-                $("#err_kategori").html("<span class='label label-danger'><i class='glyphicon glyphicon-remove'></i></span>");
+                $("#err_kategori").html("<span class='label label-danger'>Must be filled!</span>");
 				$("#err_kategori").fadeIn(1000);
                 
                 error = 1;
@@ -227,10 +222,6 @@ $(document).ready(function(){
 				return false;
 				 
 			});
-            
-        $("#cancel").click(function(){
-            window.location.assign(base_url+"/index.php/barang/index/");    
-        });
         
         $("#edit_barang").click(function(){			
 				

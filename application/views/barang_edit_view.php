@@ -217,7 +217,7 @@
                         <li>
                             <button type="submit" id="edit_barang" class="submit btn btn-large btn-primary btn-block ">Edit Item</button>
                         </li>
-                        <li><button type="reset" id="cancel" class="btn btn-large btn-block ">Back to List</button> </li>
+                        <li><a href="<?=site_url('Barang/index')?>"><button type="reset" id="cancel" class="btn btn-large btn-block ">Back to List</button></a></li>
                     </ul>    
                     
                 </div>

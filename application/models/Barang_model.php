@@ -55,6 +55,7 @@ class Barang_model extends CI_Model {
         $result = $query->result_array();
         
         $i=0;
+        $response=[];
         foreach($result as $row){
             $response->rows[$i]['Barang_ID']=$row['Barang_ID'];
             $response->rows[$i]['Kode_Barang']=$row['Kode_Barang'];
@@ -95,6 +96,20 @@ class Barang_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->row_array();
 	}
+
+    function getBarangByKode($kode) {
+        $this->db->select('*');
+        $this->db->from('tbltbarang a');
+        $this->db->join('tblmkategori b', 'a.Kategori_ID = b.Kategori_ID');
+        $this->db->join('tblmsubkategori c', 'a.SubKategori_ID = c.SubKategori_ID');
+        $this->db->join('tblmmerk d', 'a.Merk_ID = d.Merk_ID');
+        $this->db->join('tblmmodel e', 'a.Model_ID = e.Model_ID');
+
+        $this->db->where('a.Kode_Barang',$kode);
+
+        $query = $this->db->get();
+        return $query->row();
+    }
     
     function createBarang($data){
         

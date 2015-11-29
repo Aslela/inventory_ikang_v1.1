@@ -9,16 +9,12 @@ $(document).ready(function(){
 </script>
 
 <div class="content-container" >
-    <div class="well"> 
-        <ul>
-            <li>
-                <a class="cd-signin main-nav" href="<?php echo site_url('penjualan/goToAddNewPenjualan')?>"> 
-                    <button type="button" class="btn btn-primary btn-xl">
-                        <span class="glyphicon glyphicon-plus"></span>&nbsp Add New Penjualan
-                    </button>
-                </a>
-            </li>
-        </ul>   
+    <div class="well">
+        <a class="cd-signin main-nav" href="<?php echo site_url('penjualan/goToAddNewPenjualan')?>">
+            <button type="button" class="btn btn-primary btn-xl">
+                <span class="glyphicon glyphicon-plus"></span>&nbsp Add New Penjualan
+            </button>
+        </a>
     </div>
     
     <div>

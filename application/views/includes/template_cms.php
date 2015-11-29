@@ -9,11 +9,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>pintubaja - CMS Panel</title>
+    <title>Inventory Ikang - CMS Panel</title>
 
     <?php $this->load->helper('HTML');
         // Bootstrap Core CSS
         echo link_tag('css/bootstrap.min.css');
+        echo link_tag('css/bootstrap-editable.css');
 
         //DataTables CSS
         echo link_tag('css/sb-admin-2.css');
@@ -36,6 +37,7 @@
     
     <!-- jQuery -->
     <script src="<?php echo base_url(); ?>js/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>js/jquery-ui-1.10.3.js"></script>
 
     <!-- Alert -->
     <script src="<?php echo base_url(); ?>css/alert/alertify.min.js"></script>
@@ -150,6 +152,7 @@
                show=1;
            }
        });
+        var base_url = "<?=base_url()?>";
     });
 </script>
 

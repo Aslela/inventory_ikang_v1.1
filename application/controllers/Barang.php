@@ -59,6 +59,31 @@ class Barang extends CI_Controller {
 		
         $this->load->view('includes/template_cms', $data);
 	}
+
+    function getBarangPenjualan(){
+        $status = "";
+        $msg="";
+        $namaBarang="";
+        $harga="";
+        $barangID="";
+
+        $kode = $this->input->post("value");
+        $result = $this->barang_model->getBarangByKode($kode);
+
+        if(count($result)== 0){
+            $status = "error";
+            $msg="Barang dengan kode ini tidak terdaftar.";
+        }else{
+            $status = "success";
+            $msg="";
+            $namaBarang = $result->Barang_Name."-".$result->Merk_Name."-".$result->Model_Name;
+            $harga = $result->Harga_Jual;
+            $barangID = $result->Barang_ID;
+        }
+        // return message to AJAX
+        echo json_encode(array('status' => $status, 'msg' => $msg,"barangID"=>$barangID,"namaBarang"=>$namaBarang,"harga"=>$harga));
+    }
+
     
     function goToAddNewBarang(){
  

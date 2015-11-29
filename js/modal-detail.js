@@ -31,7 +31,7 @@
 
             $("#detail-form")[0].reset();
 
-            var $form_edit_modal = $('.cd-edit-modal'),
+            var $form_edit_modal = $('.cd-edit-modal');
             var $edit_nav = $('.edit-nav');
 
             var selected_row = $(this).closest("tr");

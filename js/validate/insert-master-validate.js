@@ -1,9 +1,4 @@
 
-var base_url = $("#site_url").val();
-
-if(base_url =="http://localhost"){
-    base_url = base_url+"/inv_ikang";
-}
    function cek_input(){
        var error = 1;
         var inputan = $("#inputan").val();

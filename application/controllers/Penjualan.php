@@ -84,7 +84,7 @@ class Penjualan extends CI_Controller {
         $data['data_satuan'] = $this->satuan_model->getSatuanList(null, null);
         
 		
-        $this->load->view('includes/template', $data);		
+        $this->load->view('includes/template_cms', $data);
 	}
     
     function goToAddNewPenjualan(){
@@ -100,7 +100,7 @@ class Penjualan extends CI_Controller {
         $data['data_model'] = $this->model_model->getModelList(null, null);
         $data['data_satuan'] = $this->satuan_model->getSatuanList(null, null);
         
-		$this->load->view('includes/template', $data);		
+		$this->load->view('includes/template_cms', $data);
     }	
     
      function goToEditPenjualan(){
@@ -120,7 +120,7 @@ class Penjualan extends CI_Controller {
         $data['data_satuan'] = $this->satuan_model->getSatuanList(null, null);
         $data['data_penjualan'] = $this->penjualan_model->getPenjualanDetail($id);
         
-		$this->load->view('includes/template', $data);		
+		$this->load->view('includes/template_cms', $data);
     }
 	
 	function createPenjualan()

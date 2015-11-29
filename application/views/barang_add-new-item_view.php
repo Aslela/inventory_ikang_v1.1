@@ -38,28 +38,38 @@
 				<!-- form start -->
 
 				<h1 class="heading">Add New Barang</h1>
+                <div class="well">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <button type="submit" id="save" name="save" class="submit btn btn-large btn-primary btn-block ">Add New Item</button>
+                        </div>
+                        <div class="col-lg-2">
+                            <a href="<?=site_url('Barang/index')?>"><button type="button" class="btn btn-large btn-block ">Back to List</button></a>
+                        </div>
+                    </div>
+                </div>
 				<?php echo form_open('',"class='form-horizontal'"); ?>
                 
                 <div class="side-one"><!-- side 1 -->
 				<div class="form-group" id="lbl-kode">
-					<label class="col-sm-4 control-label heading-label">Kode Barang</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control" id="kode_barang" name="kode_name" 
-                            placeholder="Kode Barang" maxlength="15" onkeyup='cek_kode()'>  
-					</div><span id='err_kode' class="err_span"></span><span id='pesan_kode'></span>
+					<label class="control-label heading-label">Kode Barang</label>
+                    <span id='err_kode' class=""></span><span id='pesan_kode'></span>
+					<input type="text" class="form-control" id="kode_barang" name="kode_name"
+                            placeholder="Kode Barang" maxlength="15" onkeyup='cek_kode()'>
 				</div>
 
 				<div class="form-group" id="lbl-nama"> 
-					<label class="col-sm-4 control-label heading-label">Nama Barang</label>
-					<div class="col-sm-6"> 
-						<input type="text" class="form-control" id="nama_barang" name="nama_barang" 
+					<label class="control-label heading-label">Nama Barang</label>
+                    <span id='err_nama' class=""></span>
+					<input type="text" class="form-control" id="nama_barang" name="nama_barang"
                             placeholder="Nama Barang" maxlength="150" onkeyup='cek_nama()'>
-					</div><span id='err_nama' class="err_span"></span>
+
 				</div>
 
 				<div class="form-group" id="lbl-kategori" >
-					<label class="col-sm-4 control-label heading-label">Kategori</label>
-					<div class="col-sm-6">
+					<label class="control-label heading-label">Kategori</label>
+                    <span id='err_kategori' class=""></span>
+					<div class="">
                             <select id="select_kategori" tabindex="5" class="chzn-select form-control" 
                             name="select_kategori" data-placeholder="Select Kategori" onchange="cek_kategori()">
                                 <option value=""></option>
@@ -73,11 +83,12 @@
                                  }
                                 ?>
                             </select>
-                    </div><span id='err_kategori' class="err_span_select"></span>
+                    </div>
 				</div>
 				<div class="form-group" id="lbl-subkategori">
-					<label class="col-sm-4 control-label heading-label">Sub Kategori</label>
-					<div class="col-sm-6">
+					<label class="control-label heading-label">Sub Kategori</label>
+                    <span id='err_subkategori' class=""></span>
+					<div class="">
 						<select id="select_subkategori" tabindex="5" class="chzn-select form-control" 
                             name="select_subkategori" value="" data-placeholder="Select Sub Kategori" onchange="cek_subkategori()">
                                 <option value=""></option>
@@ -91,11 +102,12 @@
                                  }
                                 ?>
                             </select>
-					</div><span id='err_subkategori' class="err_span_select"></span>
+					</div>
 				</div>
 				<div class="form-group" id="lbl-merk">
-					<label class="col-sm-4 control-label heading-label">Merek</label>
-					<div class="col-sm-6">
+					<label class="control-label heading-label">Merek</label>
+                    <span id='err_merk' class=""></span>
+					<div class="">
 						<select id="select_merk" tabindex="5" class="chzn-select form-control" 
                             name="select_merk" value="" data-placeholder="Select Merek">
                                 <option value=""></option>
@@ -109,12 +121,13 @@
                                  }
                                 ?>
                             </select>
-					</div><span id='err_merk' class="err_span_select"></span>
+					</div>
 				</div>
 
 				<div class="form-group" id="lbl-model">
-					<label class="col-sm-4 control-label heading-label">Model</label>
-					<div class="col-sm-6">
+					<label class="control-label heading-label">Model</label>
+                    <span id='err_model' class=""></span>
+					<div class="">
 						<select id="select_model" tabindex="5" class="chzn-select form-control" 
                             name="select_model" value="" data-placeholder="Select Model">
                                 <option value=""></option>
@@ -128,7 +141,7 @@
                                  }
                                 ?>
                             </select>
-					</div><span id='err_model' class="err_span_select"></span>
+					</div>
 				</div>
                 
                 </div><!-- side 1 -->
@@ -136,24 +149,32 @@
                 
                 <div class="side-two"><!-- side 2 -->
 				<div class="form-group" id="lbl-hb">
-					<label class="col-sm-4 control-label heading-label" id="lblName">Harga Beli</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control" id="harga_beli" name="harga_beli" 
+					<label class="control-label heading-label" id="lblName">Harga Beli</label>
+                    <span id='err_hb' class=""></span>
+					<input type="text" class="form-control" id="harga_beli" name="harga_beli"
                             maxlength="20" placeholder="Rp. xxx" onkeyup='cek_hb()'>						
-					</div><span id='err_hb' class="err_span"></span>
+
 				</div>
 
 				<div class="form-group" id="lbl-hj">
-					<label class="col-sm-4 control-label heading-label">Harga Jual</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control" id="harga_jual" name="harga_jual" 
+					<label class="control-label heading-label">Harga Jual</label>
+                    <span id='err_hj' class=""></span>
+					<input type="text" class="form-control" id="harga_jual" name="harga_jual"
                             maxlength="20" placeholder="Rp. xxx" onkeyup='cek_hj()' >
-					</div><span id='err_hj' class="err_span"></span>
+
 				</div>
 
+                <div class="form-group" id="lbl-ukuran">
+                    <label class="control-label heading-label">Ukuran</label>
+                    <span id='err_ukuran' class=""></span><span id='pesan_ukuran'></span>
+                    <input type="text" class="form-control" id="ukuran" name="ukuran"
+                           placeholder="XX x XX" maxlength="15"'>
+                </div>
+
 				<div class="form-group" id="lbl-satuan">
-					<label class="col-sm-4 control-label heading-label"id="lblPhone">Satuan</label>
-					<div class="col-sm-6">
+					<label class="control-label heading-label"id="lblPhone">Satuan</label>
+                    <span id='err_satuan' class=""></span>
+					<div class="">
 						<select id="select_satuan" tabindex="5" class="chzn-select form-control" 
                             name="select_satuan" value="" data-placeholder="Select Satuan">
                                 <option value=""></option>
@@ -167,28 +188,24 @@
                                  }
                                 ?>
                             </select>
-					</div><span id='err_satuan' class="err_span_select"></span>
+					</div>
 				</div>
 				<div class="form-group" id="lbl-qty">
-					<label class="col-sm-4 control-label heading-label">Quantity</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" id="qty" name="qty" 
+					<label class="control-label heading-label">Quantity</label>
+                    <span id='err_qty' class=""></span>
+
+					<input type="text" class="form-control" id="qty" name="qty"
                             placeholder="Qty" maxlength="10" onkeypress='validate_number(event)' onkeyup='cek_qty()' >
-					</div><span id='err_qty' class="err_span"></span>
+
 				</div>
                 
                	<div class="form-group" id="lbl-limit">
-					<label class="col-sm-4 control-label heading-label">Limit</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" id="limit" name="limit" 
+					<label class="control-label heading-label">Limit</label>
+                    <span id='err_limit' class=""></span>
+					<input type="text" class="form-control" id="limit" name="limit"
                             placeholder="limit" maxlength="10" onkeypress='validate_number(event)' onkeyup='cek_limit()' >
-					</div><span id='err_limit' class="err_span"></span>
+
 				</div>
-				
-                <div class="toolbar-form well">
-                    <button type="submit" id="save" name="save" class="submit btn btn-large btn-primary btn-block ">Add New Item</button>
-                    <button type="reset" id="cancel" class="btn btn-large btn-block ">Back to List</button>
-                </div>
 				
                 </div><!-- side 2 -->
                 
