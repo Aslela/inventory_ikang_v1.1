@@ -2,17 +2,17 @@
     echo link_tag('css/form-transaction.css'); 
     echo link_tag('css/chosen.css'); 
     echo link_tag('css/datepicker.css');
+    echo link_tag('css/select2.css');
  ?>
     <script src="<?php echo base_url(); ?>js/jquery.maskMoney.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>js/bootstrap-datepicker.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>js/validate/insert-barang-validate.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>js/select2.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>js/bootstrap-editable.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>js/penjualan.js" type="text/javascript"></script>
      
     <script type="text/javascript">
         $(function(){
-
-            var count_index = 0;
-            var base_url = "<?=base_url()?>";
             // Jquery draggable
             $('.modal-dialog').draggable({
                 handle: ".modal-header"
@@ -52,34 +52,7 @@
             //SAVE
             $("#hd-btn-save" ).click(function(){
                 
-                var kode_bon = $("#kode_bon").val();
-                var nama_customer = $("#nama_customer").val();
-                var tgl_penjualan = $("#tgl_penjualan").val();
-                
-                var status = $('#stat option:selected').val();
-                var tgl_jth_tempo = $("#tgl_jth_tmp").val();
-                
-                var error_list_msg = new Array();
-                
-                if(kode_bon == null || kode_bon==""){
-                    error_list_msg.push("Kode bon harus di isi");
-                }
-                if(nama_customer == null || nama_customer==""){
-                    error_list_msg.push("Nama Customer harus di isi");
-                }
-                if(tgl_penjualan == null || tgl_penjualan==""){
-                    error_list_msg.push("Tanggal Penjualan harus di isi");
-                }
-                if(status == 2){
-                     if(tgl_jth_tempo == null || tgl_jth_tempo==""){
-                        error_list_msg.push("Tanggal Jatuh Tempo harus di isi");
-                     }
-                }
-                
-                if(detailArray.length == 0){
-                    error_list_msg.push("Barang yand di jual harus di isi");
-                }
-                
+
                 if(error_list_msg.length != 0 ){
                     $('#error-msg').removeClass("hidden");
                     for(var i in error_list_msg ){
@@ -122,148 +95,30 @@
 					});
                 }
             });
-            
-            $(".btn-closed" ).click(function(){
-                $('#error-msg').addClass("hidden");
-                $('.error-box').children().remove();
-            });
 
             $('#add-detail').click(function(){
-                var tr = $("<tr>", {id: "item-"+count_index});
-
-                // Kode Barang
-                var td1 = $("<td>", {class: "kode-item"});
-                var a1 = $("<a>", {class: "kode-item-input","data-value": "","data-type":"text","data-pk":count_index});
-                a1.appendTo(td1);
-
-                // Nama barang, Harga barang current
-                var td2 = $("<td>", {class: "name-item"});
-                var td3 = $("<td>", {class: "harga-curr-item td-right"});
-
-                // Qty Barang
-                var td4 = $("<td>", {class: "qty-item td-right"});
-                var a4 = $("<a>", {class: "qty-item-input","data-value": "0","data-type":"number","data-pk":count_index});
-                a4.appendTo(td4);
-
-                // Harga jual
-                var td5 = $("<td>", {class: "harga-item td-right"});
-                var a5 = $("<a>", {class: "harga-item-input","data-value": "0","data-type":"number","data-pk":count_index});
-                a5.appendTo(td5);
-
-                //Harga total
-                var td6 = $("<td>", { class: "harga-total-item td-right","data-value": "0"});
-
-                //Option
-                var td7 = $("<td>", { class: "option td-center"});
-                var button_del = $("<button>", {id: "del", class: "btn btn-danger btn-xs", type: "button", "data-index-id":count_index});
-                var span_del = $("<span>", {class: "glyphicon glyphicon-trash"});
-                span_del.appendTo(button_del);
-                button_del.appendTo(td7);
-
-
-                //Set data to table
-                td1.appendTo(tr);
-                td2.appendTo(tr);
-                td3.appendTo(tr);
-                td4.appendTo(tr);
-                td5.appendTo(tr);
-                td6.appendTo(tr);
-                td7.appendTo(tr);
-                $('#detail-content').append(tr);
-
-                count_index++;
-                //Editable Kode
-                $('.kode-item-input').editable({
-                    url: base_url+"/index.php/barang/getBarangPenjualan",
-                    ajaxOptions: {
-                        type: 'post',
-                        dataType: 'json'
-                    },
-                    success: function(response, newValue) {
-                        if(response.status=="error"){
-                            return response.msg;
-                        }
-                        else{
-                            $(this).attr("data-value",response.barangID);
-                            var $row =  $(this).closest("tr");
-                            var harga = parseInt(response.harga).format(0, 3, '.', ',');
-                            $row.find(".name-item").text(response.namaBarang);
-                            $row.find(".harga-curr-item").text(harga);
-                            $('.harga-item-input').editable('setValue', response.harga, true);
-                            //return response.msg;
-                        }
-                    },
-                    error: function(response, newValue) {
-                        if(response.status === 500) {
-                            return 'Service unavailable. Please try later.';
-                        } else {
-                            return response.responseText;
-                        }
-                    }
-
-                });
-                //Editable qty
-                $('.qty-item-input').editable({
-                    step: 'any', // <-- added this line
-                    title : 'Enter New Value',
-                    display: function(value) {
-                        $(this).attr("data-value",value);
-                        $(this).text(value);
-                    }
-                });
-                //Editable harga Jual
-                $('.harga-item-input').editable({
-                    title : 'Enter New Value',
-                    display: function(value) {
-                        $(this).attr("data-value",value);
-                        var k = parseFloat(value).format(0, 3, '.', ',');
-                        $(this).text(k);
-                    }
-                });
-
-                //Delete Action
-                //DELETE BUTTON CLICK
-                button_del.click(function(event){
-                    var element  = $(this).closest("tr");
-                    element.remove();
-                });
-
-                $(".kode-item-input,.qty-item-input,.harga-item-input").bind("DOMSubtreeModified", function() {
-                    var $row =  $(this).closest("tr");
-                    var qty = $row.find(".qty-item-input").attr("data-value");
-                    var price = $row.find(".harga-item-input").attr("data-value");
-                    var total = parseInt(qty)*parseInt(price);
-                    $row.find(".harga-total-item").attr("data-value",total)
-                    $row.find(".harga-total-item").text(total.format(0, 3, '.', ','));
-                    //alert("tree changed");
-                });
-
-//                $('.kode-item-input,.qty-item-input,.harga-item-input').bind('DOMNodeInserted DOMNodeRemoved', function(event) {
-//                    if (event.type == 'DOMNodeInserted') {
-//                        alert('Content added! Current content:' + '\n\n' + this.innerHTML);
-//                    } else {
-//                        alert('Content removed! Current content:' + '\n\n' + this.innerHTML);
-//                    }
-//                });
+                addBarangPenjualan();
             });
 
             $.fn.editable.defaults.mode = 'inline';
-            $('.kode-item').editable();
-            $('.qty-item').editable({
-                step: 'any', // <-- added this line
-                title : 'Enter New Value'
+            $('#dicount').editable({
+                type: 'number',
+                title : 'Enter New Value',
+                display: function(value) {
+                    // set Total-discount
+                    var old_discount =  parseInt($(this).attr("data-value"));
+                    var discount  = parseInt(value);
+                    var result = 0-(discount-old_discount);
+                    //alert(result);
+                    countResult(result);
+
+                    // set Discount value
+                    $(this).attr("data-value",value);
+                    var k = discount.format(0, 3, '.', ',');
+                    $(this).text(k);
+                }
             });
-
-            Number.prototype.format = function(n, x, s, c) {
-                var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
-                    num = this.toFixed(Math.max(0, ~~n));
-
-                return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
-            };
-
-
         });
-
     </script>
  <style>
      .modal
@@ -273,6 +128,9 @@
      .modal-dialog{
          margin:auto;
          left: 0;
+     }
+     #total-result{
+         font-size: 16px;
      }
  </style>
 
@@ -302,11 +160,11 @@
                     Penjualan Baru
                 </h3>
                 <div class="well well-sm">
-                    <button type="button" class="btn btn-success btn-sm" id="hd-btn-save">
-                        <span class="glyphicon glyphicon-floppy-save"></span>&nbsp Save Penjualan
+                    <button type="button" class="btn btn-default" id="hd-btn-save">
+                        <span class="glyphicon glyphicon-floppy-save"></span>&nbsp Save
                     </button>
                     <a class="main-nav" href="#">
-                        <button type="button" class="btn btn-primary btn-sm" id="add-detail" data-toggle="modal" data-target="#penjualan-modal">
+                        <button type="button" class="btn btn-default" id="add-detail" data-toggle="modal" data-target="#penjualan-modal">
                             <span class="glyphicon glyphicon-plus"></span>&nbsp Add Item
                         </button>
                     </a>
@@ -394,19 +252,19 @@
                 </table>
 
                 <div class="row">
-                    <div class="col-lg-5 float-right">
+                    <div class="col-lg-5 float-right td-right">
                         <div class="input-group">
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-default" aria-label="Bold">
                                     <span class="glyphicon glyphicon-gift"></span> Discount
                                 </button>
                             </div>
-                           <span class="form-control"></span>
+                           <span class="form-control"><a href="#" id="dicount" data-value="0">0</a></span>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-5 float-right">
+                    <div class="col-lg-5 float-right td-right">
                         <div class="input-group">
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-default" aria-label="Bold">
@@ -414,7 +272,7 @@
                                     &nbsp&nbsp&nbsp&nbsp&nbsp
                                 </button>
                             </div>
-                            <span class="form-control"></span>
+                            <span class="form-control" id="total-result" data-value="0"></span>
                         </div>
                     </div>
                 </div>
@@ -422,4 +280,4 @@
 		</div><!-- div form-add-new -->   
 	
 
-</div><!-- div container -->   
+</div><!-- div container -->

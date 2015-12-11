@@ -121,7 +121,7 @@
     </nav>
 
     <div id="page-wrapper">
-        <input type="hidden" id="site_url" value="<?=site_url()?>"/>
+        <input type="hidden" id="base_url" value="<?=base_url()?>"/>
         <?php $this->load->view($main_content); ?>
     </div>
     <!-- /#page-wrapper -->
@@ -153,6 +153,7 @@
            }
        });
         var base_url = "<?=base_url()?>";
+        //alert($("#base_url").val());
     });
 </script>
 
