@@ -2,11 +2,140 @@
     var count_index = 0;
     var base_url = $("#base_url").val();
     var detailItemPenjualan = new Array();
+    var autoCompleteArr = new Array();
+
+    $(document).ready(function() {
+        // Add New Penjualan Detail
+        $('#add-detail').click(function(){
+            addBarangPenjualan();
+        });
+
+        // SET Editable Component
+
+        // Nama Barang Item (AutoComplete)
+        $(document).on( "keyup",".search-box",function(event) {
+            var $element = $(this);
+            var value = $(this).val();
+            var $row =  $(this).closest("div");
+            if(value.length > 2) {
+                $.ajax({
+                    type: "POST",
+                    url: base_url + "/index.php/barang/getBarangData",
+                    data: 'keyword=' + $(this).val(),
+                    beforeSend: function () {
+                        $element.css("background", "#FFF url(../../img/loading.gif) no-repeat 80%");
+                    },
+                    success: function (data) {
+                        var arr = JSON.parse(data);
+                        autoCompleteArr = arr;
+                        $($row).children(".suggesstion-box").show();
+
+                        if(arr.length > 0) {
+                            var ul = $("<ul>", {class: "barang-list"});
+                            for (x in arr) {
+                                var li = $("<li>",
+                                    {"data-index": x}).text(arr[x].Barang_Name);
+                                ul.append(li);
+                            };
+                            $($row).children(".suggesstion-box").html(ul);
+                        }else{
+                            var div = $("<div>", {class: "barang-list"}).text("barang not found");
+                            $($row).children(".suggesstion-box").html(div);
+                        }
+                        $element.css("background", "#FFF");
+                    }
+                });
+            }else{
+                $(".suggesstion-box").hide();
+            }
+        });
+
+        // Kode Item
+        $(document).on('click','#add-detail', function(){
+            $('.kode-item-input').editable({
+                url: base_url+"/index.php/barang/getBarangPenjualan",
+                ajaxOptions: {
+                    type: 'post',
+                    dataType: 'json'
+                },
+                success: function(response, newValue) {
+                    if(response.status=="error"){
+                        return response.msg;
+                    }
+                    else{
+                        $(this).attr("data-value",response.barangID);
+                        var $row =  $(this).closest("tr");
+                        var harga = parseInt(response.harga).format(0, 3, '.', ',');
+                        //$row.find(".name-item").text(response.namaBarang);
+                        $row.find(".harga-curr-item").text(harga);
+                        $row.find(".harga-item-input").editable('setValue', response.harga, true);
+                        //return response.msg;
+                    }
+                },
+                error: function(response, newValue) {
+                    if(response.status === 500) {
+                        return 'Service unavailable. Please try later.';
+                    } else {
+                        return response.responseText;
+                    }
+                }
+
+            });
+        });
+
+        // Quantity Item
+        $(document).on('click','#add-detail', function(){
+            $('.qty-item-input').editable({
+                step: 'any', // <-- added this line
+                title : 'Enter New Value',
+                display: function(value) {
+                    $(this).attr("data-value",value);
+                    $(this).text(value);
+                }
+            });
+        });
+
+        // Harga Item
+        $(document).on('click','#add-detail', function(){
+            $('.harga-item-input').editable({
+                title : 'Enter New Value',
+                display: function(value) {
+                    $(this).attr("data-value",value);
+                    var k = parseFloat(value).format(0, 3, '.', ',');
+                    $(this).text(k);
+                }
+            });
+        });
+
+        $(document).on('click','.barang-list li', function(){
+            var value = $(this).text();
+            var index = $(this).attr("data-index");
+            var div =  $(this).closest("div");
+            var $row =  div.prev();
+
+            var tr =  $(this).closest("tr");
+            var harga = parseInt(autoCompleteArr[index].Harga_Jual).format(0, 3, '.', ',');
+            //$row.find(".name-item").text(response.namaBarang);
+            tr.find(".kode-item-input").editable('setValue',autoCompleteArr[index].Kode_Barang);
+            tr.find(".harga-curr-item").text(harga);
+            tr.find(".harga-item-input").editable('setValue', autoCompleteArr[index].Harga_Jual, true);
+
+            $row.val(autoCompleteArr[index].Barang_Name);
+            div.hide();
+        });
+
+    });
+
+
+    function selectNamaBarang(val) {
+        alert(this.html);
+        $("#search-box").val(autoCompleteArr[val].Barang_Name);
+        $(".suggesstion-box").hide();
+    }
 
     function addBarangPenjualan(){
         createItemDetail();
         count_index++;
-        setEditableElement();
         countHargaTotalHandler();
     }
 
@@ -20,8 +149,12 @@
 
         // Nama barang, Harga barang current
         var td2 = $("<td>", {class: "name-item"});
-        var a2 = $("<a>", {class: "name-item-input","data-value": "","data-type":"select2","data-pk":count_index});
-        a2.appendTo(td2);
+        var div2 = $("<div>", {class: "frmSearch"});
+        var input2 = $("<input>", {type: "text", placeholder:"Nama Barang ...", class:"search-box"});
+        var divBox = $("<div>", {class: "suggesstion-box"});
+        input2.appendTo(div2);
+        divBox.appendTo(div2);
+        div2.appendTo(td2);
 
         var td3 = $("<td>", {class: "harga-curr-item td-right"});
 
@@ -64,68 +197,6 @@
         td6.appendTo(tr);
         td7.appendTo(tr);
         $('#detail-content').append(tr);
-    }
-
-    function setEditableElement(){
-        //Editable Kode
-        $('.kode-item-input').editable({
-            url: base_url+"/index.php/barang/getBarangPenjualan",
-            ajaxOptions: {
-                type: 'post',
-                dataType: 'json'
-            },
-            success: function(response, newValue) {
-                if(response.status=="error"){
-                    return response.msg;
-                }
-                else{
-                    $(this).attr("data-value",response.barangID);
-                    var $row =  $(this).closest("tr");
-                    var harga = parseInt(response.harga).format(0, 3, '.', ',');
-                    //$row.find(".name-item").text(response.namaBarang);
-                    $row.find(".harga-curr-item").text(harga);
-                    $row.find(".harga-item-input").editable('setValue', response.harga, true);
-                    //return response.msg;
-                }
-            },
-            error: function(response, newValue) {
-                if(response.status === 500) {
-                    return 'Service unavailable. Please try later.';
-                } else {
-                    return response.responseText;
-                }
-            }
-
-        });
-
-        //Editable Nama barang
-        $('.nama-item-input').editable({
-            step: 'any', // <-- added this line
-            title : 'Enter New Value',
-            display: function(value) {
-                $(this).attr("data-value",value);
-                $(this).text(value);
-            }
-        });
-
-        //Editable qty
-        $('.qty-item-input').editable({
-            step: 'any', // <-- added this line
-            title : 'Enter New Value',
-            display: function(value) {
-                $(this).attr("data-value",value);
-                $(this).text(value);
-            }
-        });
-        //Editable harga Jual
-        $('.harga-item-input').editable({
-            title : 'Enter New Value',
-            display: function(value) {
-                $(this).attr("data-value",value);
-                var k = parseFloat(value).format(0, 3, '.', ',');
-                $(this).text(k);
-            }
-        });
     }
 
     function countHargaTotalHandler(){

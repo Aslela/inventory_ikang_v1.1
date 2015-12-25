@@ -12,7 +12,7 @@ class Site extends CI_Controller
 	{
         $data['main_content'] = 'logged_in_area';
         $data['data'] = null;
-		$this->load->view('includes/template', $data);		
+        $this->load->view('includes/template_cms', $data);
 	}
     
 	function another_page() // just for sample

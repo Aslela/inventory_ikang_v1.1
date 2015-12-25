@@ -71,6 +71,27 @@ class Barang_model extends CI_Model {
         
         return $response;
     }
+
+    public function getBarangAutoComplete($page,$limit,$search){
+        $this->db->select('*');
+        $this->db->from('tbltbarang a');
+        $this->db->join('tblmkategori b', 'a.Kategori_ID = b.Kategori_ID');
+        $this->db->join('tblmsubkategori c', 'a.SubKategori_ID = c.SubKategori_ID');
+        $this->db->join('tblmmerk d', 'a.Merk_ID = d.Merk_ID');
+        $this->db->join('tblmmodel e', 'a.Model_ID = e.Model_ID');
+        $this->db->join('tblmsatuan s', 'a.Satuan_ID = s.Satuan_ID');
+
+        if($search!=null || $search != ""){
+            $this->db->like('a.Barang_Name',$search);
+        }
+
+        $this->db->order_by('a.Created','desc');
+
+        $query = $this->db->get();
+        return $query->result_array();
+
+    }
+
     
     public function getCountBarangData($search){
         $this->db->select('*'); 

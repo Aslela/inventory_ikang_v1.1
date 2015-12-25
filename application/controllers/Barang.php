@@ -32,13 +32,34 @@ class Barang extends CI_Controller {
         $data['msg'] = null;
 		$this->load->view('includes/template_cms', $data);
 	}
+
+    function addStockBarang(){
+        $data['main_content'] = 'barang_add_stock_view';
+        $this->load->view('includes/template_cms', $data);
+    }
     
     function getBarangData($start=1){
-         $data = $this->barang_model->getBarangData($start, 10);
+
+        $return_arr = array();
+        $row_array = array();
+
+        $search = $this->input->post('keyword');
+        $data = $this->barang_model->getBarangAutoComplete($start, 10, $search );
         //$this->output->set_content_type('application/json')->set_output(json_encode($data));
-        
-        print_r(json_encode($data));
-        exit();
+
+        foreach ($data as $row){
+            $row_array['id'] = $row['Barang_ID'];
+            $row_array['text'] = utf8_encode($row['Barang_Name']);
+            array_push($return_arr,$row_array);
+        }
+
+        $res['results'] = $return_arr;
+        echo json_encode($data);
+
+
+
+        //$this->output->enable_profiler(TRUE);
+        //exit();
     }
     
    	function getBarangByID($id)

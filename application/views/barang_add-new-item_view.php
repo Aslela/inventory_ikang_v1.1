@@ -31,6 +31,7 @@
     </script>
 
 <div class="content-container" >
+    <h2>Add New Barang </h2>
     <div class="form-add-new">
 			<!-- general form elements -->
 			<div class="box box-primary">

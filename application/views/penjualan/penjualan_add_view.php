@@ -7,7 +7,7 @@
     <script src="<?php echo base_url(); ?>js/jquery.maskMoney.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>js/bootstrap-datepicker.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>js/validate/insert-barang-validate.js" type="text/javascript"></script>
-    <script src="<?php echo base_url(); ?>js/select2.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>js/select2.full.min.js"></script>
     <script src="<?php echo base_url(); ?>js/bootstrap-editable.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>js/penjualan.js" type="text/javascript"></script>
      
@@ -96,10 +96,6 @@
                 }
             });
 
-            $('#add-detail').click(function(){
-                addBarangPenjualan();
-            });
-
             $.fn.editable.defaults.mode = 'inline';
             $('#dicount').editable({
                 type: 'number',
@@ -129,8 +125,47 @@
          margin:auto;
          left: 0;
      }
+     #container-result{
+         margin-bottom: 40px;
+     }
      #total-result{
-         font-size: 16px;
+         color: #5978ff;
+         font-weight: 800;
+     }
+     #dicount{
+         color:#FE1A00;
+     }
+     #total-result, #dicount{
+         font-size: 22px;
+     }
+     .frmSearch {
+         border: 1px solid #428BCC;
+         background-color:#C8EEFD;
+         margin: 2px 0px;}
+     .suggesstion-box{
+         position:relative;
+     }
+     .barang-list{
+         float:left;
+         list-style:none;
+         margin:0;padding:0;
+         width:100%;
+         position: absolute;
+         border: 1px solid black;
+     }
+     .barang-list li{
+         padding: 8px;
+         background:#FAFAFA;
+         border-bottom:#F0F0F0 1px solid;
+     }
+     .barang-list li:hover{
+         background:#C8EEFD;
+         cursor: pointer
+     }
+     .search-box{
+         padding: 5px;
+         border: #428BCC 1px solid;
+         width:100%;
      }
  </style>
 
@@ -251,31 +286,33 @@
 
                 </table>
 
-                <div class="row">
-                    <div class="col-lg-5 float-right td-right">
-                        <div class="input-group">
-                            <div class="input-group-btn">
-                                <button type="button" class="btn btn-default" aria-label="Bold">
-                                    <span class="glyphicon glyphicon-gift"></span> Discount
-                                </button>
+                <div id="container-result">
+                    <div class="row">
+                        <div class="col-lg-5 float-right td-right">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default btn-lg" aria-label="Bold">
+                                        <span class="glyphicon glyphicon-gift"></span> Discount
+                                    </button>
+                                </div>
+                               <span class="form-control"><a href="#" id="dicount" data-value="0">0</a></span>
                             </div>
-                           <span class="form-control"><a href="#" id="dicount" data-value="0">0</a></span>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-5 float-right td-right">
-                        <div class="input-group">
-                            <div class="input-group-btn">
-                                <button type="button" class="btn btn-default" aria-label="Bold">
-                                    <span class="glyphicon glyphicon-shopping-cart"></span> Total
-                                    &nbsp&nbsp&nbsp&nbsp&nbsp
-                                </button>
+                    <div class="row">
+                        <div class="col-lg-5 float-right td-right">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default btn-lg" aria-label="Bold">
+                                        <span class="glyphicon glyphicon-shopping-cart"></span> Total
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp
+                                    </button>
+                                </div>
+                                <span class="form-control" id="total-result" data-value="0"></span>
                             </div>
-                            <span class="form-control" id="total-result" data-value="0"></span>
                         </div>
                     </div>
-                </div>
+                </div><!-- div Container-result -->
             </div>
 		</div><!-- div form-add-new -->   
 	

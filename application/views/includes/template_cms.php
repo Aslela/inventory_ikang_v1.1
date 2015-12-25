@@ -16,6 +16,7 @@
         echo link_tag('css/bootstrap.min.css');
         echo link_tag('css/bootstrap-editable.css');
 
+        echo link_tag('css/jquery-ui.min.css');
         //DataTables CSS
         echo link_tag('css/sb-admin-2.css');
 
@@ -37,7 +38,8 @@
     
     <!-- jQuery -->
     <script src="<?php echo base_url(); ?>js/jquery.min.js"></script>
-    <script src="<?php echo base_url(); ?>js/jquery-ui-1.10.3.js"></script>
+
+   <script src="<?php echo base_url(); ?>js/jquery-ui-1.10.3.js"></script>
 
     <!-- Alert -->
     <script src="<?php echo base_url(); ?>css/alert/alertify.min.js"></script>
@@ -85,34 +87,53 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                    <!--li class="sidebar-search"-->
-                        <!--div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div-->
-                        <!-- /input-group -->
+                    <li>
+                        <a href="#"><i class="fa fa-files-o fa-fw"></i> Master<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?= site_url("kategori") ?>">Kategori</a>
+                            </li>
+                            <li>
+                                <a href="<?= site_url("subkategori") ?>">Merk</a>
+                            </li>
+                            <li>
+                                <a href="<?= site_url("modelx") ?>">Model</a>
+                            </li>
+                            <li>
+                                <a href="<?= site_url("satuan") ?>">Satuan</a>
+                            </li>
+                        </ul>
+                    </li>
 
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Master<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?= site_url("kategori") ?>">Kategori</a>
-                                </li>
-                                <li>
-                                    <a href="<?= site_url("subkategori") ?>">Merk</a>
-                                </li>
-                                <li>
-                                    <a href="<?= site_url("modelx") ?>">Model</a>
-                                </li>
-                                <li>
-                                    <a href="<?= site_url("satuan") ?>">Satuan</a>
-                                </li>
-                            </ul>
-                        </li>
+                    <li>
+                        <a href="#"><i class="fa fa-files-o fa-fw"></i>Barang<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?= site_url("barang") ?>">Daftar Barang</a>
+                            </li>
+                            <li>
+                                <a href="<?= site_url("barang") ?>">Tambah Barang Baru</a>
+                            </li>
+                            <li>
+                                <a href="<?= site_url("barang") ?>">Tambah Stock Barang</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-files-o fa-fw"></i>Penjualan<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?= site_url("penjualan") ?>">Daftar Penjualan</a>
+                            </li>
+                            <li>
+                                <a href="<?= site_url("penjualan/goToAddNewPenjualan") ?>">Penjualan Baru</a>
+                            </li>
+                            <li>
+                                <a href="<?= site_url("barangde j") ?>">Cancel Penjualan</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
@@ -135,6 +156,9 @@
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="<?php echo base_url(); ?>js/metisMenu.min.js"></script>
+
+<!-- Jquery UI Plugin JavaScript -->
+<script src="<?php echo base_url(); ?>js/jquery-ui.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo base_url(); ?>js/sb-admin-2.js"></script>
