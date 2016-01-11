@@ -51,17 +51,16 @@
             
             //SAVE
             $("#hd-btn-save" ).click(function(){
-                
-
-                if(error_list_msg.length != 0 ){
-                    $('#error-msg').removeClass("hidden");
-                    for(var i in error_list_msg ){
-                         var div_msg = $("<div>", {id: "kode", class: "alert alert-danger"}).text(error_list_msg[i]);
-                         $('.error-box').append(div_msg);
-                         alert(tgl_penjualan);
-                    }
-                    
+                if(!validatePenjualanInput()){
+                    //$('#error-msg').removeClass("hidden");
+//                    for(var i in error_list_msg ){
+//                         var div_msg = $("<div>", {id: "kode", class: "alert alert-danger"}).text(error_list_msg[i]);
+//                         $('.error-box').append(div_msg);
+//                         alert(tgl_penjualan);
+//                    }
+                    //alert("a");
                 }else{
+                    //alert("b");
                     $('#error-msg').addClass("hidden");
                     var header_data_penjualan = new Object();
                     header_data_penjualan.kode = kode_bon ;
@@ -73,7 +72,7 @@
                     }
                     var data_penjualan = new Array();
                     data_penjualan.push(header_data_penjualan);
-                    data_penjualan.push(detailArray);
+                    data_penjualan.push(detailItemPenjualan);
                     
                     var data_post = {
                         data :data_penjualan
@@ -90,7 +89,7 @@
 						      alert(msg);
 						  }else{
 						      alert(msg);
-						  }					 
+						  }
 						}
 					});
                 }

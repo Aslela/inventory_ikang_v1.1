@@ -88,7 +88,7 @@
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="#"><i class="fa fa-files-o fa-fw"></i> Master<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-th fa-fw"></i> Master<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="<?= site_url("kategori") ?>">Kategori</a>
@@ -106,7 +106,7 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-files-o fa-fw"></i>Barang<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-gear fa-fw"></i> Barang<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="<?= site_url("barang") ?>">Daftar Barang</a>
@@ -121,7 +121,7 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-files-o fa-fw"></i>Penjualan<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-shopping-cart fa-fw"></i> Penjualan<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="<?= site_url("penjualan") ?>">Daftar Penjualan</a>

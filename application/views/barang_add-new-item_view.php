@@ -15,7 +15,8 @@
                 {   
                     prefix:'Rp.  ',
                     thousands : ".",
-                    decimal :","
+                    decimal :",",
+                    precision :0
                 }
             );
             
@@ -23,7 +24,8 @@
                 {   
                     prefix:'Rp.  ',
                     thousands : ".",
-                    decimal :","
+                    decimal :",",
+                    precision :0
                 }
             );
         });
@@ -56,14 +58,14 @@
 					<label class="control-label heading-label">Kode Barang</label>
                     <span id='err_kode' class=""></span><span id='pesan_kode'></span>
 					<input type="text" class="form-control" id="kode_barang" name="kode_name"
-                            placeholder="Kode Barang" maxlength="15" onkeyup='cek_kode()'>
+                            placeholder="Kode Barang" maxlength="15">
 				</div>
 
 				<div class="form-group" id="lbl-nama"> 
 					<label class="control-label heading-label">Nama Barang</label>
                     <span id='err_nama' class=""></span>
 					<input type="text" class="form-control" id="nama_barang" name="nama_barang"
-                            placeholder="Nama Barang" maxlength="150" onkeyup='cek_nama()'>
+                            placeholder="Nama Barang" maxlength="150">
 
 				</div>
 
@@ -72,7 +74,7 @@
                     <span id='err_kategori' class=""></span>
 					<div class="">
                             <select id="select_kategori" tabindex="5" class="chzn-select form-control" 
-                            name="select_kategori" data-placeholder="Select Kategori" onchange="cek_kategori()">
+                            name="select_kategori" data-placeholder="Select Kategori">
                                 <option value=""></option>
                                 <?php
                                  if(isset($data_kategori)){
@@ -91,7 +93,7 @@
                     <span id='err_subkategori' class=""></span>
 					<div class="">
 						<select id="select_subkategori" tabindex="5" class="chzn-select form-control" 
-                            name="select_subkategori" value="" data-placeholder="Select Sub Kategori" onchange="cek_subkategori()">
+                            name="select_subkategori" value="" data-placeholder="Select Sub Kategori">
                                 <option value=""></option>
                                  <?php
                                  if(isset($data_subkategori)){
@@ -169,7 +171,7 @@
                     <label class="control-label heading-label">Ukuran</label>
                     <span id='err_ukuran' class=""></span><span id='pesan_ukuran'></span>
                     <input type="text" class="form-control" id="ukuran" name="ukuran"
-                           placeholder="XX x XX" maxlength="15"'>
+                           placeholder="99 x 99" maxlength="15"'>
                 </div>
 
 				<div class="form-group" id="lbl-satuan">
@@ -196,7 +198,7 @@
                     <span id='err_qty' class=""></span>
 
 					<input type="text" class="form-control" id="qty" name="qty"
-                            placeholder="Qty" maxlength="10" onkeypress='validate_number(event)' onkeyup='cek_qty()' >
+                            placeholder="Qty" maxlength="10" onkeypress='validate_number(event)'>
 
 				</div>
                 
@@ -204,7 +206,7 @@
 					<label class="control-label heading-label">Limit</label>
                     <span id='err_limit' class=""></span>
 					<input type="text" class="form-control" id="limit" name="limit"
-                            placeholder="limit" maxlength="10" onkeypress='validate_number(event)' onkeyup='cek_limit()' >
+                            placeholder="limit" maxlength="10" onkeypress='validate_number(event)'>
 
 				</div>
 				

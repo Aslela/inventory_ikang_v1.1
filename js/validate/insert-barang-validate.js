@@ -8,171 +8,87 @@ var error = 1;
         if (theEvent.preventDefault) theEvent.preventDefault();
       }
    }
-   
-   
-   
-   function cek_kode(){
-		
-        var inputan = $("#kode_barang").val();
-        	 
-        if(inputan==""){ // jika nama kosong
-            $("#lbl-kode").addClass("has-error");
-    		$("#err_kode").html("<span class='label label-danger'>Must be filled!</span>");
-    		$("#err_kode").fadeIn(1000);
-    		error = 1;
-		}else{
-            $("#lbl-kode").removeClass("has-error");
-    		$("#err_kode").html(""); 
-    		error = 0; // setting error 0;
-		}
-   }
-    
-   function cek_nama(){
-		
-        var inputan = $("#nama_barang").val();
-        	 
-        if(inputan==""){ // jika nama kosong
-            $("#lbl-nama").addClass("has-error");
+
+    function validateInput(){
+        var err=0;
+
+        var kodeBarang = $("#kode_barang").val();
+        var namaBarang = $("#nama_barang").val();
+        var kategori = $("#select_kategori").val();
+        var subKategori = $("#select_subkategori").val();
+        var merk = $("#select_merk").val();
+        var model = $("#select_model").val();
+        var hargaBeli = $('#harga_beli').maskMoney('unmasked')[0];
+        var hargaJual = $('#harga_jual').maskMoney('unmasked')[0];
+        var ukuran = $("#ukuran").val();
+        var satuan = $("#select_satuan").val();
+        var qty = $("#qty").val();
+        var limit = $("#limit").val();
+
+        $(".label-danger").remove();
+
+        if(kodeBarang=="" || kodeBarang==null){ // jika kode kosong
+            //$("#err_kode").html("<span class='label label-danger'>Must be filled!</span>");
+            $('<span class="label label-danger">Must be filled</span>').appendTo("#err_kode");
+            err++;
+        }
+
+        if(namaBarang=="" || namaBarang==null){ // jika kode kosong
             $("#err_nama").html("<span class='label label-danger'>Must be filled!</span>");
-    		$("#err_nama").fadeIn(1000);
-    		error = 1;
-                    
-		}else{
-            $("#lbl-nama").removeClass("has-error");
-    		$("#err_nama").html(""); 
-    		error = 0; // setting error 0;
-		}
-   }
-    
-    function cek_hb(){
-		
-        var inputan = $('#harga_beli').maskMoney('unmasked')[0];
-        	 
-        if(inputan==""){ // jika nama kosong
-    		$("#lbl-hb").addClass("has-error");
+            err++;
+        }
+
+        if(kategori=="" || kategori==null){ // jika kateogri kosong
+            $("#err_kategori").html("<span class='label label-danger'>Must be filled!</span>");
+            err++;
+        }
+
+        if(subKategori=="" || subKategori==null){ // jika sub kategori kosong
+            $("#err_subkategori").html("<span class='label label-danger'>Must be filled!</span>");
+            err++;
+        }
+
+        if(merk=="" || merk==null){ // jika merk kosong
+            $("#err_merk").html("<span class='label label-danger'>Must be filled!</span>");
+            err++;
+        }
+
+        if(model=="" || model==null){ // jika model kosong
+            $("#err_model").html("<span class='label label-danger'>Must be filled!</span>");
+            err++;
+        }
+
+        if(hargaBeli=="" || hargaBeli==null){ // jika harga beli kosong
             $("#err_hb").html("<span class='label label-danger'>Must be filled!</span>");
-    		$("#err_hb").fadeIn(1000);
-    		error = 1;
-                
-		}else{
-            $("#lbl-hb").removeClass("has-error");
-    		$("#err_hb").html(""); 
-    		error = 0; // setting error 0;
-		}
-    }
-    
-    function cek_hj(){
-		
-        var inputan = $('#harga_jual').maskMoney('unmasked')[0];
-        	 
-        if(inputan==""){ // jika nama kosong
-            $("#lbl-hj").addClass("has-error");
+            err++;
+        }
+
+        if(hargaJual=="" || hargaJual==null){ // jika harga jual kosong
             $("#err_hj").html("<span class='label label-danger'>Must be filled!</span>");
-    		$("#err_hj").fadeIn(1000);
-    		error = 1;
-                
-		}else{
-            $("#lbl-hj").removeClass("has-error");
-			$("#err_hj").html(""); 
-  	        
-			error = 0; // setting error 0;
-		}
-    }
-    
-    function cek_qty(){
-		
-        var inputan = $("#qty").val();
-        	 
-        if(inputan==""){ // jika nama kosong
-            $("#lbl-qty").addClass("has-error");
+            err++;
+        }
+
+        if(ukuran=="" || ukuran==null){ // jika qty kosong
+            $("#err_ukuran").html("<span class='label label-danger'>Must be filled!</span>");
+            err++;
+        }
+
+        if(satuan=="" || satuan==null){ // jika qty kosong
+            $("#err_satuan").html("<span class='label label-danger'>Must be filled!</span>");
+            err++;
+        }
+
+        if(qty=="" || qty==null){ // jika qty kosong
             $("#err_qty").html("<span class='label label-danger'>Must be filled!</span>");
-    		$("#err_qty").fadeIn(1000);
-    		error = 1;
-                    
-		}else{
-            $("#lbl-qty").removeClass("has-error");
-    		$("#err_qty").html(""); 
-    		error = 0; // setting error 0;
-		}
-    }
-    
-    function cek_limit(){
-		
-        var inputan = $("#limit").val();
-        	 
-        if(inputan==""){ // jika nama kosong
-            $("#lbl-limit").addClass("has-error");
+            err++;
+        }
+
+        if(limit=="" || limit==null){ // jika limit kosong
             $("#err_limit").html("<span class='label label-danger'>Must be filled!</span>");
-    		$("#err_limit").fadeIn(1000);
-    		error = 1;
-                    
-		}else{
-            $("#lbl-limit").removeClass("has-error");
-    		$("#err_limit").html(""); 
-    		error = 0; // setting error 0;
-		}
-    }
-    
-    function cek_kategori(){
-		
-        var inputan = $("#select_kategori").val();
-        	 
-        if(inputan!=""){ // jika nama kosong
-            $("#lbl-kategori").removeClass("has-error");
-            $("#err_kategori").fadeIn(1000);
-            $("#err_kategori").html("Must be filled!");
-            error = 0; // setting error 0;
-		}
-    }
-    
-    function cek_kosong(){
-        
-        var err=false;
-        
-        if(err==false){
-            if($("#kode_barang").val()==""){
-                $("#lbl-kode").addClass("has-error");
-                $("#err_kode").html("<span class='label label-danger'>Must be filled!</span>");
-                $("#err_kode").fadeIn(1000);
-                error = 1;
-                err=true;
-            }
+            err++;
         }
-        
-        if(err==false){
-            if($("#nama_barang").val()==""){
-                $("#lbl-nama").addClass("has-error");
-           	    $("#err_nama").html("<span class='label label-danger'>Must be filled!</span>");
-                $("#err_nama").fadeIn(1000);
-                error = 1;
-                err=true;
-            }
-        }
-        
-           
-        if(err==false){
-            if($("#select_kategori").val()==""){
-           	    $("#lbl-kategori").addClass("has-error");
-                $("#err_kategori").html("<span class='label label-danger'>Must be filled!</span>");
-				$("#err_kategori").fadeIn(1000);
-   
-                error = 1;
-                err=true;
-            }
-        }
-        
-         if(err==false){
-            if($("#select_subkategori").val()==""){
-                $("#lbl-kategori").addClass("has-error");
-                $("#err_kategori").html("<span class='label label-danger'>Must be filled!</span>");
-				$("#err_kategori").fadeIn(1000);
-                
-                error = 1;
-                err=true;
-            }
-        }
-        
-        if(err==false){
+
+        if(err==0){
             return true;
         }else{
             return false;
@@ -181,9 +97,8 @@ var error = 1;
 
 $(document).ready(function(){   
         
-        $("#save").click(function(){			
-				
-				if(cek_kosong()){
+        $("#save").click(function(){
+				if(validateInput()){
                     
                     var harga_beli = $('#harga_beli').maskMoney('unmasked')[0];
                     var harga_jual = $('#harga_jual').maskMoney('unmasked')[0];
@@ -199,7 +114,8 @@ $(document).ready(function(){
                         input_val_8: harga_beli,
                         input_val_9: $("#select_satuan").val(),
                         input_val_10: $("#qty").val(),
-                        input_val_11: $("#limit").val()            						
+                        input_val_11: $("#limit").val()  ,
+                        input_val_12: $("#ukuran").val()
 					};
 			 	
 					// ajax mulai disini
@@ -225,7 +141,7 @@ $(document).ready(function(){
         
         $("#edit_barang").click(function(){			
 				
-				if(cek_kosong()){
+				if(validateInput()){
 					
                     var harga_beli = $('#harga_beli').maskMoney('unmasked')[0];
                     var harga_jual = $('#harga_jual').maskMoney('unmasked')[0];
@@ -241,8 +157,9 @@ $(document).ready(function(){
                         input_val_8: harga_beli,
                         input_val_9: $("#select_satuan").val(),
                         input_val_10: $("#qty").val(),
-                        input_val_11: $("#limit").val()     					
-					};
+                        input_val_11: $("#limit").val(),
+                        input_val_12: $("#ukuran").val()
+                    };
 				 	
                     var id_item = $("#item_id").val();
                     

@@ -137,6 +137,7 @@ class Barang extends CI_Controller {
             'Satuan_ID'=>$this->input->post('input_val_9'),
             'Qty'=>$this->input->post('input_val_10'),
             'Limit'=>$this->input->post('input_val_11'),
+            'Ukuran'=>$this->input->post('input_val_12'),
             "Created_By" => $this->session->userdata('username'),
 			"Last_Modified"=>$datetime,
 			"Last_Modified_By"=>$this->session->userdata('username')
@@ -178,6 +179,7 @@ class Barang extends CI_Controller {
             'Satuan_ID'=>$this->input->post('input_val_9'),
             'Qty'=>$this->input->post('input_val_10'),
             'Limit'=>$this->input->post('input_val_11'),
+            'Ukuran'=>$this->input->post('input_val_12'),
 			"Last_Modified"=>$datetime,
 			"Last_Modified_By"=>$this->session->userdata('username')
         );

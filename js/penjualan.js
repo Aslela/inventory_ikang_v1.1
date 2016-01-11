@@ -1,7 +1,7 @@
 
     var count_index = 0;
     var base_url = $("#base_url").val();
-    var detailItemPenjualan = new Array();
+    var detailItemPenjualan = [];
     var autoCompleteArr = new Array();
 
     $(document).ready(function() {
@@ -67,6 +67,7 @@
                         var $row =  $(this).closest("tr");
                         var harga = parseInt(response.harga).format(0, 3, '.', ',');
                         //$row.find(".name-item").text(response.namaBarang);
+                        $row.find(".harga-curr-item").attr('data-value',response.harga);
                         $row.find(".harga-curr-item").text(harga);
                         $row.find(".harga-item-input").editable('setValue', response.harga, true);
                         //return response.msg;
@@ -116,8 +117,13 @@
             var tr =  $(this).closest("tr");
             var harga = parseInt(autoCompleteArr[index].Harga_Jual).format(0, 3, '.', ',');
             //$row.find(".name-item").text(response.namaBarang);
+            //set kode
             tr.find(".kode-item-input").editable('setValue',autoCompleteArr[index].Kode_Barang);
+            tr.find(".kode-item-input").attr('data-value',autoCompleteArr[index].Kode_Barang);
+            //set harga curr
+            tr.find(".harga-curr-item").attr('data-value',autoCompleteArr[index].Harga_Jual);
             tr.find(".harga-curr-item").text(harga);
+            //set harga jual
             tr.find(".harga-item-input").editable('setValue', autoCompleteArr[index].Harga_Jual, true);
 
             $row.val(autoCompleteArr[index].Barang_Name);
@@ -125,7 +131,6 @@
         });
 
     });
-
 
     function selectNamaBarang(val) {
         alert(this.html);
@@ -200,7 +205,7 @@
     }
 
     function countHargaTotalHandler(){
-        // Change event untuk itung total dynamic
+        // Change event untuk itung total per item dynamic
         $(".kode-item-input,.qty-item-input,.harga-item-input").bind("DOMSubtreeModified", function() {
             var $row =  $(this).closest("tr");
             var qty = $row.find(".qty-item-input").attr("data-value");
@@ -217,7 +222,7 @@
         });
     }
 
-    // Function untuk hitung harga total belanjaan
+    // Function untuk hitung final harga total belanjaan
     function countResult(value){
         var old_result = parseInt($("#total-result").attr("data-value"));
         var result = old_result+value;
@@ -258,7 +263,7 @@
             }
         }
 
-        if(detailArray.length == 0){
+        if(validateDetailItem()){
             error_list_msg.push("Barang yand di jual harus di isi");
         }
 
@@ -274,13 +279,42 @@
     }
 
     function validateDetailItem(){
-        $( "div" ).each(function( index, element ) {
+        var err = 0; //err data detail
+        var check_detail = 1; // err if detail is empty
+        $( "tr.item-detail" ).each(function( index, element ) {
             // element == this
-            $( element ).css( "backgroundColor", "yellow" );
-            if ( $( this ).is( "#stop" ) ) {
-                $( "span" ).text( "Stopped at div index #" + index );
-                return false;
+            var harga_total = $(this).children("td.harga-total-item").attr("data-value");
+
+            if ( harga_total==0 || harga_total==null ) {
+                $(this).css("border","3px solid #C0392B");
+                err++;
+            }else{
+                $(this).css("border","none");
+                var kode_barang = $(this).children("td.kode-item").children().attr("data-value");
+                var harga_curr = $(this).children("td.harga-curr-item").attr("data-value");
+                var qty = $(this).children("td.qty-item").children().attr("data-value");
+                var harga = $(this).children("td.harga-item").children().attr("data-value");
+
+                var detailData = {
+                    kode_barang : kode_barang,
+                    qty : qty,
+                    harga_curr : harga_curr,
+                    harga : harga
+                };
+
+                detailItemPenjualan.push(detailData);
+                check_detail = 0;
+                err+=0;
             }
         });
+        if(err != 0 || check_detail != 0){
+            detailItemPenjualan=[];
+            alert(err+" error "+check_detail+JSON.stringify(detailItemPenjualan));
+            return false;
+        }else{
+            alert(err+" sukses "+check_detail+JSON.stringify(detailItemPenjualan));
+            return true;
+        }
+
     }
 
