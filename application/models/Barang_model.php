@@ -148,30 +148,21 @@ class Barang_model extends CI_Model {
 	}
     
     function kurangStockBarang($id_barang, $stock){
-        $kurang = "qty-".$stock;
-        $data = array(
-            'qty' =>$kurang
-        );
-        
-   	    $this->db->where('Barang_ID',$id);
-		$this->db->update('tbltbarang',$data);
+        $this->db->set('Qty', 'Qty-'.$stock, FALSE);
+   	    $this->db->where('Barang_ID',$id_barang);
+		$this->db->update('tbltbarang');
 		$result=$this->db->affected_rows();
 		return $result;
     }
     
     function tambahStockBarang($id_barang, $stock){
-        $tambah = "qty+".$stock;
-        
-        $data = array(
-            'qty' =>$tambah
-        );
-        
-   	    $this->db->where('Barang_ID',$id);
-		$this->db->update('tbltbarang',$data);
+        $this->db->set('Qty', 'Qty+'.$stock, FALSE);
+   	    $this->db->where('Barang_ID',$id_barang);
+		$this->db->update('tbltbarang');
 		$result=$this->db->affected_rows();
 		return $result;
     }
-    
+
     function deleteBarang($id){
     	$this->db->where('Barang_ID',$id);
         $this->db->delete('tbltbarang');

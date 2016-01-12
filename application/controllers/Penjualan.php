@@ -135,6 +135,10 @@ class Penjualan extends CI_Controller {
             'Tgl_Penjualan'=>$data[0]['tgl_penjualan'],
             'Nama_Pembeli'=>$data[0]['customer'],
             'Status'=>$data[0]['status'],
+            'Discount'=>$data[0]['discount'],
+            'Harga_Total'=>$data[0]['harga_total'],
+            'Tgl_Jatuh_Tempo'=>$data[0]['tgl_jth_tempo'],
+            'Harga_Hutang'=>$data[0]['harga_hutang'],
             "Created_By" => $this->session->userdata('username'),
 			"Last_Modified"=>$datetime,
 			"Last_Modified_By"=>$this->session->userdata('username')
@@ -149,15 +153,14 @@ class Penjualan extends CI_Controller {
                 'Barang_ID'=>$row['id'],
                 'Harga_Jual_Normal'=>$row['capital_price'],
                 'Harga_Jual'=>$row['price'],
-                'Qty'=>$row['quantity'],
+                'Qty'=>$row['qty'],
                 "Created_By" => $this->session->userdata('username'),
     			"Last_Modified"=>$datetime,
     			"Last_Modified_By"=>$this->session->userdata('username')
             );
                 
-            $query = $this->penjualan_detail_model->createPenjualanDetail($detail_penjualan);
-            
-            $this->barang_model->kurangStockBarang($row['id'],$row['quantity']);
+            $addDetil = $this->penjualan_detail_model->createPenjualanDetail($detail_penjualan);
+            $updateStock = $this->barang_model->kurangStockBarang($row['id'],$row['qty']);
         }
         
         if ($this->db->trans_status() === FALSE)

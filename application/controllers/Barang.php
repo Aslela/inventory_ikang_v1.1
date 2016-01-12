@@ -221,7 +221,7 @@ class Barang extends CI_Controller {
         }	
 		
 	}
-    
+
     function deleteKategori($id_kategori)
     {   
         $this->kategori_model->deleteKategori($id_kategori);

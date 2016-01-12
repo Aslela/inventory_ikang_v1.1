@@ -66,7 +66,7 @@
                         $(this).attr("data-value",response.barangID);
                         var $row =  $(this).closest("tr");
                         var harga = parseInt(response.harga).format(0, 3, '.', ',');
-                        //$row.find(".name-item").text(response.namaBarang);
+                        $row.attr('data-value',response.barangID);
                         $row.find(".harga-curr-item").attr('data-value',response.harga);
                         $row.find(".harga-curr-item").text(harga);
                         $row.find(".harga-item-input").editable('setValue', response.harga, true);
@@ -117,6 +117,7 @@
             var tr =  $(this).closest("tr");
             var harga = parseInt(autoCompleteArr[index].Harga_Jual).format(0, 3, '.', ',');
             //$row.find(".name-item").text(response.namaBarang);
+            tr.attr('data-value',autoCompleteArr[index].Barang_ID);
             //set kode
             tr.find(".kode-item-input").editable('setValue',autoCompleteArr[index].Kode_Barang);
             tr.find(".kode-item-input").attr('data-value',autoCompleteArr[index].Kode_Barang);
@@ -145,7 +146,7 @@
     }
 
     function createItemDetail(){
-        var tr = $("<tr>", {id: "item-"+count_index, class:"item-detail"});
+        var tr = $("<tr>", {id: "item-"+count_index, class:"item-detail","data-value":""});
 
         // Kode Barang
         var td1 = $("<td>", {class: "kode-item"});
@@ -263,7 +264,7 @@
             }
         }
 
-        if(validateDetailItem()){
+        if(!validateDetailItem()){
             error_list_msg.push("Barang yand di jual harus di isi");
         }
 
@@ -272,9 +273,10 @@
             for(var i in error_list_msg ){
                 var div_msg = $("<div>", {id: "kode", class: "alert alert-danger"}).text(error_list_msg[i]);
                 $('.error-box').append(div_msg);
-                alert(tgl_penjualan);
             }
-
+            return false;
+        }else{
+            return true;
         }
     }
 
@@ -290,16 +292,16 @@
                 err++;
             }else{
                 $(this).css("border","none");
-                var kode_barang = $(this).children("td.kode-item").children().attr("data-value");
+                var barang_id = $(this).attr("data-value");
                 var harga_curr = $(this).children("td.harga-curr-item").attr("data-value");
                 var qty = $(this).children("td.qty-item").children().attr("data-value");
                 var harga = $(this).children("td.harga-item").children().attr("data-value");
 
                 var detailData = {
-                    kode_barang : kode_barang,
+                    id : barang_id,
                     qty : qty,
-                    harga_curr : harga_curr,
-                    harga : harga
+                    capital_price : harga_curr,
+                    price : harga
                 };
 
                 detailItemPenjualan.push(detailData);
@@ -309,10 +311,10 @@
         });
         if(err != 0 || check_detail != 0){
             detailItemPenjualan=[];
-            alert(err+" error "+check_detail+JSON.stringify(detailItemPenjualan));
+            //alert(err+" error "+check_detail+JSON.stringify(detailItemPenjualan));
             return false;
         }else{
-            alert(err+" sukses "+check_detail+JSON.stringify(detailItemPenjualan));
+            //alert(err+" sukses "+check_detail+JSON.stringify(detailItemPenjualan));
             return true;
         }
 

@@ -58,17 +58,23 @@
 //                         $('.error-box').append(div_msg);
 //                         alert(tgl_penjualan);
 //                    }
-                    //alert("a");
+                    alert("a");
                 }else{
-                    //alert("b");
+                    alert("b");
                     $('#error-msg').addClass("hidden");
                     var header_data_penjualan = new Object();
-                    header_data_penjualan.kode = kode_bon ;
-                    header_data_penjualan.customer  = nama_customer;
-                    header_data_penjualan.tgl_penjualan = tgl_penjualan;
-                    header_data_penjualan.status = status;
+                    header_data_penjualan.kode = $("#kode_bon").val(); ;
+                    header_data_penjualan.customer  = $("#nama_customer").val();
+                    header_data_penjualan.tgl_penjualan = $("#tgl_penjualan").val();
+                    header_data_penjualan.status = $('#stat option:selected').val();
+                    header_data_penjualan.discount = $("a#discount").attr("data-value");
+                    header_data_penjualan.harga_total = $('span#total-result').attr("data-value");
                     if(status==2){
-                        header_data_penjualan.tgl_jth_tempo =tgl_jth_tempo;
+                        header_data_penjualan.tgl_jth_tempo =$("#tgl_jth_tmp").val();
+                        header_data_penjualan.harga_hutang =$("#harga_htg").val();
+                    }else{
+                        header_data_penjualan.tgl_jth_tempo =null;
+                        header_data_penjualan.harga_hutang =null;
                     }
                     var data_penjualan = new Array();
                     data_penjualan.push(header_data_penjualan);
@@ -77,10 +83,10 @@
                     var data_post = {
                         data :data_penjualan
                     }
-                    
+                    alert(JSON.stringify(data_penjualan));
                    	// ajax mulai disini
 					$.ajax({
-						url: base_url+"/index.php/penjualan/createPenjualan",
+						url: base_url+"index.php/penjualan/createPenjualan",
 						data: data_post,
 						type: "POST",
                         dataType: 'json',
@@ -96,7 +102,7 @@
             });
 
             $.fn.editable.defaults.mode = 'inline';
-            $('#dicount').editable({
+            $('#discount').editable({
                 type: 'number',
                 title : 'Enter New Value',
                 display: function(value) {
@@ -211,7 +217,7 @@
 					<label class="col-sm-3 control-label heading-label">Kode BON</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control" id="kode_bon" name="kode_bon" 
-                            placeholder="Kode BON" maxlength="15" onkeyup='cek_kode()'>  
+                            placeholder="Kode BON" maxlength="15">
 					</div><span id='err_kode' class="err_span"></span><span id='pesan_kode'></span>
 				</div>
 
@@ -219,7 +225,7 @@
 					<label class="col-sm-3 control-label heading-label">Nama Pembeli</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control" id="nama_customer" name="nama_customer" 
-                            placeholder="Nama Pembeli" maxlength="150" onkeyup='cek_nama()'>
+                            placeholder="Nama Pembeli" maxlength="150">
 					</div><span id='err_nama' class="err_span"></span>
 				</div>
                 
@@ -227,7 +233,7 @@
 					<label class="col-sm-3 control-label heading-label">Tanggal Penjualan</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control" id="tgl_penjualan" name="tgl_penjualan" 
-                            placeholder="MM/dd/YYYY" maxlength="150" onkeyup='cek_nama()'>
+                            placeholder="MM/dd/YYYY" maxlength="150">
 					</div><span id='err_nama' class="err_span"></span>
 				</div>
                 
@@ -249,7 +255,7 @@
                    	    <label class="col-sm-3 control-label heading-label">Harga Hutang</label>
                           <div class="col-sm-9">
                           	<input type="text" class="form-control" id="harga_htg" name="harga_htg" 
-                            placeholder="xxx" maxlength="150" onkeyup='cek_nama()'>
+                            placeholder="xxx" maxlength="150">
                           </div>
                     </div>
                     
@@ -257,7 +263,7 @@
     					<label class="col-sm-3 control-label heading-label">Tanggal Jatuh Tempo</label>
     					<div class="col-sm-9">
     						<input type="text" class="form-control" id="tgl_jth_tmp" name="tgl_jth_tmp" 
-                                placeholder="MM/dd/YYYY" maxlength="150" onkeyup='cek_nama()'>
+                                placeholder="MM/dd/YYYY" maxlength="150">
     					</div><span id='err_nama' class="err_span"></span>
     				</div>
                     
@@ -294,7 +300,7 @@
                                         <span class="glyphicon glyphicon-gift"></span> Discount
                                     </button>
                                 </div>
-                               <span class="form-control"><a href="#" id="dicount" data-value="0">0</a></span>
+                               <span class="form-control"><a href="#" id="discount" data-value="0">0</a></span>
                             </div>
                         </div>
                     </div>
