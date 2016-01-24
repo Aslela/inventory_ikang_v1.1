@@ -135,6 +135,9 @@ input.paging{
     top:0px;
     right:20px;
 }
+.btn-full{
+    width: 100%;
+}
 
 .clear{
     clear:both;

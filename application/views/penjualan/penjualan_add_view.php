@@ -58,9 +58,7 @@
 //                         $('.error-box').append(div_msg);
 //                         alert(tgl_penjualan);
 //                    }
-                    alert("a");
                 }else{
-                    alert("b");
                     $('#error-msg').addClass("hidden");
                     var header_data_penjualan = new Object();
                     header_data_penjualan.kode = $("#kode_bon").val(); ;
@@ -83,7 +81,7 @@
                     var data_post = {
                         data :data_penjualan
                     }
-                    alert(JSON.stringify(data_penjualan));
+                    //alert(JSON.stringify(data_penjualan));
                    	// ajax mulai disini
 					$.ajax({
 						url: base_url+"index.php/penjualan/createPenjualan",
@@ -96,7 +94,10 @@
 						  }else{
 						      alert(msg);
 						  }
-						}
+						},
+                        error:function(msg){
+                            alert("error");
+                        }
 					});
                 }
             });

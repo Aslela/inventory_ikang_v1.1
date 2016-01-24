@@ -131,6 +131,18 @@ class Barang_model extends CI_Model {
         $query = $this->db->get();
         return $query->row();
     }
+
+    function getBarangLimit(){
+        $this->db->select('*');
+        $this->db->from('tbltbarang a');
+
+        $this->db->where('(a.limit)*2 > a.qty');
+        $this->db->or_where('a.limit > a.qty');
+        $this->db->order_by('a.qty','asc');
+
+        $query = $this->db->get();
+        return $query->result_array();
+    }
     
     function createBarang($data){
         

@@ -29,15 +29,22 @@ class Penjualan_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->row_array();
 	}
-    
-    function getPenjualanDetail($id){
-        $this->db->select('a.Penjualan_ID, Kode_Bon, Date_Format(Tgl_Penjualan, "%Y-%m-%d") as Tgl_Penjualan, 
+
+    function getPenjualanHeader($id){
+        $this->db->select('a.Penjualan_ID, Kode_Bon, Date_Format(Tgl_Penjualan, "%Y-%m-%d") as Tgl_Penjualan,
         Date_Format(Tgl_Jatuh_Tempo, "%Y-%m-%d") as Tgl_Jatuh_Tempo, Nama_Pembeli, Status, Harga_Hutang,
-            a.Created, a.Created_By, a.Last_Modified, a.Last_Modified_By,
-            b.Penjualan_Detail_ID, b.Barang_ID, FORMAT(b.Harga_Jual_Normal, 2,"id_ID") as Harga_Jual_Normal, 
-            FORMAT(b.Harga_Jual, 2,"id_ID") as Harga_Jual,
-            b.Harga_Jual_Normal as Harga_Jual_Curr_Value, b.Harga_Jual as Harga_Jual_Value, b.Qty, c.Kode_Barang
-        '); 
+        Discount, Harga_Total,
+        a.Created, a.Created_By, a.Last_Modified, a.Last_Modified_By');
+        $this->db->from('tbltpenjualan a');
+        $this->db->where('a.Penjualan_ID',$id);
+        $query = $this->db->get();
+        return $query->row();
+    }
+    function getPenjualanDetail($id){
+        $this->db->select(' b.Penjualan_Detail_ID, b.Barang_ID, c.Barang_Name,b.Qty, c.Kode_Barang,
+            FORMAT(b.Harga_Jual_Normal, 0,"id_ID") as Harga_Jual_Normal,
+            FORMAT(b.Harga_Jual, 0,"id_ID") as Harga_Jual,
+            FORMAT(b.Harga_Jual*b.Qty,0,"id_ID") as Harga_Total ');
 		$this->db->from('tbltpenjualan a');
         $this->db->join('tbltpenjualandetail b', 'a.Penjualan_ID = b.Penjualan_ID');
         $this->db->join('tbltbarang c', 'b.Barang_ID = c.Barang_ID');

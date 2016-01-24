@@ -222,6 +222,18 @@ class Barang extends CI_Controller {
 		
 	}
 
+    function barangLimit(){
+        $data['main_content'] = 'barang_limit_view';
+        $data['data'] = null;
+        $data['msg'] = null;
+
+        //$this->output->enable_profiler(TRUE);
+        //Data Selection
+        $data['data_barang'] = $this->barang_model->getBarangLimit();
+        $this->load->view('includes/template_cms', $data);
+
+    }
+
     function deleteKategori($id_kategori)
     {   
         $this->kategori_model->deleteKategori($id_kategori);

@@ -25,7 +25,7 @@ class Login extends CI_Controller {
 		{
 			$this->index();
 		}
-        $this->output->enable_profiler(TRUE);
+        //$this->output->enable_profiler(TRUE);
 	}	
 	
 	public function signup()

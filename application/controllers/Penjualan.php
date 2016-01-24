@@ -112,13 +112,9 @@ class Penjualan extends CI_Controller {
         parse_str($_SERVER['QUERY_STRING'],$_GET); //converts query string into global GET array variable
         $id = $_GET['id']; // get the requested page 
         
-        //Data Selection 
-        $data['data_kategori'] = $this->kategori_model->getKategoriList(null, null);
-        $data['data_subkategori'] = $this->subkategori_model->getSubKategoriList(null, null);
-        $data['data_merk'] = $this->merk_model->getMerkList(null, null);
-        $data['data_model'] = $this->model_model->getModelList(null, null);
-        $data['data_satuan'] = $this->satuan_model->getSatuanList(null, null);
-        $data['data_penjualan'] = $this->penjualan_model->getPenjualanDetail($id);
+        //Data Selection
+        $data['data_penjualan_header'] = $this->penjualan_model->getPenjualanHeader($id);
+        $data['data_penjualan_detail'] = $this->penjualan_model->getPenjualanDetail($id);
         
 		$this->load->view('includes/template_cms', $data);
     }
