@@ -120,15 +120,15 @@ $(document).ready(function(){
 			 	
 					// ajax mulai disini
 					$.ajax({
-						url: base_url+"/index.php/barang/createBarang", //arahkan pada proses_tambah di controller nasabah
+						url: base_url+"index.php/barang/createBarang", //arahkan pada proses_tambah di controller nasabah
 						data: data_post,
 						type: "POST",
 						success: function(msg){
 							if(msg==0){ 
-                                alert("Add Barang Gagal");
+                                alertify.error("Add Barang Gagal");
 							}else{
 								// hapus data                          
-                                alert("Add Barang Sukses");
+                                alertify.success("Add Barang Sukses");
 								window.location.assign(base_url+"/index.php/barang/index/");							
 							}							 
 						}
@@ -142,7 +142,7 @@ $(document).ready(function(){
         $("#edit_barang").click(function(){			
 				
 				if(validateInput()){
-					
+
                     var harga_beli = $('#harga_beli').maskMoney('unmasked')[0];
                     var harga_jual = $('#harga_jual').maskMoney('unmasked')[0];
                     		
@@ -162,18 +162,19 @@ $(document).ready(function(){
                     };
 				 	
                     var id_item = $("#item_id").val();
+                    var base_url = $("#base_url").val();
                     
 					// ajax mulai disini
 					$.ajax({
-						url: base_url+"/index.php/barang/editBarang/"+id_item, //arahkan pada proses_tambah di controller nasabah
+						url: base_url+"index.php/barang/editBarang/"+id_item, //arahkan pada proses_tambah di controller nasabah
 						data: data_post,
 						type: "POST",
 						success: function(msg){
 							if(msg==0){
-                                alert("Edit Barang Gagal");
+                                alertify.error("Edit Barang Gagal");
 							}else{	
 								// hapus data                          
-                                alert("Edit Barang Sukses");
+                                alertify.success("Edit Barang Sukses");
 								window.location.assign(base_url+"/index.php/barang/index/");							
 							}							 
 						}

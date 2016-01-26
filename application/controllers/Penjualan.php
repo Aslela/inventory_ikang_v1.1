@@ -118,12 +118,26 @@ class Penjualan extends CI_Controller {
         
 		$this->load->view('includes/template_cms', $data);
     }
+    function goToCancelPenjualan(){
+
+        $data['main_content'] = 'penjualan/penjualan_edit_view';
+        $data['data'] = null;
+        $data['msg'] = null;
+
+        parse_str($_SERVER['QUERY_STRING'],$_GET); //converts query string into global GET array variable
+        $id = $_GET['id']; // get the requested page
+
+        //Data Selection
+        $data['data_penjualan_header'] = $this->penjualan_model->getPenjualanHeader($id);
+        $data['data_penjualan_detail'] = $this->penjualan_model->getPenjualanDetail($id);
+
+        $this->load->view('includes/template_cms', $data);
+    }
 	
 	function createPenjualan()
 	{
-        $this->output->enable_profiler(TRUE);
+        //$this->output->enable_profiler(TRUE);
         $datetime = date('Y-m-d H:i:s', time());
-        
         $data = $this->input->post('data');
         
         $data_header=array(
@@ -170,7 +184,24 @@ class Penjualan extends CI_Controller {
            	 echo "1";
         }	
 	}
-    
+
+    function cancelPenjualanDetailItem(){
+        $data = $this->input->post('data');
+        $datetime = date('Y-m-d H:i:s', time());
+        foreach($data as $row){
+            $detail_penjualan = array(
+                'Status'=>2,
+                'Alasan'=>$row['alasan'],
+                "Created_By" => $this->session->userdata('username'),
+                "Last_Modified"=>$datetime,
+                "Last_Modified_By"=>$this->session->userdata('username')
+            );
+
+            $addDetil = $this->penjualan_detail_model->createPenjualanDetail($detail_penjualan);
+            $updateStock = $this->barang_model->kurangStockBarang($row['id'],$row['qty']);
+        }
+    }
+
    	function editBarang($id)
 	{
         $datetime = date('Y-m-d H:i:s', time());

@@ -127,7 +127,6 @@ class Merk extends CI_Controller {
         $datetime = date('Y-m-d H:i:s', time());
         $data=array(
             'Merk_Name'=>$this->input->post('input_value'),
-            "Created_By" => $this->session->userdata('username'),
 			"Last_Modified"=>$datetime,
 			"Last_Modified_By"=>$this->session->userdata('username')
         );
