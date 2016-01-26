@@ -47,6 +47,7 @@ $(document).ready(function(){
                 var base_url = $("#base_url").val();
                 var url_path =  base_url.concat("index.php/",modul,"/",function_name);
 
+                $("#btn-save").attr('disabled','disabled');
                 // ajax mulai disini
                 $.ajax({
                     url: url_path, //arahkan pada proses_tambah di controller nasabah
@@ -58,6 +59,7 @@ $(document).ready(function(){
                             $(".isi_pesan").html("Proses Daftar Gagal...");
                             $(".isi_pesan").fadeIn(1000);
                             alertify.error('Add Master Gagal');
+                            $("#btn-save").removeAttr('disabled');
                         }else{
                             $(".isi_pesan").css("color","#59c113");
                             $(".isi_pesan").html("Proses Daftar Berhasil...");
@@ -72,6 +74,7 @@ $(document).ready(function(){
                     },
                     error:function(msg){
                         alertify.error('Failed to response server!');
+                        $("#btn-save").removeAttr('disabled');
                     }
                 });
             }
@@ -91,10 +94,13 @@ $(document).ready(function(){
                 var modul = $("#modul_name").val();
                 var function_name = "edit"+modul;
                 var id_item = $("#item_id").val();
+                var base_url = $("#base_url").val();
+                var url_path =  base_url.concat("index.php/",modul,"/",function_name,"/",id_item);
+                $("#btn-update").attr('disabled','disabled');
 
                 // ajax mulai disini
                 $.ajax({
-                    url: base_url+"/"+modul+"/"+function_name+"/"+id_item, //arahkan pada proses_tambah di controller nasabah
+                    url: url_path, //arahkan pada proses_tambah di controller nasabah
                     data: data_post,
                     type: "POST",
                     success: function(msg){
@@ -102,7 +108,8 @@ $(document).ready(function(){
                             $(".isi_pesan").css({"color":"#fc5d32","font-size":"10px"});
                             $(".isi_pesan").html("Proses Daftar Gagal...");
                             $(".isi_pesan").fadeIn(1000);
-                            alert("Edit Master Gagal");
+                            alertify.error("Edit Master Gagal");
+                            $("#btn-update").removeAttr('disabled');
                         }else{
                             $(".isi_pesan").css("color","#59c113");
                             $(".isi_pesan").html("Proses Daftar Berhasil...");
@@ -110,10 +117,14 @@ $(document).ready(function(){
 
                             // hapus data
                             $("#inputan_edit").val("");
-                            alert("Edit Master Sukses");
+                            alertify.success("Edit Master Sukses");
                             //window.location.assign(base_url+"/index.php/"+modul+"/index/");
                             window.location.reload();
                         }
+                    },
+                    error:function(msg){
+                        alertify.error('Failed to response server!');
+                        $("#btn-update").removeAttr('disabled');
                     }
                 });
             }

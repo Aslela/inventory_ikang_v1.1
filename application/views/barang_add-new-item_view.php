@@ -39,8 +39,6 @@
 			<div class="box box-primary">
 				
 				<!-- form start -->
-
-				<h1 class="heading">Add New Barang</h1>
                 <div class="well">
                     <div class="row">
                         <div class="col-lg-2">

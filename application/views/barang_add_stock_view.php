@@ -28,6 +28,10 @@
                 <th style = "text-align:center;font-weight: bold;">NO</th>
                 <th style = "font-weight: bold;">Kode Barang</th>
                 <th style = "font-weight: bold;">Nama Barang</th>
+                <th style = "font-weight: bold;">Kategori</th>
+                <th style = "font-weight: bold;">Sub Kategori</th>
+                <th style = "font-weight: bold;">Merek</th>
+                <th style = "font-weight: bold;">Model</th>
                 <th style = "font-weight: bold;">Qty</th>
                 <th style = "font-weight: bold;">Limit</th>
                 <th style = "font-weight: bold;">Satuan</th>

@@ -67,7 +67,7 @@
                     header_data_penjualan.status = $('#stat option:selected').val();
                     header_data_penjualan.discount = $("a#discount").attr("data-value");
                     header_data_penjualan.harga_total = $('span#total-result').attr("data-value");
-                    if(status==2){
+                    if(status!=1){
                         header_data_penjualan.tgl_jth_tempo =$("#tgl_jth_tmp").val();
                         header_data_penjualan.harga_hutang =$("#harga_htg").val();
                     }else{
@@ -90,13 +90,14 @@
                         dataType: 'json',
 						success: function(msg){
 						  if(msg==0){
-						      alert(msg);
+                              alertify.error('Add Penjualan Gagal');
 						  }else{
-						      alert(msg);
+                              alertify.success('Add Penjualan Sukses');
+                              location.href = "<?= site_url("penjualan")?>";
 						  }
 						},
                         error:function(msg){
-                            alert("error");
+                            alertify.error('Failed to response server!');
                         }
 					});
                 }

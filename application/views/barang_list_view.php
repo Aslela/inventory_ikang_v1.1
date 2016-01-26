@@ -44,6 +44,7 @@ $(document).ready(function(){
             <th style = "font-weight: bold;">Model</th>
             <th style = "text-align:center;font-weight: bold;">Harga Beli</th>
             <th style = "text-align:center;font-weight: bold;">Harga Jual</th>
+            <th style = "font-weight: bold;">Ukuran</th>
             <th style = "font-weight: bold;">Qty</th>
             <th style = "font-weight: bold;">Limit</th>
             <th style = "font-weight: bold;">Satuan</th>
@@ -68,9 +69,10 @@ $(document).ready(function(){
                        
                         <td align='right' class="nr"><?php echo number_format($row['Harga_Beli']);?></td>
                         <td align='right' class="nr"><?php echo number_format($row['Harga_Jual']);?></td>
-                        <td align='left' class="nr"><?=$row['Qty']?></td>
-                        <td align='left' class="nr"><?=$row['Limit']?></td>
-                        <td align='left' class="nr"><?=$row['Satuan_Name']?></td>
+                        <td align='right' class="nr"><?=$row['Ukuran']?></td>
+                        <td align='right' class="nr"><?=$row['Qty']?></td>
+                        <td align='right' class="nr"><?=$row['Limit']?></td>
+                        <td align='center' class="nr"><?=$row['Satuan_Name']?></td>
                         <td align='center'>
                             <a class="edit-nav" href="<?php echo site_url('barang/getBarangByID/'.$row['Barang_ID'])?>">           
                                 <button type="button" class="btn btn-primary btn-xs edit-btn">

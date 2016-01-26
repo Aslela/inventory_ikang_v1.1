@@ -94,13 +94,19 @@
                                 <a href="<?= site_url("kategori") ?>">Kategori</a>
                             </li>
                             <li>
-                                <a href="<?= site_url("subkategori") ?>">Merk</a>
+                                <a href="<?= site_url("subkategori") ?>">Sub Kategori</a>
+                            </li>
+                            <li>
+                                <a href="<?= site_url("merk") ?>">Merk</a>
                             </li>
                             <li>
                                 <a href="<?= site_url("modelx") ?>">Model</a>
                             </li>
                             <li>
                                 <a href="<?= site_url("satuan") ?>">Satuan</a>
+                            </li>
+                            <li>
+                                <a href="<?= site_url("supplier") ?>">Supplier</a>
                             </li>
                         </ul>
                     </li>
@@ -112,7 +118,7 @@
                                 <a href="<?= site_url("barang") ?>">Daftar Barang</a>
                             </li>
                             <li>
-                                <a href="<?= site_url("barang") ?>">Tambah Barang Baru</a>
+                                <a href="<?= site_url("barang/goToAddNewBarang") ?>">Tambah Barang Baru</a>
                             </li>
                             <li>
                                 <a href="<?= site_url("barang") ?>">Tambah Stock Barang</a>
@@ -176,7 +182,7 @@
                show=1;
            }
        });
-        var base_url = "<?=base_url()?>";
+        var base_url = $("#base_url").val();
         //alert($("#base_url").val());
     });
 </script>
