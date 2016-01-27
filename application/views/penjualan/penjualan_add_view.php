@@ -202,12 +202,17 @@
                     Penjualan Baru
                 </h3>
                 <div class="well well-sm">
-                    <button type="button" class="btn btn-default" id="hd-btn-save">
+                    <button type="button" class="btn btn-primary" id="hd-btn-save">
                         <span class="glyphicon glyphicon-floppy-save"></span>&nbsp Save
                     </button>
                     <a class="main-nav" href="#">
-                        <button type="button" class="btn btn-default" id="add-detail" data-toggle="modal" data-target="#penjualan-modal">
+                        <button type="button" class="btn btn-success" id="add-detail" data-toggle="modal" data-target="#penjualan-modal">
                             <span class="glyphicon glyphicon-plus"></span>&nbsp Add Item
+                        </button>
+                    </a>
+                    <a href="<?=site_url('Penjualan/index')?>">
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp Back to List
                         </button>
                     </a>
                 </div>

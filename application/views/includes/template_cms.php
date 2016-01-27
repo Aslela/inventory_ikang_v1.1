@@ -34,6 +34,10 @@
         ul.pagination li.active a{
             pointer-events:none;
         }
+        .content-container{
+            padding-top: 1px;
+            padding-bottom: 50px;
+        }
     </style>
     
     <!-- jQuery -->
@@ -121,7 +125,7 @@
                                 <a href="<?= site_url("barang/goToAddNewBarang") ?>">Tambah Barang Baru</a>
                             </li>
                             <li>
-                                <a href="<?= site_url("barang") ?>">Tambah Stock Barang</a>
+                                <a href="<?= site_url("barang/goToAddStockBarang") ?>">Tambah Stock Barang</a>
                             </li>
                         </ul>
                     </li>

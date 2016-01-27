@@ -18,9 +18,14 @@
     margin-left: 30px;
     width: 40%;
 }
-
 .control-label{
     font-size: 14px;
+}
+.col-identity {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 12px;
+    margin-left: 15px;
 }
 
 @media only screen and (max-width: 1050px) {

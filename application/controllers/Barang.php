@@ -14,6 +14,7 @@ class Barang extends CI_Controller {
         $this->load->model('merk_model');
         $this->load->model('model_model');
         $this->load->model('satuan_model');
+        $this->load->model('supplier_model');
         
     }
     
@@ -27,16 +28,11 @@ class Barang extends CI_Controller {
 
         $result = $this->barang_model->getBarangList($start, $limit);
         
-        $data['main_content'] = 'barang_list_view';
+        $data['main_content'] = 'barang/barang_list_view';
         $data['data'] = $result;
         $data['msg'] = null;
 		$this->load->view('includes/template_cms', $data);
 	}
-
-    function addStockBarang(){
-        $data['main_content'] = 'barang_add_stock_view';
-        $this->load->view('includes/template_cms', $data);
-    }
     
     function getBarangData($start=1){
 
@@ -56,8 +52,6 @@ class Barang extends CI_Controller {
         $res['results'] = $return_arr;
         echo json_encode($data);
 
-
-
         //$this->output->enable_profiler(TRUE);
         //exit();
     }
@@ -66,7 +60,7 @@ class Barang extends CI_Controller {
 	{
         $result = $this->barang_model->getBarangByID($id);
         
-        $data['main_content'] = 'barang_edit_view';
+        $data['main_content'] = 'barang/barang_edit_view';
         $data['data'] = $result;
         $data['msg'] = null;
         
@@ -105,10 +99,30 @@ class Barang extends CI_Controller {
         echo json_encode(array('status' => $status, 'msg' => $msg,"barangID"=>$barangID,"namaBarang"=>$namaBarang,"harga"=>$harga));
     }
 
+    function getBarangStock(){
+        $namaBarang="";
+        $harga="";
+        $barangID="";
+
+        $kode = $this->input->post("value");
+        $result = $this->barang_model->getBarangByKode($kode);
+
+        if(count($result)== 0){
+            $status = "error";
+            $msg="Barang dengan kode ini tidak terdaftar.";
+        }else{
+            $status = "success";
+            $barangID = $result->Barang_ID;
+            $data['data_barang'] = $result;
+            $msg=$this->load->view('barang/data_barang_view',$data,true);
+        }
+        // return message to AJAX
+        echo json_encode(array('status' => $status, 'msg' => $msg,"barangID"=>$barangID));
+    }
     
     function goToAddNewBarang(){
  
-        $data['main_content'] = 'barang_add-new-item_view';
+        $data['main_content'] = 'barang/barang_add-new-item_view';
         $data['data'] = null;
         $data['msg'] = null;
         
@@ -120,8 +134,57 @@ class Barang extends CI_Controller {
         $data['data_satuan'] = $this->satuan_model->getSatuanList(null, null);
         
 		$this->load->view('includes/template_cms', $data);
-    }	
-	
+    }
+
+    function goToAddStockBarang(){
+
+        $data['main_content'] = 'barang/barang_add_stock_view';
+        $data['data'] = null;
+        $data['msg'] = null;
+
+        //Data Selection
+        $data['data_supplier'] = $this->supplier_model->getSupplierList(null, null);
+        $this->load->view('includes/template_cms', $data);
+    }
+
+    function addStockBarang(){
+        $datetime = date('Y-m-d H:i:s', time());
+        $barangID = $this->input->post('barang');
+        $qty = $this->input->post('qty');
+
+        $data=array(
+            'Barang_ID'=>$this->input->post('barang'),
+            'Supplier_ID'=>$this->input->post('supplier'),
+            'Qty'=>$this->input->post('qty'),
+            "Created_By" => $this->session->userdata('username'),
+            "Last_Modified"=>$datetime,
+            "Last_Modified_By"=>$this->session->userdata('username')
+        );
+
+        $this->db->trans_begin();
+        $query = $this->barang_model->createHistoryBarang($data);
+
+        if ($this->db->trans_status() === FALSE) {
+            $this->db->trans_rollback();
+            echo '0';
+        }
+        else {
+            if($query==1){
+                $query = $this->barang_model->tambahStockBarang($barangID,$qty);
+                if($query==1){
+                    $this->db->trans_commit();
+                    echo '1';
+                }else{
+                    $this->db->trans_rollback();
+                    echo '0';
+                }
+            }else{
+                $this->db->trans_rollback();
+                echo '0';
+            }
+        }
+    }
+
 	function createBarang()
 	{
         $datetime = date('Y-m-d H:i:s', time());
@@ -223,7 +286,7 @@ class Barang extends CI_Controller {
 	}
 
     function barangLimit(){
-        $data['main_content'] = 'barang_limit_view';
+        $data['main_content'] = 'barang/barang_limit_view';
         $data['data'] = null;
         $data['msg'] = null;
 

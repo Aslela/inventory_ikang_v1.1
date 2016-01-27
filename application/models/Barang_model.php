@@ -125,6 +125,7 @@ class Barang_model extends CI_Model {
         $this->db->join('tblmsubkategori c', 'a.SubKategori_ID = c.SubKategori_ID');
         $this->db->join('tblmmerk d', 'a.Merk_ID = d.Merk_ID');
         $this->db->join('tblmmodel e', 'a.Model_ID = e.Model_ID');
+        $this->db->join('tblmsatuan f', 'a.Satuan_ID = f.Satuan_ID');
 
         $this->db->where('a.Kode_Barang',$kode);
 
@@ -145,20 +146,23 @@ class Barang_model extends CI_Model {
     }
     
     function createBarang($data){
-        
-        $this->db->insert('tbltbarang',$data);	
-		$result=$this->db->affected_rows();
+        $this->db->insert('tbltbarang', $data);
+        $result = $this->db->affected_rows();
         return $result;
-	
     }
-    
    	function updateBarang($data,$id){
 		$this->db->where('Barang_ID',$id);
 		$this->db->update('tbltbarang',$data);
 		$result=$this->db->affected_rows();
 		return $result;
 	}
-    
+
+    function createHistoryBarang($data){
+        $this->db->insert('tblmhistorybarang', $data);
+        $result = $this->db->affected_rows();
+        return $result;
+    }
+
     function kurangStockBarang($id_barang, $stock){
         $this->db->set('Qty', 'Qty-'.$stock, FALSE);
    	    $this->db->where('Barang_ID',$id_barang);

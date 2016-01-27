@@ -41,7 +41,7 @@ class Penjualan_model extends CI_Model {
         return $query->row();
     }
     function getPenjualanDetail($id){
-        $this->db->select(' b.Penjualan_Detail_ID, b.Barang_ID, c.Barang_Name,b.Qty, c.Kode_Barang,
+        $this->db->select(' b.Penjualan_Detail_ID, b.Barang_ID, c.Barang_Name,b.Qty, c.Kode_Barang, b.status,
             FORMAT(b.Harga_Jual_Normal, 0,"id_ID") as Harga_Jual_Normal,
             FORMAT(b.Harga_Jual, 0,"id_ID") as Harga_Jual,
             FORMAT(b.Harga_Jual*b.Qty,0,"id_ID") as Harga_Total ');
@@ -49,6 +49,7 @@ class Penjualan_model extends CI_Model {
         $this->db->join('tbltpenjualandetail b', 'a.Penjualan_ID = b.Penjualan_ID');
         $this->db->join('tbltbarang c', 'b.Barang_ID = c.Barang_ID');
         $this->db->where('a.Penjualan_ID',$id);
+        $this->db->order_by('b.status','asc');
         $query = $this->db->get();
 		return $query->result_array();
     }

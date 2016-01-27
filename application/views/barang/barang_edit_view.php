@@ -46,11 +46,15 @@
                 <h2>Edit Barang </h2>
                 <div class="well">
                     <div class="row">
-                        <div class="col-lg-2">
-                            <button type="submit" id="edit_barang" name="save" class="submit btn btn-large btn-primary btn-block">Edit Item</button>
-                        </div>
-                        <div class="col-lg-2">
-                            <a href="<?=site_url('Barang/index')?>"><button type="button" class="btn btn-large btn-block ">Back to List</button></a>
+                        <div class="col-lg-12">
+                            <button type="submit" id="edit_barang" name="save" class="submit btn btn-primary">
+                                <span class="glyphicon glyphicon-floppy-save"></span>&nbsp Save
+                            </button>
+                            <a href="<?=site_url('Barang/index')?>">
+                                <button type="button" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp Back to List
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>

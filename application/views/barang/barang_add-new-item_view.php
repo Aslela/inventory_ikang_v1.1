@@ -37,20 +37,24 @@
     <div class="form-add-new">
 			<!-- general form elements -->
 			<div class="box box-primary">
-				
+
 				<!-- form start -->
                 <div class="well">
                     <div class="row">
-                        <div class="col-lg-2">
-                            <button type="submit" id="save" name="save" class="submit btn btn-large btn-primary btn-block ">Add New Item</button>
-                        </div>
-                        <div class="col-lg-2">
-                            <a href="<?=site_url('Barang/index')?>"><button type="button" class="btn btn-large btn-block ">Back to List</button></a>
+                        <div class="col-lg-12">
+                            <button type="submit" id="save" name="save" class="submit btn btn-primary">
+                                <span class="glyphicon glyphicon-floppy-save"></span>&nbsp Save
+                            </button>
+                            <a href="<?=site_url('Barang/index')?>">
+                                <button type="button" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp Back to List
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
 				<?php echo form_open('',"class='form-horizontal'"); ?>
-                
+
                 <div class="side-one"><!-- side 1 -->
 				<div class="form-group" id="lbl-kode">
 					<label class="control-label heading-label">Kode Barang</label>
@@ -59,7 +63,7 @@
                             placeholder="Kode Barang" maxlength="15">
 				</div>
 
-				<div class="form-group" id="lbl-nama"> 
+				<div class="form-group" id="lbl-nama">
 					<label class="control-label heading-label">Nama Barang</label>
                     <span id='err_nama' class=""></span>
 					<input type="text" class="form-control" id="nama_barang" name="nama_barang"
@@ -71,7 +75,7 @@
 					<label class="control-label heading-label">Kategori</label>
                     <span id='err_kategori' class=""></span>
 					<div class="">
-                            <select id="select_kategori" tabindex="5" class="chzn-select form-control" 
+                            <select id="select_kategori" tabindex="5" class="chzn-select form-control"
                             name="select_kategori" data-placeholder="Select Kategori">
                                 <option value=""></option>
                                 <?php
@@ -90,7 +94,7 @@
 					<label class="control-label heading-label">Sub Kategori</label>
                     <span id='err_subkategori' class=""></span>
 					<div class="">
-						<select id="select_subkategori" tabindex="5" class="chzn-select form-control" 
+						<select id="select_subkategori" tabindex="5" class="chzn-select form-control"
                             name="select_subkategori" value="" data-placeholder="Select Sub Kategori">
                                 <option value=""></option>
                                  <?php
@@ -109,7 +113,7 @@
 					<label class="control-label heading-label">Merek</label>
                     <span id='err_merk' class=""></span>
 					<div class="">
-						<select id="select_merk" tabindex="5" class="chzn-select form-control" 
+						<select id="select_merk" tabindex="5" class="chzn-select form-control"
                             name="select_merk" value="" data-placeholder="Select Merek">
                                 <option value=""></option>
                                  <?php
@@ -129,7 +133,7 @@
 					<label class="control-label heading-label">Model</label>
                     <span id='err_model' class=""></span>
 					<div class="">
-						<select id="select_model" tabindex="5" class="chzn-select form-control" 
+						<select id="select_model" tabindex="5" class="chzn-select form-control"
                             name="select_model" value="" data-placeholder="Select Model">
                                 <option value=""></option>
                                  <?php
@@ -144,16 +148,16 @@
                             </select>
 					</div>
 				</div>
-                
+
                 </div><!-- side 1 -->
-                
-                
+
+
                 <div class="side-two"><!-- side 2 -->
 				<div class="form-group" id="lbl-hb">
 					<label class="control-label heading-label" id="lblName">Harga Beli</label>
                     <span id='err_hb' class=""></span>
 					<input type="text" class="form-control" id="harga_beli" name="harga_beli"
-                            maxlength="20" placeholder="Rp. xxx" onkeyup='cek_hb()'>						
+                            maxlength="20" placeholder="Rp. xxx" onkeyup='cek_hb()'>
 
 				</div>
 
@@ -176,7 +180,7 @@
 					<label class="control-label heading-label"id="lblPhone">Satuan</label>
                     <span id='err_satuan' class=""></span>
 					<div class="">
-						<select id="select_satuan" tabindex="5" class="chzn-select form-control" 
+						<select id="select_satuan" tabindex="5" class="chzn-select form-control"
                             name="select_satuan" value="" data-placeholder="Select Satuan">
                                 <option value=""></option>
                                  <?php
@@ -199,7 +203,7 @@
                             placeholder="Qty" maxlength="10" onkeypress='validate_number(event)'>
 
 				</div>
-                
+
                	<div class="form-group" id="lbl-limit">
 					<label class="control-label heading-label">Limit</label>
                     <span id='err_limit' class=""></span>
@@ -207,9 +211,9 @@
                             placeholder="limit" maxlength="10" onkeypress='validate_number(event)'>
 
 				</div>
-				
+
                 </div><!-- side 2 -->
-                
+
                 <div class="clear"></div>
 				<?php echo form_close(); ?>
 

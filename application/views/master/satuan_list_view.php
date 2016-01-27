@@ -66,7 +66,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <button type="button" class="btn btn-primary btn-xl" id="add-btn" data-toggle="modal" data-target="#satuan-modal">
-                    <span class="glyphicon glyphicon-plus"></span>&nbsp Add Model
+                    <span class="glyphicon glyphicon-plus"></span>&nbsp Add Satuan
                 </button>
             </div>
             <div class="col-lg-4" id="search-box">

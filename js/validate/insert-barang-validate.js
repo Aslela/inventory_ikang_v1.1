@@ -102,6 +102,7 @@ $(document).ready(function(){
                     
                     var harga_beli = $('#harga_beli').maskMoney('unmasked')[0];
                     var harga_jual = $('#harga_jual').maskMoney('unmasked')[0];
+                    var base_url = $("#base_url").val();
                     
 					var data_post = {
 						input_val_1: $("#kode_barang").val(),

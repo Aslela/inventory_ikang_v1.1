@@ -20,7 +20,7 @@
             if(value.length > 2) {
                 $.ajax({
                     type: "POST",
-                    url: base_url + "/index.php/barang/getBarangData",
+                    url: base_url + "index.php/barang/getBarangData",
                     data: 'keyword=' + $(this).val(),
                     beforeSend: function () {
                         $element.css("background", "#FFF url(../../img/loading.gif) no-repeat 80%");
@@ -53,7 +53,7 @@
         // Kode Item
         $(document).on('click','#add-detail', function(){
             $('.kode-item-input').editable({
-                url: base_url+"/index.php/barang/getBarangPenjualan",
+                url: base_url+"index.php/barang/getBarangPenjualan",
                 ajaxOptions: {
                     type: 'post',
                     dataType: 'json'

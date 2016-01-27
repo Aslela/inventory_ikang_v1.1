@@ -199,9 +199,14 @@ echo link_tag('css/select2.css');
                 Penjualan Edit
             </h3>
             <div class="well well-sm">
-                <button type="button" class="btn btn-default" id="hd-btn-save">
+                <button type="button" class="btn btn-primary" id="hd-btn-save">
                     <span class="glyphicon glyphicon-floppy-save"></span>&nbsp Save
                 </button>
+                <a href="<?=site_url('Penjualan/index')?>">
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp Back to List
+                    </button>
+                </a>
             </div>
 
             <?php echo form_open('',"class='form-horizontal'"); ?>
