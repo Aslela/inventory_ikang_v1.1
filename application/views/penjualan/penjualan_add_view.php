@@ -89,10 +89,10 @@
 						type: "POST",
                         dataType: 'json',
 						success: function(msg){
-						  if(msg==0){
-                              alertify.error('Add Penjualan Gagal');
+						  if(msg.status=='error'){
+                              alertify.error(msg.msg);
 						  }else{
-                              alertify.success('Add Penjualan Sukses');
+                              alertify.success(msg.msg);
                               location.href = "<?= site_url("penjualan")?>";
 						  }
 						},

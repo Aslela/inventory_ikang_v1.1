@@ -133,56 +133,84 @@ class Penjualan extends CI_Controller {
 
         $this->load->view('includes/template_cms', $data);
     }
-	
+
+    function goToLaporanPenjualan($start=1){
+        $num_per_page = 10;
+        $start=($start-1)*$num_per_page;
+        $limit= $num_per_page;
+
+        $result = $this->penjualan_model->getPenjualanList($start, $limit);
+
+        $data['main_content'] = 'penjualan/penjualan_report_view';
+        $data['data'] = $result;
+        $data['msg'] = null;
+        $this->load->view('includes/template_cms', $data);
+    }
+
 	function createPenjualan()
 	{
         //$this->output->enable_profiler(TRUE);
+        $status="";
+        $msg="";
         $datetime = date('Y-m-d H:i:s', time());
         $data = $this->input->post('data');
-        
-        $data_header=array(
-            'Kode_Bon'=>$data[0]['kode'],
-            'Tgl_Penjualan'=>$data[0]['tgl_penjualan'],
-            'Nama_Pembeli'=>$data[0]['customer'],
-            'Status'=>$data[0]['status'],
-            'Discount'=>$data[0]['discount'],
-            'Harga_Total'=>$data[0]['harga_total'],
-            'Tgl_Jatuh_Tempo'=>$data[0]['tgl_jth_tempo'],
-            'Harga_Hutang'=>$data[0]['harga_hutang'],
-            "Created_By" => $this->session->userdata('username'),
-			"Last_Modified"=>$datetime,
-			"Last_Modified_By"=>$this->session->userdata('username')
-        );
-        
-        $this->db->trans_begin();
-        $penjualan_id = $this->penjualan_model->createPenjualanHeader($data_header);			
-        
-        foreach($data[1] as $row){
-            $detail_penjualan = array(
-                'Penjualan_ID'=>$penjualan_id,
-                'Barang_ID'=>$row['id'],
-                'Harga_Jual_Normal'=>$row['capital_price'],
-                'Harga_Jual'=>$row['price'],
-                'Qty'=>$row['qty'],
+        $kode= $data[0]['kode'];
+
+        $check_kode_bon = $this->penjualan_model->checkKodeBon($kode);
+        if($check_kode_bon == 0){
+            $data_header=array(
+                'Kode_Bon'=>$data[0]['kode'],
+                'Tgl_Penjualan'=>$data[0]['tgl_penjualan'],
+                'Nama_Pembeli'=>$data[0]['customer'],
+                'Status'=>$data[0]['status'],
+                'Discount'=>$data[0]['discount'],
+                'Harga_Total'=>$data[0]['harga_total'],
+                'Tgl_Jatuh_Tempo'=>$data[0]['tgl_jth_tempo'],
+                'Harga_Hutang'=>$data[0]['harga_hutang'],
                 "Created_By" => $this->session->userdata('username'),
-    			"Last_Modified"=>$datetime,
-    			"Last_Modified_By"=>$this->session->userdata('username')
+                "Last_Modified"=>$datetime,
+                "Last_Modified_By"=>$this->session->userdata('username')
             );
-                
-            $addDetil = $this->penjualan_detail_model->createPenjualanDetail($detail_penjualan);
-            $updateStock = $this->barang_model->kurangStockBarang($row['id'],$row['qty']);
+
+            $this->db->trans_begin();
+            $penjualan_id = $this->penjualan_model->createPenjualanHeader($data_header);
+
+            foreach($data[1] as $row){
+                $detail_penjualan = array(
+                    'Penjualan_ID'=>$penjualan_id,
+                    'Barang_ID'=>$row['id'],
+                    'Harga_Jual_Normal'=>$row['capital_price'],
+                    'Harga_Jual'=>$row['price'],
+                    'Qty'=>$row['qty'],
+                    "Created_By" => $this->session->userdata('username'),
+                    "Last_Modified"=>$datetime,
+                    "Last_Modified_By"=>$this->session->userdata('username')
+                );
+
+                $addDetil = $this->penjualan_detail_model->createPenjualanDetail($detail_penjualan);
+                $updateStock = $this->barang_model->kurangStockBarang($row['id'],$row['qty']);
+            }
+
+            if ($this->db->trans_status() === FALSE)
+            {
+                $this->db->trans_rollback();
+                $status="error";
+                $msg="Error while saved data!";
+            }
+            else
+            {
+                $this->db->trans_commit();
+                $status="success";
+                $msg="Penjualan berhasil disimpan!";
+            }
+        }else{
+            //JIKA DUPLICATE KODE BON
+            $status="error";
+            $msg="Kode Bon ini sudah terdaftar !";
         }
-        
-        if ($this->db->trans_status() === FALSE)
-        {
-            $this->db->trans_rollback();
-            echo '0';
-        }
-        else
-        {
-            $this->db->trans_commit();
-           	 echo "1";
-        }	
+
+        // return message to AJAX
+        echo json_encode(array('status' => $status, 'msg' => $msg));
 	}
 
     function cancelPenjualanDetailItem(){

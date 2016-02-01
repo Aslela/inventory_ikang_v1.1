@@ -53,7 +53,14 @@ class Penjualan_model extends CI_Model {
         $query = $this->db->get();
 		return $query->result_array();
     }
-    
+
+    function checkKodeBon($kode){
+        $this->db->select('*');
+        $this->db->from('tbltpenjualan a');
+        $this->db->where('a.Kode_Bon',$kode);
+        return $this->db->count_all_results();
+    }
+
     function createPenjualanHeader($data){
         $this->db->insert('tbltpenjualan',$data);	
         $last_id = $this->db->insert_id();

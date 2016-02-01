@@ -283,6 +283,7 @@
     function validateDetailItem(){
         var err = 0; //err data detail
         var check_detail = 1; // err if detail is empty
+        detailItemPenjualan=[];
         $( "tr.item-detail" ).each(function( index, element ) {
             // element == this
             var harga_total = $(this).children("td.harga-total-item").attr("data-value");

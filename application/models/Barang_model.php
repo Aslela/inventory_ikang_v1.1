@@ -144,7 +144,25 @@ class Barang_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
-    
+
+    function checkKodeBarangAdd($kode) {
+        $this->db->select('*');
+        $this->db->from('tbltbarang a');
+        $this->db->where('a.Kode_Barang',$kode);
+
+        $query = $this->db->count_all_results();
+        return $query;
+    }
+    function checkKodeBarangEdit($kode, $barangID) {
+        $this->db->select('*');
+        $this->db->from('tbltbarang a');
+        $this->db->where('a.Kode_Barang',$kode);
+        $this->db->where('a.Barang_ID !=',$barangID);
+
+        $query = $this->db->count_all_results();
+        return $query;
+    }
+
     function createBarang($data){
         $this->db->insert('tbltbarang', $data);
         $result = $this->db->affected_rows();

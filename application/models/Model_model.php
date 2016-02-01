@@ -10,7 +10,7 @@ class Model_model extends CI_Model {
 		if($limit!=null || $start!=null){
 			$this->db->limit($limit, $start);
 		}
-		$this->db->order_by('a.Created','desc');
+		$this->db->order_by('a.Model_Name','asc');
 		
 		$query = $this->db->get();
 		return $query->result_array();
@@ -24,7 +24,7 @@ class Model_model extends CI_Model {
 
         $this->db->limit($limit, $start);
 
-        $this->db->order_by('a.Created','desc');
+        $this->db->order_by('a.Created','asc');
 
         $query = $this->db->get();
         return $query->result_array();

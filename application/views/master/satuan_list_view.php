@@ -87,7 +87,7 @@
         <thead>
         <tr>
             <th style = "text-align:center">No</th>
-            <th style = "text-align:center">Nama Satuan</th>
+            <th style = "text-align:left">Nama Satuan</th>
             <th style = "text-align:center">Option</th>
         </tr>
         </thead>
@@ -101,7 +101,7 @@
             ?>
                     <tr>
                         <td align='center' class="no"><?=$no?></td>
-                        <td align='center' class="nr"><?=$row['Satuan_Name']?></td>
+                        <td align='left' class="nr"><?=$row['Satuan_Name']?></td>
                         <td align='center'>
                             <a class="edit-nav" href="#<?php echo $no?>">           
                                 <button type="button" class="btn btn-primary btn-xs edit-btn" data-toggle="modal" data-target="#satuan-modal">

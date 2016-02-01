@@ -187,102 +187,108 @@ class Barang extends CI_Controller {
 
 	function createBarang()
 	{
+        $status="";
+        $msg="";
+        $kode = $this->input->post('input_val_1');
+        $checkKode = $this->barang_model->checkKodeBarangAdd($kode);
         $datetime = date('Y-m-d H:i:s', time());
-        $data=array(
-            'Kode_Barang'=>$this->input->post('input_val_1'),
-            'Barang_Name'=>$this->input->post('input_val_2'),
-            'Kategori_ID'=>$this->input->post('input_val_3'),
-            'SubKategori_ID'=>$this->input->post('input_val_4'),
-            'Merk_ID'=>$this->input->post('input_val_5'),
-            'Model_ID'=>$this->input->post('input_val_6'),
-            'Harga_Jual'=>$this->input->post('input_val_7'),
-            'Harga_Beli'=>$this->input->post('input_val_8'),
-            'Satuan_ID'=>$this->input->post('input_val_9'),
-            'Qty'=>$this->input->post('input_val_10'),
-            'Limit'=>$this->input->post('input_val_11'),
-            'Ukuran'=>$this->input->post('input_val_12'),
-            "Created_By" => $this->session->userdata('username'),
-			"Last_Modified"=>$datetime,
-			"Last_Modified_By"=>$this->session->userdata('username')
-        );
-		
-        $this->db->trans_begin();
-		$query = $this->barang_model->createBarang($data);			
-		
-        if ($this->db->trans_status() === FALSE)
-        {
-            $this->db->trans_rollback();
-            echo '0';
+
+        if($checkKode == 0) {
+            $data = array(
+                'Kode_Barang' => $this->input->post('input_val_1'),
+                'Barang_Name' => $this->input->post('input_val_2'),
+                'Kategori_ID' => $this->input->post('input_val_3'),
+                'SubKategori_ID' => $this->input->post('input_val_4'),
+                'Merk_ID' => $this->input->post('input_val_5'),
+                'Model_ID' => $this->input->post('input_val_6'),
+                'Harga_Jual' => $this->input->post('input_val_7'),
+                'Harga_Beli' => $this->input->post('input_val_8'),
+                'Satuan_ID' => $this->input->post('input_val_9'),
+                'Qty' => $this->input->post('input_val_10'),
+                'Limit' => $this->input->post('input_val_11'),
+                'Ukuran' => $this->input->post('input_val_12'),
+                "Created_By" => $this->session->userdata('username'),
+                "Last_Modified" => $datetime,
+                "Last_Modified_By" => $this->session->userdata('username')
+            );
+
+            $this->db->trans_begin();
+            $query = $this->barang_model->createBarang($data);
+
+            if ($this->db->trans_status() === FALSE) {
+                $this->db->trans_rollback();
+                $status="error";
+                $msg="Error while saved data!";
+            } else {
+                if ($query == 1) {
+                    $this->db->trans_commit();
+                    $status="success";
+                    $msg="Barang berhasil disimpan!";
+                } else {
+                    $this->db->trans_rollback();
+                    $status="error";
+                    $msg="Error while saved data!";
+                }
+            }
+        }else{
+            //JIKA DUPLICATE KODE BON
+            $status="error";
+            $msg="Barang dengan kode ini sudah terdaftar !";
         }
-        else
-        {
-            $this->db->trans_commit();
-           	if($query==1){
-                echo $query;
-      		}else{
-                echo '0';
-      		}
-        }	
-		
+        // return message to AJAX
+        echo json_encode(array('status' => $status, 'msg' => $msg));
 	}
     
    	function editBarang($id)
 	{
         $datetime = date('Y-m-d H:i:s', time());
-        
-        $data=array(
-            'Kode_Barang'=>$this->input->post('input_val_1'),
-            'Barang_Name'=>$this->input->post('input_val_2'),
-            'Kategori_ID'=>$this->input->post('input_val_3'),
-            'SubKategori_ID'=>$this->input->post('input_val_4'),
-            'Merk_ID'=>$this->input->post('input_val_5'),
-            'Model_ID'=>$this->input->post('input_val_6'),
-            'Harga_Jual'=>$this->input->post('input_val_7'),
-            'Harga_Beli'=>$this->input->post('input_val_8'),
-            'Satuan_ID'=>$this->input->post('input_val_9'),
-            'Qty'=>$this->input->post('input_val_10'),
-            'Limit'=>$this->input->post('input_val_11'),
-            'Ukuran'=>$this->input->post('input_val_12'),
-			"Last_Modified"=>$datetime,
-			"Last_Modified_By"=>$this->session->userdata('username')
-        );
-		  
-    /*
-         $data=array(
-            'Kode_Barang'=>$this->input->post('kode_name'),
-            'Barang_Name'=>$this->input->post('nama_barang'),
-            'Kategori_ID'=>$this->input->post('select_kategori'),
-            'SubKategori_ID'=>$this->input->post('select_subkategori'),
-            'Merk_ID'=>$this->input->post('select_merk'),
-            'Model_ID'=>$this->input->post('select_model'),
-            'Harga_Jual'=>$this->input->post('harga_jual'),
-            'Harga_Beli'=>$this->input->post('harga_beli'),
-            'Satuan_ID'=>$this->input->post('select_satuan'),
-            'Qty'=>$this->input->post('qty'),
-            'Limit'=>$this->input->post('limit'),
-            "Created_By" => $this->session->userdata('username'),
-			"Last_Modified"=>$datetime,
-			"Last_Modified_By"=>$this->session->userdata('username')
-        );
-        */
-        $this->db->trans_begin();
-        $query = $this->barang_model->updateBarang($data,$id);			
-			
-		if ($this->db->trans_status() === FALSE)
-        {
-            $this->db->trans_rollback();
-            echo '0';
+        $kode = $this->input->post('input_val_1');
+        $checkKode = $this->barang_model->checkKodeBarangEdit($kode,$id);
+
+        if($checkKode == 0) {
+            $data = array(
+                'Kode_Barang' => $this->input->post('input_val_1'),
+                'Barang_Name' => $this->input->post('input_val_2'),
+                'Kategori_ID' => $this->input->post('input_val_3'),
+                'SubKategori_ID' => $this->input->post('input_val_4'),
+                'Merk_ID' => $this->input->post('input_val_5'),
+                'Model_ID' => $this->input->post('input_val_6'),
+                'Harga_Jual' => $this->input->post('input_val_7'),
+                'Harga_Beli' => $this->input->post('input_val_8'),
+                'Satuan_ID' => $this->input->post('input_val_9'),
+                'Qty' => $this->input->post('input_val_10'),
+                'Limit' => $this->input->post('input_val_11'),
+                'Ukuran' => $this->input->post('input_val_12'),
+                "Last_Modified" => $datetime,
+                "Last_Modified_By" => $this->session->userdata('username')
+            );
+
+            $this->db->trans_begin();
+            $query = $this->barang_model->updateBarang($data, $id);
+
+            if ($this->db->trans_status() === FALSE) {
+                $this->db->trans_rollback();
+                $status="error";
+                $msg="Error while saved data!";
+            } else {
+                $this->db->trans_commit();
+                if ($query == 1) {
+                    $this->db->trans_commit();
+                    $status="success";
+                    $msg="Barang berhasil di Update!";
+                } else {
+                    $this->db->trans_rollback();
+                    $status="error";
+                    $msg="Error while saved data!";
+                }
+            }
+        }else{
+            //JIKA DUPLICATE KODE BON
+            $status="error";
+            $msg="Barang dengan kode ini sudah terdaftar !";
         }
-        else
-        {
-            $this->db->trans_commit();
-           	if($query==1){
-                echo $query;
-      		}else{
-                echo '0';
-      		}   	
-        }	
-		
+        // return message to AJAX
+        echo json_encode(array('status' => $status, 'msg' => $msg));
 	}
 
     function barangLimit(){

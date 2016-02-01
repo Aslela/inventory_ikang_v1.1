@@ -306,6 +306,7 @@ echo link_tag('css/select2.css');
                             <input type="hidden" class="alasan-cancel-hidden"
                                    <?php if($row['status']==2){?>value="<?=$row['alasan']?>"<?php } ?>
                             >
+
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -358,6 +359,18 @@ echo link_tag('css/select2.css');
                     <div class="form-group">
                         <label for="recipient-name" class="control-label">Barang:</label>
                         <input type="text" class="form-control" id="barang-name-modal" disabled="disabled">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Qty:</label>
+                        <span class="label label-danger err-alasan"></span>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <input type="number" class="form-control" id="qty-modal" max="2">
+                            </div>
+                            <div class="col-xs-4">
+                                <input type="text" class="form-control" id="qty-awal-modal" disabled="disabled">
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="control-label">Alasan:</label>

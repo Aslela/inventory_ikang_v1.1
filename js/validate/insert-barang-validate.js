@@ -124,15 +124,19 @@ $(document).ready(function(){
 						url: base_url+"index.php/barang/createBarang", //arahkan pada proses_tambah di controller nasabah
 						data: data_post,
 						type: "POST",
+                        dataType: 'json',
 						success: function(msg){
-							if(msg==0){ 
-                                alertify.error("Add Barang Gagal");
+							if(msg.status=='error'){
+                                alertify.error(msg.msg);
 							}else{
 								// hapus data                          
-                                alertify.success("Add Barang Sukses");
+                                alertify.success(msg.msg);
 								window.location.assign(base_url+"/index.php/barang/index/");							
 							}							 
-						}
+						},
+                        error:function(msg){
+                            alertify.error('Failed to response server!');
+                        }
 					});
 				}
 				 
@@ -170,15 +174,19 @@ $(document).ready(function(){
 						url: base_url+"index.php/barang/editBarang/"+id_item, //arahkan pada proses_tambah di controller nasabah
 						data: data_post,
 						type: "POST",
+                        dataType: 'json',
 						success: function(msg){
-							if(msg==0){
-                                alertify.error("Edit Barang Gagal");
+							if(msg.status=='error'){
+                                alertify.error(msg.msg);
 							}else{	
 								// hapus data                          
-                                alertify.success("Edit Barang Sukses");
+                                alertify.success(msg.msg);
 								window.location.assign(base_url+"/index.php/barang/index/");							
 							}							 
-						}
+						},
+                        error:function(msg){
+                            alertify.error('Failed to response server!');
+                        }
 					});
 				}
 				 
