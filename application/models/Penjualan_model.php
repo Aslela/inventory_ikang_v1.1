@@ -10,11 +10,28 @@ class Penjualan_model extends CI_Model {
         if($limit!=null || $start!=null){
 			$this->db->limit($limit, $start);
 		}
-		$this->db->order_by('a.Created','desc');
+		$this->db->order_by('a.Tgl_Penjualan','desc');
 		
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+
+    function getPenjualanPerDay($start,$limit) //$num=10, $start=0
+    {
+        $this->db->select('a.Penjualan_ID, Kode_Bon, Date_Format(Tgl_Penjualan, "%Y-%m-%d") as Tgl_Penjualan,
+        Nama_Pembeli, Status, Harga_Hutang,
+        Discount, SUM(Harga_Total) as Harga_Total ');
+        $this->db->from('tbltpenjualan a');
+
+        if($limit!=null || $start!=null){
+            $this->db->limit($limit, $start);
+        }
+        $this->db->group_by('a.Tgl_Penjualan');
+        $this->db->order_by('a.Tgl_Penjualan','asc');
+
+        $query = $this->db->get();
+        return $query->result_array();
+    }
     
    	function getBarangByID($id) {		
 		$this->db->select('*'); 
@@ -60,6 +77,13 @@ class Penjualan_model extends CI_Model {
         $this->db->where('a.Kode_Bon',$kode);
         return $this->db->count_all_results();
     }
+    function checkKodeBonEdit($kode,$id){
+        $this->db->select('*');
+        $this->db->from('tbltpenjualan a');
+        $this->db->where('a.Kode_Bon',$kode);
+        $this->db->where('a.Penjualan_ID !=',$id);
+        return $this->db->count_all_results();
+    }
 
     function createPenjualanHeader($data){
         $this->db->insert('tbltpenjualan',$data);	
@@ -67,9 +91,9 @@ class Penjualan_model extends CI_Model {
         return $last_id;
     }
     
-   	function updateBarang($data,$id){
-		$this->db->where('Barang_ID',$id);
-		$this->db->update('tbltbarang',$data);
+   	function updatePenjualanHeader($data,$id){
+		$this->db->where('Penjualan_ID',$id);
+		$this->db->update('tbltpenjualan',$data);
 		$result=$this->db->affected_rows();
 		return $result;
 	}

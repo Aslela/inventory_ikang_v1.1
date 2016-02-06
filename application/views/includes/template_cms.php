@@ -140,7 +140,7 @@
                                 <a href="<?= site_url("penjualan/goToAddNewPenjualan") ?>">Penjualan Baru</a>
                             </li>
                             <li>
-                                <a href="<?= site_url("barangde j") ?>">Cancel Penjualan</a>
+                                <a href="<?= site_url("barang/cancel") ?>">Cancel Penjualan</a>
                             </li>
                         </ul>
                     </li>
@@ -148,10 +148,10 @@
                         <a href="#"><i class="fa fa-bar-chart fa-fw"></i> Laporan<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?= site_url("penjualan/goToLaporanPenjualan") ?>">Laporan Penjualan</a>
+                                <a href="<?=site_url("penjualan/goToLaporanPenjualan")?>">Laporan Penjualan</a>
                             </li>
                             <li>
-                                <a href="<?= site_url("") ?>">Laporan Barang Masuk</a>
+                                <a href="<?=site_url("barang/goToLaporanBarang")?>">Laporan Barang Masuk</a>
                             </li>
                         </ul>
                     </li>

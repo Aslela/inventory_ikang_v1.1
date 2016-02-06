@@ -232,37 +232,42 @@ echo link_tag('css/select2.css');
 
             <table class="table table-bordered table-striped" id="tbl-detail">
                 <thead>
-                    <tr>
-                        <th style = "text-align:left;">Kode Barang</th>
-                        <th style = "text-align:left;">Nama Barang</th>
-                        <th style = "text-align:right;">Harga Jual Current </th>
-                        <th style = "text-align:right;">Qty</th>
-                        <th style = "text-align:right;">Harga Jual</th>
-                        <th style = "text-align:right;">Harga Total</th>
-                        <th style = "text-align:center;">Option</th>
-                    </tr>
+                <tr>
+                    <th style = "text-align:left;">Kode Barang</th>
+                    <th style = "text-align:left;">Nama Barang</th>
+                    <th style = "text-align:right;">Harga Jual Current </th>
+                    <th style = "text-align:right;">Qty</th>
+                    <th style = "text-align:right;">Harga Jual</th>
+                    <th style = "text-align:right;">Harga Total</th>
+                    <th style = "text-align:center;">Option</th>
+                </tr>
                 </thead>
 
                 <tbody id="detail-content">
-                    <?php foreach($data_penjualan_detail as $row){?>
-                        <tr data-id="<?=$row['Penjualan_Detail_ID']?>"
-                            <?php if($row['status']==2){?>class="tr-cancel"<?php } ?>
+                <?php foreach($data_penjualan_detail as $row){?>
+                    <tr data-id="<?=$row['Penjualan_Detail_ID']?>"
+                        <?php if($row['status']==2){?>class="tr-cancel"<?php } ?>
                         >
-                            <td class="kode-barang"><?=$row['Kode_Barang']?></td>
-                            <td class="nama-barang"><?=$row['Barang_Name']?></td>
-                            <td class="td-right"><?=$row['Harga_Jual_Normal']?></td>
-                            <td class="td-right"><?=$row['Qty']?></td>
-                            <td class="td-right"><?=$row['Harga_Jual']?></td>
-                            <td class="td-right"><?=$row['Harga_Total']?></td>
-                            <td class="td-center">
-
-                            </td>
-                            <input type="hidden" class="alasan-cancel-hidden"
-                                   <?php if($row['status']==2){?>value="<?=$row['alasan']?>"<?php } ?>
+                        <td class="kode-barang"><?=$row['Kode_Barang']?></td>
+                        <td class="nama-barang"><?=$row['Barang_Name']?></td>
+                        <td class="td-right"><?=$row['Harga_Jual_Normal']?></td>
+                        <td class="td-right"><?=$row['Qty']?></td>
+                        <td class="td-right"><?=$row['Harga_Jual']?></td>
+                        <td class="td-right"><?=$row['Harga_Total']?></td>
+                        <td class="td-center">
+                            <button type="button" class="btn btn-danger btn-sm btn-cancel">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-sm btn-remove-cancel">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </button>
+                        </td>
+                        <input type="hidden" class="alasan-cancel-hidden"
+                               <?php if($row['status']==2){?>value="<?=$row['alasan']?>"<?php } ?>
                             >
 
-                        </tr>
-                    <?php } ?>
+                    </tr>
+                <?php } ?>
                 </tbody>
 
             </table>
@@ -300,52 +305,129 @@ echo link_tag('css/select2.css');
 
 </div><!-- div container -->
 
+<!--Modal-->
+<div class="modal fade" id="alasan-modal" tabindex="-1" role="dialog" aria-labelledby="alasan-modal-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="alasan-modal-label">Alasan Pembatalan</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Barang:</label>
+                        <input type="text" class="form-control" id="barang-name-modal" disabled="disabled">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Qty:</label>
+                        <span class="label label-danger err-alasan"></span>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <input type="number" class="form-control" id="qty-modal" max="2">
+                            </div>
+                            <div class="col-xs-4">
+                                <input type="text" class="form-control" id="qty-awal-modal" disabled="disabled">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Alasan:</label>
+                        <span class="label label-danger err-alasan"></span>
+                        <textarea class="form-control" id="alasan-text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btn-confirm-alasan" data-id="">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     $(function(){
         var data_cancel_penjualan = [];
 
-        $('#hd-btn-save').click(function(){
-            if(validatePenjualanEdit()){
-                var penjualan_id = <?=$data_penjualan_header->Penjualan_ID?>;
-                var header_data_penjualan = new Object();
-                header_data_penjualan.kode = $("#kode_bon").val(); ;
-                header_data_penjualan.customer  = $("#nama_customer").val();
-                header_data_penjualan.tgl_penjualan = $("#tgl_penjualan").val();
-                header_data_penjualan.status = $('#stat option:selected').val();
-                header_data_penjualan.discount = $("a#discount").attr("data-value");
-                header_data_penjualan.harga_total = $('span#total-result').attr("data-value");
-                if(status!=1){
-                    header_data_penjualan.tgl_jth_tempo =$("#tgl_jth_tmp").val();
-                    header_data_penjualan.harga_hutang =$("#harga_htg").val();
-                }else{
-                    header_data_penjualan.tgl_jth_tempo =null;
-                    header_data_penjualan.harga_hutang =null;
-                }
-                var data_penjualan = new Array();
-                data_penjualan.push(header_data_penjualan);
+        //Cancel
+        $(".btn-cancel" ).click(function(){
+            var $row =  $(this).closest("tr");
+            $selected_row = $row;
+            var kodeBarang = $row.find(".kode-barang").text();
+            var namaBarang = $row.find(".nama-barang").text();
+            var alasanCancel = $row.find(".alasan-cancel-hidden").val();
+            var name = kodeBarang+" - "+namaBarang;
+            var id = $row.data('id');
 
+            // Set Modal Value
+            $("#btn-confirm-alasan").data('id',id);
+            $('.err-alasan').text('');
+            $('#alasan-text').val(alasanCancel);
+            $('#barang-name-modal').val(name);
+            $('#alasan-modal').modal('show');
+        });
+
+        //Confirm Alasan
+        $("#btn-confirm-alasan").click(function(){
+            var alasan = $('#alasan-text').val();
+            var id = $(this).data('id');
+            //alert(id);
+            if(alasan == "" || alasan==null){
+                $('.err-alasan').text('This field cannot be empty!');
+            }else{
+                $('.err-alasan').text('');
+                $selected_row.addClass('tr-cancel')
+                $selected_row.find(".alasan-cancel-hidden").val(alasan);
+                $('#alasan-modal').modal('hide');
+            }
+        });
+
+        //Remove Cancel
+        $(".btn-remove-cancel").click(function(){
+            var $row =  $(this).closest("tr");
+            $row.removeClass('tr-cancel')
+            $row.find(".alasan-cancel-hidden").val('');
+            $('#alasan-text').val('');
+        });
+
+
+        $('#hd-btn-save').click(function(){
+            data_cancel_penjualan = [];
+            $( "tr.tr-cancel" ).each(function( index, element ) {
+                var id_detail = $(this).data("id");
+                var excuse = $(this).children("input.alasan-cancel-hidden").val();
+                var detailData = {
+                    id : id_detail,
+                    alasan : excuse
+                };
+                data_cancel_penjualan.push(detailData);
+            });
+            if(data_cancel_penjualan.length!=0){
+                //alert(JSON.stringify(data_cancel_penjualan));
                 var data_post = {
                     data :data_penjualan
                 }
                 //alert(JSON.stringify(data_penjualan));
                 // ajax mulai disini
                 $.ajax({
-                    url: base_url+"index.php/penjualan/editPenjualan/"+penjualan_id,
+                    url: base_url+"index.php/penjualan/cancelPenjualanDetailItem",
                     data: data_post,
                     type: "POST",
                     dataType: 'json',
                     success: function(msg){
-                        if(msg.status=='error'){
-                            alertify.error(msg.msg);
+                        if(msg==0){
+                            alert(msg);
                         }else{
-                            alertify.success(msg.msg);
-                            location.href = "<?= site_url("penjualan")?>";
+                            alert(msg);
                         }
                     },
                     error:function(msg){
-                        alertify.error('Failed to response server!');
+                        alert("error");
                     }
                 });
+            }else{
+                alertify.alert('Tidak ada penjualan yang dibatalkan!');
             }
 
         });

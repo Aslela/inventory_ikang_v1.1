@@ -41,14 +41,27 @@ $(document).ready(function(){
                         <td align='left' class="nr"><?=$row['Kode_Bon']?></td>
                         <td align='left' class="nr" ><?=$row['Tgl_Penjualan']?></td>
                         <td align='left' class="nr" ><?=$row['Nama_Pembeli']?></td>
-                        <td align='left' class="nr" ><?=$row['Status']?></td>
+                        <td align='left' class="nr" >
+                            <?php if($row['Status']==1) {
+                                    echo "Cash";
+                                }else if($row['Status']==2){
+                                    echo "Lunas";
+                                }else{
+                                    echo "Hutang";
+                                }
+                            ?>
+                        </td>
 
                         <td align='center'>
                             <a class="edit-nav" href="<?php echo site_url('penjualan/goToEditPenjualan?id='.$row['Penjualan_ID'])?>">           
                                 <button type="button" class="btn btn-primary btn-xs edit-btn">
                                 <span class="glyphicon glyphicon-pencil"></span>&nbsp Edit</button>      
-                            </a>    
-                           	
+                            </a>
+                            <a class="edit-nav" href="<?php echo site_url('penjualan/goToCancelPenjualan?id='.$row['Penjualan_ID'])?>">
+                                <button type="button" class="btn btn-danger btn-xs edit-btn">
+                                    <span class="glyphicon glyphicon-ban-circle"></span>&nbsp Cancel</button>
+                            </a>
+
                         </td>
                         
                         <td class="id-item" style="display: none;"><?=$row['Penjualan_ID']?></td>

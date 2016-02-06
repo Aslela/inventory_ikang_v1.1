@@ -186,10 +186,7 @@
               <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </button>
        </div>
-       
-       <div class="error-box">
-            <!--Error Messages here-->
-       </div>  
+
     </div>
     
  <div class="form-add-new">

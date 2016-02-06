@@ -120,7 +120,7 @@ class Penjualan extends CI_Controller {
     }
     function goToCancelPenjualan(){
 
-        $data['main_content'] = 'penjualan/penjualan_edit_view';
+        $data['main_content'] = 'penjualan/penjualan_cancel_view';
         $data['data'] = null;
         $data['msg'] = null;
 
@@ -139,12 +139,21 @@ class Penjualan extends CI_Controller {
         $start=($start-1)*$num_per_page;
         $limit= $num_per_page;
 
-        $result = $this->penjualan_model->getPenjualanList($start, $limit);
+        $result = $this->penjualan_model->getPenjualanPerDay($start, $limit);
 
         $data['main_content'] = 'penjualan/penjualan_report_view';
         $data['data'] = $result;
         $data['msg'] = null;
         $this->load->view('includes/template_cms', $data);
+    }
+
+    function penjualanJson($start=1){
+        $num_per_page = 10;
+        $start=($start-1)*$num_per_page;
+        $limit= $num_per_page;
+
+        $result = $this->penjualan_model->getPenjualanPerDay($start, $limit);
+        echo json_encode($result);
     }
 
 	function createPenjualan()
@@ -212,6 +221,56 @@ class Penjualan extends CI_Controller {
         // return message to AJAX
         echo json_encode(array('status' => $status, 'msg' => $msg));
 	}
+
+    function editPenjualan($id){
+
+        //$this->output->enable_profiler(TRUE);
+        $status="";
+        $msg="";
+        $datetime = date('Y-m-d H:i:s', time());
+        $data = $this->input->post('data');
+        $kode= $data[0]['kode'];
+
+        $check_kode_bon = $this->penjualan_model->checkKodeBonEdit($kode,$id);
+        if($check_kode_bon == 0){
+            $data_header=array(
+                'Kode_Bon'=>$data[0]['kode'],
+                'Tgl_Penjualan'=>$data[0]['tgl_penjualan'],
+                'Nama_Pembeli'=>$data[0]['customer'],
+                'Status'=>$data[0]['status'],
+                'Discount'=>$data[0]['discount'],
+                'Harga_Total'=>$data[0]['harga_total'],
+                'Tgl_Jatuh_Tempo'=>$data[0]['tgl_jth_tempo'],
+                'Harga_Hutang'=>$data[0]['harga_hutang'],
+                "Last_Modified"=>$datetime,
+                "Last_Modified_By"=>$this->session->userdata('username')
+            );
+
+            $this->db->trans_begin();
+            $penjualan_id = $this->penjualan_model->updatePenjualanHeader($data_header,$id);
+
+            if ($this->db->trans_status() === FALSE)
+            {
+                $this->db->trans_rollback();
+                $status="error";
+                $msg="Error while saved data!";
+            }
+            else
+            {
+                $this->db->trans_commit();
+                $status="success";
+                $msg="Penjualan berhasil disimpan!";
+            }
+        }else{
+            //JIKA DUPLICATE KODE BON
+            $status="error";
+            $msg="Kode Bon ini sudah terdaftar !";
+        }
+
+        // return message to AJAX
+        echo json_encode(array('status' => $status, 'msg' => $msg));
+
+    }
 
     function cancelPenjualanDetailItem(){
         $data = $this->input->post('data');
