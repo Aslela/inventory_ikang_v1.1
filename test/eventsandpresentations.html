@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> --> 
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+	 
+	<title>Events & Presentations</title>
+    
+	<link rel="shortcut icon" type="image/x-icon" href="http://www.pgn.co.id/images/modules/favicon.ico" />
+    
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="pav/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Bootstrap -->
+    <link href="styles/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/css/styles.css" rel="stylesheet">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="styles/js/jquery.1.12.4.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="styles/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- <link href="https://www.fontify.me/wf/18e2a1337607f8734ef443d978cb015f" rel="stylesheet" type="text/css"> -->
+  </head>
+  <body>
+
+    <div id="wrapper-header" class="container">
+    <!--HEADER LOGO ON LEFT-->
+    <div class="col-sm-2 brd" id="header-logo">
+      <a class="hidden-xs" href="?">
+        <img src="styles/img/logo-pgn.png"/>
+      </a>
+      <!-- <a class="visible-xs" href="?">
+        <img src="styles/img/logo-pgn.png" style="width:26px;position:absolute;z-index:1;top:5px;" />
+      </a> -->
+    </div>
+
+    <!--HEADER MENU ON RIGHT -->
+    <div class="col-sm-10 brd" id="header-right-menu">
+      <nav class="navbar navbar-inverse brd header_text">
+          <div id="topbar" class="navbar-header" style="margin:0 20px;">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <p class="header-title-sm hidden-sm hidden-md hidden-lg">PT. Perusahaan Gas Negara (Persero) Tbk</p>
+            <div class="input-group visible-xs" id="search" style="width:121px;margin-top:14px;margin-left: -33px;">
+                <input type="text" class="form-control input-xs" placeholder="Search" />
+                <span class="input-group-btn">
+                    <button class="btn btn-md btn-search" type="button">
+                        <i class="glyphicon glyphicon-search" style="font-size: 12px;"></i>
+                    </button>
+                </span>
+            </div>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse brd">
+            <div class="visible-xs" id="mobile_menu">
+            <div class=" cek mobile_top_box">
+                <div class="pull-left">
+                  <img src="styles/img/logo-pgn.png" class="mobile_logo">
+                </div>
+                <div class="pull-right">
+                  <span class="btnclose" aria-hidden="true" style="font-size: 17px;font-weight: 100 !important;" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"></span>
+                </div>
+           </div>
+
+
+           <div class=" cek mobile_bottom_box">
+               <div class="row-fluid">
+                 <div class="pull-left search2">
+                   <div class="input-group visible-xs show" id="search" style="width:123px;">
+                       <input type="text" id="search2" class="form-control input-xs" placeholder="Search">
+                       <span class="input-group-btn">
+                           <button class="btn btn-md btn-search" type="button">
+                               <i class="glyphicon glyphicon-search" style="font-size: 12px;"></i>
+                           </button>
+                       </span>
+                   </div>
+                 </div>
+                 <div class="pull-right flagger">
+                   <!--<img class="show" src="images/multi-language.png" alt="" width="62" height="23">-->
+				   <img class="show" src="images/lang_eng.png" alt="" width="23" height="23">
+				   <img class="show" src="images/lang_divider.png" alt="" width="16" height="23">
+				   <img class="show" src="images/lang_idn.png" alt="" width="23" height="23">
+                 </div>
+
+              </div>
+              <!-- <div id="expand-search-wrapper"> -->
+                <div class="input-group visible-xs hide" id="expand-search">
+                  <input type="text" id="expand-search2" class="form-control input-xs" placeholder="Search">
+                  <span class="input-group-btn">
+                      <button class="btn btn-md btn-expand-search" type="button">
+                          <i class="glyphicon glyphicon-search" style="font-size: 12px;"></i>
+                      </button>
+                  </span>
+                </div>
+              <!-- </div> -->
+              <!-- <div class="row">
+                  <div class="input-group visible-xs" id="search1">
+                      <input type="text" class="form-control input-xs" placeholder="Search">
+                      <span class="input-group-btn">
+                          <button class="btn btn-md" type="button">
+                              <i class="glyphicon glyphicon-search" style="font-size: 12px;"></i>
+                          </button>
+                      </span>
+                  </div>
+             </div> -->
+
+           </div>
+
+           <div class="wrapper_line">
+            <div class="col-xs-8 lapan"></div>
+            <div class="col-xs-4 empat"></div>
+          </div>
+
+
+           <ul class="nav navbar-nav">
+             <li><a href="?page=home">Home</a></li>
+             <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tentang Kami
+                 <span class="glyphicon glyphicon-plus pull-right marginright"></span>
+                 <!-- <span class="glyphicon glyphicon-minus pull-right marginright"></span> -->
+               </a>
+               <ul class="dropdown-menu">
+                 <li><a href="#">Melayani Indonesia</a></li>
+                 <li><a href="#">Transformasi Kelas Dunia</a></li>
+                 <li><a href="#">Sejarah</a></li>
+                 <li><a href="#">Kepemimpinan</a></li>
+                 <li><a href="#">Kegiatan Usaha</a></li>
+                 <li><a href="#">PGN Group</a></li>
+                 <li><a href="#">Infrastruktur & Jaringan Gas Bumi</a></li>
+                 <li><a href="#">Sinergi Operasi</a></li>
+                 <li><a href="#">Teknologi</a></li>
+               </ul>
+             </li>
+             <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Investor
+                 <span class="glyphicon glyphicon-plus pull-right marginright"></span>
+                 <!-- <span class="glyphicon glyphicon-minus pull-right marginright"></span> -->
+               </a>
+               <ul class="dropdown-menu">
+                  <li><a href="investor.html">Investor</a></li>
+                  <li><a href="our-shareholders.html">Our Shareholders</a></li>
+                  <li><a href="stock-information.html">Stock Information</a></li>
+                  <li><a href="financial-information.html">Financial Information</a></li>
+                  <li><a href="idx-announcements.html">IDX Announcements</a></li>
+                  <li><a href="eventsandpresentations.html">Events & Presentations</a></li>
+                  <li><a href="investor-services.html">Investor Services</a></li>
+               </ul>
+             </li>
+             <li><a href="?page=berita">Berita</a></li>
+             <li><a href="?page=resedensial">Residensial & Usaha Kecil</a></li>
+             <li><a href="?page=bisnis">Bisnis</a></li>
+             <li><a href="?page=transportasi">Transportasi</a></li>
+             <li><a href="?page=procurement">Procurement</a></li>
+             <li><a href="?page=contact_us" style="border-right:none;">Contact Us</a></li>
+           </ul>
+           <div class="mobile_menu_footer">
+             <img class="" src="images/contact-center.png" alt="" width="68" height="38">
+             <p class="copyright">All Rights Reserved @ Copyright 2017 PGN</p>
+          </div>
+         </div>
+
+         <div class="hidden-xs">
+            <ul class="nav navbar-nav">
+              <li class="active"><a style="padding-right:15px;" href="?page=resedensial">Residensial & Usaha Kecil</a></li>
+              <li><a href="?page=bisnis">Bisnis</a></li>
+              <li><a href="?page=transportasi">Transportasi</a></li>
+              <li><a href="?page=procurement">Procurement</a></li>
+              <li ><a href="?page=contact_us" style="border-right:none;">Contact Us</a></li>
+              <li class="lang-li">
+				<a href="#contact" class="language padding-right-0">
+					<!--<img  src="images/multi-language.png" alt="" width="62" height="23">-->
+					<img class="show" src="images/lang_eng.png" alt="" width="23" height="23">									
+				</a>
+				<a href="#contact" class="language-divider"><img class="show" src="images/lang_divider.png" alt="" width="16" height="23"></a>
+				<a href="#contact" class="language padding-left-0"><img class="show" src="images/lang_idn.png" alt="" width="23" height="23"></a>
+			  </li>
+            </ul>
+            <img class="pull-right" style="margin-top:-2px;"src="images/contact-center.png" alt="" width="68" height="38">
+        </div>
+          </div><!--/.nav-collapse -->
+          <div class="wrapper_line" style="margin:0 0px;height:10px">
+            <div class="col-xs-8 lapan"></div>
+            <div class="col-xs-4 empat"></div>
+          </div>
+      </nav>
+
+      <div class="hidden-xs brd header_text" id="bottom_menu">
+        <div class="col-lg-8 brd" style="margin-top:4px;">
+          <ul class="nav navbar-nav nav-bar-main-menu">
+            <li class="active"><a href="?">Home</a></li>
+            <li><a href="?page=tentang_kami">Tentang Kami</a></li>
+            <li><a href="?page=investor">Investor</a></li>
+            <li><a href="?page=berita">Berita</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 brd" id="header-search">
+            <!--<img class="pull-right" id="u14162_img" src="images/search.png" alt="" width="121" height="22"> -->
+              <div class="input-group" id="search">
+                  <input type="text" class="form-control input-xs" placeholder="Search" />
+                  <span class="input-group-btn">
+                      <button class="btn btn-md" type="button" style="background-color:#4e606e;color:#fff;height: 22px;padding: 2px 8px;">
+                          <i class="glyphicon glyphicon-search" style="font-size: 12px;top:-1px;"></i>
+                      </button>
+                  </span>
+              </div>
+        </div>
+     </div>
+  </div>
+    <div class="search-popup">
+        <input type="search" placeholder="Search" />
+        <button class="button-search"><i class="glyphicon glyphicon-search"></i></button>
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+//	document.title = 'blah';
+  $('#search2').focus(function () {
+    $('#expand-search').removeClass('hide');$('#expand-search').addClass('show');
+    $('.search2').removeClass('show');$('.search2').addClass('hide');
+    $('.flagger').removeClass('show');$('.flagger').addClass('hide');
+    document.getElementById("expand-search2").focus();
+  });
+  $('#expand-search2').blur(function () {
+    $('#expand-search').removeClass('show');$('#expand-search').addClass('hide');
+    $('.search2').removeClass('hide');$('.search2').addClass('show');
+    $('.flagger').removeClass('hide');$('.flagger').addClass('show');
+  });
+  $('#navbar').on('hide.bs.collapse', function () {
+    // do something…
+    // alert('hide');
+    /*.navbar-inverse{
+      background-color: #eee;
+    }*/
+    $('#wrapper-header').css('color','red !important');
+    $('#navbar').css({'background-color':'#fff'});
+    $('.navbar').removeClass('navbar-fixed-top');
+    $('#topbar').show();
+    $('html, body').removeClass('overflowhidden');
+  })
+
+  $('#navbar').on('show.bs.collapse', function () {
+	var window_height = $( window ).height();
+    $('#navbar').css({
+		'background-color':'#eee',
+		"min-height":window_height,
+		"height":"561px"
+	});
+    $('.navbar').addClass('navbar-fixed-top');
+    $('#topbar').hide();
+    $('html, body').addClass('overflowhidden');
+    // do something…
+  });
+  
+  // Windows resize for mobile menu scrolling
+  $( window ).resize(function() {
+		var window_height = $( window ).height();
+		
+		var check_mobile = $("body").hasClass("overflowhidden");
+		
+		if(check_mobile){
+			$('#navbar').css({
+				'background-color':'#eee',
+				"min-height":window_height,
+				"height":window_height
+			});
+		}else{
+			$('#navbar').css({
+				'background-color':'#fff',
+				"min-height":"36px"
+			});
+		}
+  });
+  
+  mobileMenuScroll();
+  function mobileMenuScroll(){
+	var window_height = $( window ).height();
+	//alert(window_height);
+	var check_mobile = $("body").hasClass("overflowhidden");
+	if(check_mobile){
+		$('#navbar').css({
+			'background-color':'#eee',
+			"min-height":window_height,
+			"height":window_height
+		});
+	}else{
+		$('#navbar').css({
+			'background-color':'#fff',
+			"min-height":"36px"
+		});
+	}	
+  }
+
+  $(".dropdown").on("show.bs.dropdown", function(event){
+    $(event.relatedTarget).find('.marginright').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+  });
+
+$(".dropdown").on("hide.bs.dropdown", function(event){
+  $(event.relatedTarget).find('.marginright').removeClass('glyphicon-minus').addClass('glyphicon-plus');
+});
+
+    $('#header-search, #search').click(function(e)  {
+        $('.search-popup').toggle();
+        $('.search-popup input[type=search]').focus();
+        e.stopPropagation();
+    });
+    $(document.body).click(function() {
+        $('.search-popup').hide();
+    });
+    $('.search-popup').click(function(e) {
+        e.stopPropagation();
+    });
+
+
+})
+</script>
+
+      
+      
+    <link href="styles/css/eventsandpresentations.css" rel="stylesheet">
+
+<div class="hr">&nbsp;</div>
+<div class="">
+  <div id="residensial_banner" class="carousel fade" data-ride="carousel">
+      <h2 class="h2banner">Investor</h2>
+      <div class="carousel-inner carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="images/header_informasi-saham.png"/>
+        </div>
+
+        <div class="item">
+          <img src="images/header_layanan-investor.png"/>
+        </div>
+
+        <div class="item">
+          <img src="images/header_pemegang-saham.png"/>
+        </div>
+
+        <div class="item">
+          <img src="images/header_pengumuman-bursa.png"/>
+        </div>
+
+        <div class="item">
+          <img src="images/header_acara-presentasi.png"/>
+        </div>
+
+        <div class="item">
+          <img src="images/header_informasi-keuangan.png"/>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+<div class="container padding-top-32">
+    <div class="row">
+        <div class="col-md-2 scrollspy">
+            <ul id="nav" class="left-menu">
+              <li><a href="investor.html">Investor</a></li>
+              <li><a href="our-shareholders.html">Our Shareholders</a></li>
+              <li><a href="stock-information.html">Stock Information</a></li>
+              <li><a href="financial-information.html">Financial Information</a></li>
+              <li><a href="idx-announcements.html">IDX Announcements</a></li>
+              <li><a href="eventsandpresentations.html">Events & Presentations</a></li>
+              <li><a href="investor-services.html">Investor Services</a></li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+            <div class="row section">
+                <div class="col-sm-12 content-header">
+                    <h1>Events & Presentations</h1>
+                    <br/>
+                    <div class="row margin-20">
+                        <div class="col-md-4">
+                            <h2>Presentations</h2>
+                        </div>
+                        <div class="col-md-8">
+                           <ul class="list-inline print-and-email">
+                              <li>
+                                  <img src="images/icon_print-page.png"> Print
+                              </li>
+                              <li>
+                                  <img src="images/icon_email-allerts.png"> Email Alerts
+                              </li>
+                          </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-content">
+                        <thead>
+							<tr>
+								<td class="soft-blue">Title</td>
+								<td class="soft-blue">Date</td>                            
+								<td class="soft-blue">Size</td>
+							</tr>
+                        </thead>
+                        <tbody>
+							<tr>								
+								<td>
+									<span class="laporan-keuangan-icon-pdf">
+										<img width="15" height="auto" src="images/icon_pdf.png">
+									</span>
+									<span class="laporan-keuangan-text">
+										PGN Bussiness Presentation 3M-2016 Update
+									</span>
+								</td>                         
+								<td>April 29, 2016</td>
+								<td>2MB</td>
+							</tr>
+							<tr>								
+								<td>
+									<span class="laporan-keuangan-icon-pdf">
+										<img width="15" height="auto" src="images/icon_pdf.png">
+									</span>
+									<span class="laporan-keuangan-text">
+										PGN Bussiness Presentation FY-2015 Update
+									</span>
+								</td>                         
+								<td>Maret 17, 2016</td>
+								<td>2MB</td>
+							</tr>
+							<tr>								
+								<td>
+									<span class="laporan-keuangan-icon-pdf">
+										<img width="15" height="auto" src="images/icon_pdf.png">
+									</span>
+									<span class="laporan-keuangan-text">
+										PGN Bussiness Presentation 9M-2015
+									</span>
+								</td>                         
+								<td>October 30, 2015</td>
+								<td>2MB</td>
+							</tr>
+							<tr>								
+								<td>
+									<span class="laporan-keuangan-icon-pdf">
+										<img width="15" height="auto" src="images/icon_pdf.png">
+									</span>
+									<span class="laporan-keuangan-text">
+										PGN Bussiness Presentation 6M-2015 Update
+									</span>
+								</td>                         
+								<td>August 31, 2015</td>
+								<td>2.27MB</td>
+							</tr>
+							<tr>								
+								<td>
+									<span class="laporan-keuangan-icon-pdf">
+										<img width="15" height="auto" src="images/icon_pdf.png">
+									</span>
+									<span class="laporan-keuangan-text">
+										PGN Bussiness Presentation 3M-2015
+									</span>
+								</td>                         
+								<td>April 30, 2015</td>
+								<td>2.23MB</td>
+							</tr>
+							<tr>								
+								<td>
+									<span class="laporan-keuangan-icon-pdf">
+										<img width="15" height="auto" src="images/icon_pdf.png">
+									</span>
+									<span class="laporan-keuangan-text">
+										PGN Bussiness Presentation FY-2014 Update
+									</span>
+								</td>                         
+								<td>Maret 05, 2014</td>
+								<td>2MB</td>
+							</tr>
+							<tr>								
+								<td>
+									<span class="laporan-keuangan-icon-pdf">
+										<img width="15" height="auto" src="images/icon_pdf.png">
+									</span>
+									<span class="laporan-keuangan-text">
+										PGN Bussiness Presentation 9M-2014
+									</span>
+								</td>                         
+								<td>November 30, 2014</td>
+								<td>3MB</td>
+							</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row section">
+                <div class="col-sm-12 content-header">
+                    <div class="row margin-20">
+                        <div class="col-md-4">
+                            <h2>RUPS</h2>
+                        </div>
+                        <div class="col-md-8">
+                           <ul class="list-inline print-and-email">
+                              <li>
+                                  <img src="images/icon_print-page.png"> Print
+                              </li>
+                              <li>
+                                  <img src="images/icon_email-allerts.png"> Email Alerts
+                              </li>
+                          </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-content">
+                        <thead>
+							<tr>
+								<td class="soft-blue">Title</td>
+								<td class="soft-blue">Date and Time</td>                            
+								<td class="soft-blue">Venue</td>
+							</tr>
+                        </thead>
+                        <tbody>
+							<tr>								
+								<td>
+									<span class="laporan-keuangan-icon-pdf">
+										<img width="15" height="auto" src="images/icon_pdf.png">
+									</span>
+									<span class="laporan-keuangan-text">
+										2013 Annual General Marketing of Shareholders
+									</span>
+								</td>                         
+								<td>Wednesday / April 17th, 2013 <br/> 09.00 WIB - 13.00 WIB</td>
+								<td>
+									Four Seasons Hotel<br/>
+									Jl. H.R. Rasuna Said, Jakarta, 12920<br/>
+								</td>
+							</tr>
+							<tr>								
+								<td>
+									<span class="laporan-keuangan-icon-pdf">
+										<img width="15" height="auto" src="images/icon_pdf.png">
+									</span>
+									<span class="laporan-keuangan-text">
+										P2012 Annual General Marketing of Shareholders
+									</span>
+								</td>                         
+								<td>Maret 17, 2016</td>								
+								<td>
+									Ballroom Pacific Place<br/>
+									The Ritz Carlton-SCBD<br/>
+									Jl. Jend. Sudirman Kav, 52-53<br/>
+									Jakarta Selatan 12190<br/>
+								</td>
+							</tr>							
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    jQuery(document).ready(function () {
+      $('#nav').affix({
+          offset: {
+              top: $('.left-menu').offset().top,
+              bottom: ($('footer').outerHeight(true) + $('.application').outerHeight(true)) + 40
+          }
+      });
+    })
+</script>
+
+      
+      
+    <div class="container custom">
+    <div id="sitemap_wrapper">
+      <h2>​"KAMI PERUSAHAAN GAS NEGARA"</h2>
+      <a class="sitemap_link" role="button" data-toggle="collapse" href="#sitemap_acc" aria-expanded="false" aria-controls="collapseExample">
+        <span class="sitemap_text">SITE MAP</span><br/>
+        <img src="images/button-site-map.png" class="sitemap_btn"/>
+      </a>
+      <div class="collapse" id="sitemap_acc">
+          <footer>
+          <div class="footer" id="footer">
+              <div class="container">
+                  <div class="row">                      
+					  <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                          <h3> <a href="?page=home">Home </h3>
+                          <ul>
+                              <li> <a href="?page=home#apa"> Apa Yang Anda Butuhkan </a> </li>
+                              <li> <a href="?page=home#mengapa"> Mengapa Memilih PGN </a> </li>
+                              <li> <a href="?page=home#video" > Cara Berlangganan Gas </a> </li>
+                              <li> <a href="?page=home#video"> Video </a> </li>
+                              <li> <a href="?page=home#pgn" > PGN Mobile </a> </li>
+                              <li> <a href="?page=home#tata"> Tata Kelola </a> </li>
+                              <li> <a href="?page=home#tata"> Keberlanjutan </a> </li>
+                              <li> <a href="?page=home#tata"> Informasi Publik </a> </li>
+                          </ul>
+                      </div>
+                      <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                          <h3> <a href="?page=residensial">Residensial </h3>
+                          <ul>
+                              <li> <a href="?page=residensial#produk" > Produk & Layanan Kami </a> </li>
+                              <li> <a href="?page=residensial#peruntukan"> Peruntukan Gas Anda </a> </li>
+                              <li> <a href="?page=residensial#lima" > Kalkulator Energi Baik </a> </li>
+                              <li> <a href="?page=residensial#lima" > 5 Langkah Berlangganan Gas </a> </li>
+                              <li> <a href="?page=residensial#membayar"> Membayar Gaskita Makin Mudah</a> </li>
+                              <li> <a href="?page=residensial#membayar"> Tips Energi Baik</a> </li>
+                              <li> <a href="?page=residensial#right"> Right & Responsibilities</a> </li>
+                              <li> <a href="?page=residensial#faq"> Frequently Asked Questions</a> </li>
+                      </div>
+                      <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                          <h3><a href="?page=bisnis"> Bisnis </h3>
+                          <ul>
+                              <li> <a href="?page=bisnis#produk"> Produk & Layanan Kami </a> </li>
+                              <li> <a href="?page=bisnis#industri"> Industri Anda </a> </li>
+                              <li> <a href="?page=bisnis#lima"> Kalkulator Boiler & Listrik </a> </li>
+                              <li> <a href="?page=bisnis#lima"> 5 Langkah Berlangganan Gas </a> </li>
+                              <li> <a href="?page=bisnis#right"> Tips Energi Baik </a> </li>
+                              <li> <a href="?page=bisnis#right"> Right & Responsibilities </a> </li>
+                              <li> <a href="?page=bisnis#faq"> Frequently Asked Questions </a> </li>
+                          </ul>
+                      </div>
+                      <div class="col-lg-3  col-md-3 col-sm-3 col-xs-6">
+                          <h3> <a href="?page=transportasi">Transportasi </h3>
+                          <ul>
+                              <li> <a href="?page=transportasi#produk"> Produk & Layanan Kami </a> </li>
+                              <li> <a href="?page=transportasi#tips" > Lokasi SPBU & MRU </a> </li>
+                              <li> <a href="?page=transportasi#kenapa"> Kenapa Kendaraan Anda Memakai Gasku </a> </li>
+                              <li> <a href="?page=transportasi#tips"> Tips Energi Baik </a> </li>
+                              <li> <a href="?page=transportasi#faq"> Frequently Asked Questions </a> </li>
+                          </ul>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 hidden-sm hidden-xs">
+                          <h3> <a href="?page=tentang-kami"> Tentang Kami </h3>
+                          <ul>
+                              <li> <a href="?page=tentang-kami#about_pgn"> Melayani Indonesia </a> </li>
+                              <li> <a href="?page=tentang-kami#transformasi_kelas_dunia" > Transformasi Kelasi Dunia </a> </li>
+                              <li> <a href="?page=tentang-kami#sejarah" > Sejarah </a> </li>
+                              <li> <a href="?page=tentang-kami#kepemimpinan" > Kepemimpinan </a> </li>
+                              <li> <a href="?page=tentang-kami#kegiatan_usaha"> Kegiatan Usaha </a> </li>
+                              <li> <a href="?page=tentang-kami#pgn_group" > PGN Group </a> </li>
+                              <li> <a href="?page=tentang-kami#sinergi_operasi"> Sinergi Operasi </a> </li>
+                              <li> <a href="?page=tentang-kami#teknologi"> Teknologi </a> </li>
+                              <li> <a href="?page=tentang-kami#infrastruktur"> Infrastruktur & Jaringan Gas Bumi</a> </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <!--/.row-->
+
+                  <div class="row">					  
+                      <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                          <h3><a href="?page=berita"> News </h3>
+                          <ul>
+                              <li> <a href="?page=berita#berita"> Latest News </a> </li>
+                              <li> <a href="?page=berita#acara"> Events </a> </li>
+                              <li> <a href="?page=berita#siaran"> Press Release </a> </li>
+                          </ul>
+                      </div>
+                      <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                          <h3><a href="?page=tata-kelola"> Tata Kelola </h3>
+                          <ul>
+                              <li> <a href="?page=tata-kelola#sumber"> Sumber Daya Manusia </a> </li>
+                              <li> <a href="?page=tata-kelola#profil"> Profil Pekerja </a> </li>
+                              <li> <a href="?page=tata-kelola#pengembangan"> Pengembangan Kompetensi</a> </li>
+                              <li> <a href="?page=tata-kelola#komitmen"> Komitmen </a> </li>
+                              <li> <a href="?page=tata-kelola#struktur"> Struktur Tata Kelola</a> </li>
+                              <li> <a href="?page=tata-kelola#anggaran"> Anggaran Dasar & Board Manual</a> </li>
+                              <li> <a href="?page=tata-kelola#komite"> Komite</a> </li>
+                              <li> <a href="?page=tata-kelola#sekretaris"> Sekretaris Perusahaan</a> </li>
+                              <li> <a href="?page=tata-kelola#pedoman"> Pedoman Tata Kelola Perusahaan</a> </li>
+                              <li> <a href="?page=tata-kelola#whistleblowing"> Whistleblowing System</a> </li>
+                      </div>
+                      <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6 hidden-sm hidden-xs">
+                          <h3> <a href="?page=keberlanjutan">Keberlanjutan </h3>
+                          <ul>
+                              <li> <a href="?page=keberlanjutan#mendorong">Mendorong Roda Ekonomi </a> </li>
+                              <li> <a href="?page=keberlanjutan#kerja"> Kerjasama Bisnis </a> </li>
+                              <li> <a href="?page=keberlanjutan#transformasi"> Transformasi Lingkungan </a> </li>
+                              <li> <a href="?page=keberlanjutan#menjaga"> Menjaga Planet </a> </li>
+                              <li> <a href="?page=keberlanjutan#fakta"> Fakta Hijau </a> </li>
+                              <li> <a href="?page=keberlanjutan#tanggung"> Tanggung Jawab Sosial </a> </li>
+                              <li> <a href="?page=keberlanjutan#penghargaan"> Penghargaan </a> </li>
+                          </ul>
+                      </div>
+                      <div class="col-lg-3  col-md-3 col-sm-3 col-xs-6 hidden-xs hidden-sm">
+                          <h3> <a href="?page=kip">Informasi Publik </h3>
+                          <ul>
+                              <li> <a href="?page=kip#keterbukaan"> Keterbukaan Informasi Publik </a> </li>
+                              <li> <a href="?page=kip#informasi"> Informasi Wajib </a> </li>
+                              <li> <a href="?page=kip#penilaian"> Penilaian Lembaga Independen </a> </li>
+                              <li> <a href="?page=kip#remurasi"> Remurasi Direksi, Komisaris dan Dewan Pengawas </a> </li>
+                              <li> <a href="?page=kip#perkara"> Perkara Penting yang Dihadapi </a> </li>
+                              <li> <a href="?page=kip#tata"> Tata Kelola Perusahaan yang Baik </a> </li>
+							  <li> <a href="?page=kip#tata"> Pengadaan Barang dan Jasa </a> </li>
+							  <li> <a href="?page=kip#tata"> Informasi terbaru </a> </li>
+							  <li> <a href="?page=kip#tata"> Penghargaan </a> </li>
+                              <li> <a href="?page=kip#informasitersedia"> Informasi Tersedia Setiap Ssat </a> </li>
+                          </ul>
+                      </div>
+                      <div class="col-lg-3  col-md-3 col-sm-3 col-xs-6 hidden-xs hidden-sm">
+                          <h3> <a href="?page=investor">Investor </h3>
+                          <ul>
+                              <li><a href="investor.html">Investor</a></li>
+                              <li><a href="our-shareholders.html">Our Shareholders</a></li>
+                              <li><a href="stock-information.html">Stock Information</a></li>
+                              <li><a href="financial-information.html">Financial Information</a></li>
+                              <li><a href="idx-announcements.html">IDX Announcements</a></li>
+                              <li><a href="eventsandpresentations.html">Events & Presentations</a></li>
+                              <li><a href="investor-services.html">Investor Services</a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <!--/.row-->
+                  <div class="row visible-sm visible-xs">				
+                    <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                        <h3> <a href="?page=kip">Informasi Publik </h3>
+                        <ul>
+							<li> <a href="?page=kip#keterbukaan"> Keterbukaan Informasi Publik </a> </li>
+                            <li> <a href="?page=kip#informasi"> Informasi Wajib </a> </li>
+                            <li> <a href="?page=kip#penilaian"> Penilaian Lembaga Independen </a> </li>
+                            <li> <a href="?page=kip#remurasi"> Remurasi Direksi, Komisaris dan Dewan Pengawas </a> </li>
+                            <li> <a href="?page=kip#perkara"> Perkara Penting yang Dihadapi </a> </li>
+                            <li> <a href="?page=kip#tata"> Tata Kelola Perusahaan yang Baik </a> </li>
+							<li> <a href="?page=kip#tata"> Pengadaan Barang dan Jasa </a> </li>
+							<li> <a href="?page=kip#tata"> Informasi terbaru </a> </li>
+							<li> <a href="?page=kip#tata"> Penghargaan </a> </li>
+                            <li> <a href="?page=kip#informasitersedia"> Informasi Tersedia Setiap Ssat </a> </li>			 
+                        </ul>
+                    </div>
+                    <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                        <h3> <a href="?page=keberlanjutan">Keberlanjutan </h3>
+                        <ul>
+                            <li> <a href="?page=keberlanjutan#mendorong">Mendorong Roda Ekonomi </a> </li>
+                              <li> <a href="?page=keberlanjutan#kerja"> Kerjasama Bisnis </a> </li>
+                              <li> <a href="?page=keberlanjutan#transformasi"> Transformasi Lingkungan </a> </li>
+                              <li> <a href="?page=keberlanjutan#menjaga"> Menjaga Planet </a> </li>
+                              <li> <a href="?page=keberlanjutan#fakta"> Fakta Hijau </a> </li>
+                              <li> <a href="?page=keberlanjutan#tanggung"> Tanggung Jawab Sosial </a> </li>
+                              <li> <a href="?page=keberlanjutan#penghargaan"> Penghargaan </a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6 visible-sm">
+                        <h3> <a href="?page=tentang-kami">Tentang Kami </h3>
+                        <ul>
+                            <li> <a href="?page=tentang-kami#about_pgn"> Melayani Indonesia </a> </li>
+                              <li> <a href="?page=tentang-kami#transformasi_kelas_dunia" > Transformasi Kelasi Dunia </a> </li>
+                              <li> <a href="?page=tentang-kami#sejarah" > Sejarah </a> </li>
+                              <li> <a href="?page=tentang-kami#kepemimpinan" > Kepemimpinan </a> </li>
+                              <li> <a href="?page=tentang-kami#kegiatan_usaha"> Kegiatan Usaha </a> </li>
+                              <li> <a href="?page=tentang-kami#pgn_group" > PGN Group </a> </li>
+                              <li> <a href="?page=tentang-kami#sinergi_operasi"> Sinergi Operasi </a> </li>
+                              <li> <a href="?page=tentang-kami#teknologi"> Teknologi </a> </li>
+                              <li> <a href="?page=tentang-kami#infrastruktur"> Infrastruktur & Jaringan Gas Bumi</a> </li>
+                        </ul>
+                    </div>
+                  </div>
+
+                  <div class="row visible-xs">
+                    <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                        <h3><a href="?page=tentang-kami"> Tentang Kami </h3>
+                        <ul>
+                            <li> <a href="?page=tentang-kami#about_pgn"> Melayani Indonesia </a> </li>
+                              <li> <a href="?page=tentang-kami#transformasi_kelas_dunia" > Transformasi Kelasi Dunia </a> </li>
+                              <li> <a href="?page=tentang-kami#sejarah" > Sejarah </a> </li>
+                              <li> <a href="?page=tentang-kami#kepemimpinan" > Kepemimpinan </a> </li>
+                              <li> <a href="?page=tentang-kami#kegiatan_usaha"> Kegiatan Usaha </a> </li>
+                              <li> <a href="?page=tentang-kami#pgn_group" > PGN Group </a> </li>
+                              <li> <a href="?page=tentang-kami#sinergi_operasi"> Sinergi Operasi </a> </li>
+                              <li> <a href="?page=tentang-kami#teknologi"> Teknologi </a> </li>
+                              <li> <a href="?page=tentang-kami#infrastruktur"> Infrastruktur & Jaringan Gas Bumi</a> </li>
+                        </ul>
+                    </div>
+					<div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                          <h3> <a href="?page=investor">Investor </h3>
+                          <ul>
+                              <li><a href="investor.html">Investor</a></li>
+                              <li><a href="our-shareholders.html">Our Shareholders</a></li>
+                              <li><a href="stock-information.html">Stock Information</a></li>
+                              <li><a href="financial-information.html">Financial Information</a></li>
+                              <li><a href="idx-announcements.html">IDX Announcements</a></li>
+                              <li><a href="eventsandpresentations.html">Events & Presentations</a></li>
+                              <li><a href="investor-services.html">Investor Services</a></li>
+                          </ul>
+                      </div>
+                  </div>
+
+                  <div class="row">					  
+                      <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                          <h3> <a href="?page=contact-us">Contact Us </h3>
+                          <ul>
+                              <li> <a href="?page=contact-us#informasi"> Informasi Karir </a> </li>
+                              <li> <a href="?page=contact-us#hubungi"> Hubungi Kami </a> </li>
+                              <li> <a href="?page=contact-us#form"> Formulir Kontak </a> </li>
+                          </ul>
+                      </div>
+                      <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                          <h3> <a href="?page=procurement">Procurement </h3>
+                          <ul>
+                              <li> <a href="?page=procurement#pengadaan"> Pengadaan </a> </li>
+                              <li> <a href="?page=procurement#pengumuman"> Pengumuman </a> </li>
+                              <li> <a href="?page=procurement#aplikasi"> Aplikasi Management & Pendaftaran Penyedia Barang/Jasa </a> </li>
+                      </div>
+                  </div>
+                  <!--/.row-->
+              </div>
+              <!--/.container-->
+          </div>
+          <!--/.footer-->
+
+          </footer>
+      </div>
+    </div>
+</div>
+
+<div class="container-fluid footer">
+    <div class="row">
+        <div class="footer_bg">
+            <p class="footer_text"> PT. Perusahaan Gas Negara (Persero) Tbk. All Rights Reserved © Copyright 2017 PGN</p>
+        </div>
+    </div>
+</div>
+
+	
+     <script src="jquery.easing.1.3.js"></script>
+	 <script src="jquery.nicescroll.js"></script>
+     <script src="jquery.nicescroll.plus.js"></script>
+	<script>
+  var seq = 0;
+
+  $(document).ready(function() {
+	$("html").niceScroll({styler:"fb",cursorcolor:"#000"});
+	
+	
+	//goSeq();
+	
+	$(window).load(function(){
+	  setTimeout(function(){
+	    $("#gmbox div").animate({'top':27},1400,"easeOutElastic");
+	  },1400);
+	});
+	
+	
+	
+  });
+</script>
+  </body>
+
+</html>

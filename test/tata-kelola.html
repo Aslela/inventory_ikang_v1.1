@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> --> 
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+	 
+	<title>Tata Kelola</title>
+    
+	<link rel="shortcut icon" type="image/x-icon" href="http://www.pgn.co.id/images/modules/favicon.ico" />
+    
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="pav/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Bootstrap -->
+    <link href="styles/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/css/styles.css" rel="stylesheet">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="styles/js/jquery.1.12.4.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="styles/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- <link href="https://www.fontify.me/wf/18e2a1337607f8734ef443d978cb015f" rel="stylesheet" type="text/css"> -->
+  </head>
+  <body>
+
+    <div id="wrapper-header" class="container">
+    <!--HEADER LOGO ON LEFT-->
+    <div class="col-sm-2 brd" id="header-logo">
+      <a class="hidden-xs" href="?">
+        <img src="styles/img/logo-pgn.png"/>
+      </a>
+      <!-- <a class="visible-xs" href="?">
+        <img src="styles/img/logo-pgn.png" style="width:26px;position:absolute;z-index:1;top:5px;" />
+      </a> -->
+    </div>
+
+    <!--HEADER MENU ON RIGHT -->
+    <div class="col-sm-10 brd" id="header-right-menu">
+      <nav class="navbar navbar-inverse brd header_text">
+          <div id="topbar" class="navbar-header" style="margin:0 20px;">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <p class="header-title-sm hidden-sm hidden-md hidden-lg">PT. Perusahaan Gas Negara (Persero) Tbk</p>
+            <div class="input-group visible-xs" id="search" style="width:121px;margin-top:14px;margin-left: -33px;">
+                <input type="text" class="form-control input-xs" placeholder="Search" />
+                <span class="input-group-btn">
+                    <button class="btn btn-md btn-search" type="button">
+                        <i class="glyphicon glyphicon-search" style="font-size: 12px;"></i>
+                    </button>
+                </span>
+            </div>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse brd">
+            <div class="visible-xs" id="mobile_menu">
+            <div class=" cek mobile_top_box">
+                <div class="pull-left">
+                  <img src="styles/img/logo-pgn.png" class="mobile_logo">
+                </div>
+                <div class="pull-right">
+                  <span class="btnclose" aria-hidden="true" style="font-size: 17px;font-weight: 100 !important;" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"></span>
+                </div>
+           </div>
+
+
+           <div class=" cek mobile_bottom_box">
+               <div class="row-fluid">
+                 <div class="pull-left search2">
+                   <div class="input-group visible-xs show" id="search" style="width:123px;">
+                       <input type="text" id="search2" class="form-control input-xs" placeholder="Search">
+                       <span class="input-group-btn">
+                           <button class="btn btn-md btn-search" type="button">
+                               <i class="glyphicon glyphicon-search" style="font-size: 12px;"></i>
+                           </button>
+                       </span>
+                   </div>
+                 </div>
+                 <div class="pull-right flagger">
+                   <!--<img class="show" src="images/multi-language.png" alt="" width="62" height="23">-->
+				   <img class="show" src="images/lang_eng.png" alt="" width="23" height="23">
+				   <img class="show" src="images/lang_divider.png" alt="" width="16" height="23">
+				   <img class="show" src="images/lang_idn.png" alt="" width="23" height="23">
+                 </div>
+
+              </div>
+              <!-- <div id="expand-search-wrapper"> -->
+                <div class="input-group visible-xs hide" id="expand-search">
+                  <input type="text" id="expand-search2" class="form-control input-xs" placeholder="Search">
+                  <span class="input-group-btn">
+                      <button class="btn btn-md btn-expand-search" type="button">
+                          <i class="glyphicon glyphicon-search" style="font-size: 12px;"></i>
+                      </button>
+                  </span>
+                </div>
+              <!-- </div> -->
+              <!-- <div class="row">
+                  <div class="input-group visible-xs" id="search1">
+                      <input type="text" class="form-control input-xs" placeholder="Search">
+                      <span class="input-group-btn">
+                          <button class="btn btn-md" type="button">
+                              <i class="glyphicon glyphicon-search" style="font-size: 12px;"></i>
+                          </button>
+                      </span>
+                  </div>
+             </div> -->
+
+           </div>
+
+           <div class="wrapper_line">
+            <div class="col-xs-8 lapan"></div>
+            <div class="col-xs-4 empat"></div>
+          </div>
+
+
+           <ul class="nav navbar-nav">
+             <li><a href="?page=home">Home</a></li>
+             <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tentang Kami
+                 <span class="glyphicon glyphicon-plus pull-right marginright"></span>
+                 <!-- <span class="glyphicon glyphicon-minus pull-right marginright"></span> -->
+               </a>
+               <ul class="dropdown-menu">
+                 <li> <a href="tentang-kami.html#about_pgn"> Melayani Indonesia </a> </li>
+                 <li> <a href="tentang-kami.html#transformasi_kelas_dunia" > Transformasi Kelasi Dunia </a> </li>
+                 <li> <a href="tentang-kami.html#sejarah" > Sejarah </a> </li>
+                 <li> <a href="tentang-kami.html#kepemimpinan" > Kepemimpinan </a> </li>
+                 <li> <a href="tentang-kami.html#kegiatan_usaha"> Kegiatan Usaha </a> </li>
+                 <li> <a href="tentang-kami.html#pgn_group" > PGN Group </a> </li>
+                 <li> <a href="tentang-kami.html#sinergi_operasi"> Sinergi Operasi </a> </li>
+                 <li> <a href="tentang-kami.html#teknologi"> Teknologi </a> </li>
+                 <li> <a href="tentang-kami.html#infrastruktur"> Infrastruktur & Jaringan Gas Bumi</a> </li>
+               </ul>
+             </li>
+             <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Investor
+                 <span class="glyphicon glyphicon-plus pull-right marginright"></span>
+                 <!-- <span class="glyphicon glyphicon-minus pull-right marginright"></span> -->
+               </a>
+               <ul class="dropdown-menu">
+                  <li><a href="investor.html">Investor</a></li>
+                  <li><a href="our-shareholders.html">Our Shareholders</a></li>
+                  <li><a href="stock-information.html">Stock Information</a></li>
+                  <li><a href="financial-information.html">Financial Information</a></li>
+                  <li><a href="idx-announcements.html">IDX Announcements</a></li>
+                  <li><a href="eventsandpresentations.html">Events & Presentations</a></li>
+                  <li><a href="investor-services.html">Investor Services</a></li>
+               </ul>
+             </li>
+             <li><a href="berita.html">Berita</a></li>
+             <li><a href="residensial.html">Residensial & Usaha Kecil</a></li>
+             <li><a href="bisnis.html">Bisnis</a></li>
+             <li><a href="transportasi.html">Transportasi</a></li>
+             <li><a href="procurement.html">Procurement</a></li>
+             <li><a href="contactus.html" style="border-right:none;">Contact Us</a></li>
+           </ul>
+           <div class="mobile_menu_footer">
+             <img class="" src="images/contact-center.png" alt="" width="68" height="38">
+             <p class="copyright">All Rights Reserved @ Copyright 2017 PGN</p>
+          </div>
+         </div>
+
+         <div class="hidden-xs">
+            <ul class="nav navbar-nav">
+              <li class="active"><a style="padding-right:15px;" href="residensial.html">Residensial & Usaha Kecil</a></li>
+              <li><a href="bisnis.html">Bisnis</a></li>
+              <li><a href="transportasi.html">Transportasi</a></li>
+              <li><a href="procurement.html">Procurement</a></li>
+              <li ><a href="contactus.html" style="border-right:none;">Contact Us</a></li>
+              <li class="lang-li">
+				<a href="#contact" class="language padding-right-0">
+					<!--<img  src="images/multi-language.png" alt="" width="62" height="23">-->
+					<img class="show" src="images/lang_eng.png" alt="" width="23" height="23">									
+				</a>
+				<a href="#contact" class="language-divider"><img class="show" src="images/lang_divider.png" alt="" width="16" height="23"></a>
+				<a href="#contact" class="language padding-left-0"><img class="show" src="images/lang_idn.png" alt="" width="23" height="23"></a>
+			  </li>
+            </ul>
+            <img class="pull-right" style="margin-top:-2px;"src="images/contact-center.png" alt="" width="68" height="38">
+        </div>
+          </div><!--/.nav-collapse -->
+          <div class="wrapper_line" style="margin:0 0px;height:10px">
+            <div class="col-xs-8 lapan"></div>
+            <div class="col-xs-4 empat"></div>
+          </div>
+      </nav>
+
+      <div class="hidden-xs brd header_text" id="bottom_menu">
+        <div class="col-lg-8 brd" style="margin-top:4px;">
+          <ul class="nav navbar-nav nav-bar-main-menu">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="tentangkami.html">Tentang Kami</a></li>
+            <li><a href="investor.html">Investor</a></li>
+            <li><a href="berita.html">Berita</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 brd" id="header-search">
+            <!--<img class="pull-right" id="u14162_img" src="images/search.png" alt="" width="121" height="22"> -->
+              <div class="input-group" id="search">
+                  <input type="text" class="form-control input-xs" placeholder="Search" />
+                  <span class="input-group-btn">
+                      <button class="btn btn-md" type="button" style="background-color:#4e606e;color:#fff;height: 22px;padding: 2px 8px;">
+                          <i class="glyphicon glyphicon-search" style="font-size: 12px;top:-1px;"></i>
+                      </button>
+                  </span>
+              </div>
+        </div>
+     </div>
+  </div>
+    <div class="search-popup">
+        <input type="search" placeholder="Search" />
+        <button class="button-search"><i class="glyphicon glyphicon-search"></i></button>
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+//	document.title = 'blah';
+  $('#search2').focus(function () {
+    $('#expand-search').removeClass('hide');$('#expand-search').addClass('show');
+    $('.search2').removeClass('show');$('.search2').addClass('hide');
+    $('.flagger').removeClass('show');$('.flagger').addClass('hide');
+    document.getElementById("expand-search2").focus();
+  });
+  $('#expand-search2').blur(function () {
+    $('#expand-search').removeClass('show');$('#expand-search').addClass('hide');
+    $('.search2').removeClass('hide');$('.search2').addClass('show');
+    $('.flagger').removeClass('hide');$('.flagger').addClass('show');
+  });
+  $('#navbar').on('hide.bs.collapse', function () {
+    // do something…
+    // alert('hide');
+    /*.navbar-inverse{
+      background-color: #eee;
+    }*/
+    $('#wrapper-header').css('color','red !important');
+    $('#navbar').css({'background-color':'#fff'});
+    $('.navbar').removeClass('navbar-fixed-top');
+    $('#topbar').show();
+    $('html, body').removeClass('overflowhidden');
+  })
+
+  $('#navbar').on('show.bs.collapse', function () {
+	var window_height = $( window ).height();
+    $('#navbar').css({
+		'background-color':'#eee',
+		"min-height":window_height,
+		"height":"561px"
+	});
+    $('.navbar').addClass('navbar-fixed-top');
+    $('#topbar').hide();
+    $('html, body').addClass('overflowhidden');
+    // do something…
+  });
+  
+  // Windows resize for mobile menu scrolling
+  $( window ).resize(function() {
+		var window_height = $( window ).height();
+		
+		var check_mobile = $("body").hasClass("overflowhidden");
+		
+		if(check_mobile){
+			$('#navbar').css({
+				'background-color':'#eee',
+				"min-height":window_height,
+				"height":window_height
+			});
+		}else{
+			$('#navbar').css({
+				'background-color':'#fff',
+				"min-height":"36px"
+			});
+		}
+  });
+  
+  mobileMenuScroll();
+  function mobileMenuScroll(){
+	var window_height = $( window ).height();
+	//alert(window_height);
+	var check_mobile = $("body").hasClass("overflowhidden");
+	if(check_mobile){
+		$('#navbar').css({
+			'background-color':'#eee',
+			"min-height":window_height,
+			"height":window_height
+		});
+	}else{
+		$('#navbar').css({
+			'background-color':'#fff',
+			"min-height":"36px"
+		});
+	}	
+  }
+
+  $(".dropdown").on("show.bs.dropdown", function(event){
+    $(event.relatedTarget).find('.marginright').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+  });
+
+$(".dropdown").on("hide.bs.dropdown", function(event){
+  $(event.relatedTarget).find('.marginright').removeClass('glyphicon-minus').addClass('glyphicon-plus');
+});
+
+    $('#header-search, #search').click(function(e)  {
+        $('.search-popup').toggle();
+        $('.search-popup input[type=search]').focus();
+        e.stopPropagation();
+    });
+    $(document.body).click(function() {
+        $('.search-popup').hide();
+    });
+    $('.search-popup').click(function(e) {
+        e.stopPropagation();
+    });
+
+
+})
+</script>
+
+      
+    <link href="slick/slick.css" rel="stylesheet">
+<link href="slick/slick-theme.css" rel="stylesheet">
+<link href="styles/css/tata-kelola.css" rel="stylesheet">
+
+<style>
+.fade {
+   opacity: 0;
+   -webkit-transition: opacity 1.2s linear;
+      -moz-transition: opacity 1.2s linear;
+       -ms-transition: opacity 1.2s linear;
+        -o-transition: opacity 1.2s linear;
+           transition: opacity 1.2s linear;
+ }
+.tab-content {
+    position:relative;
+}
+.tab-content>.tab-pane {
+   position:absolute;
+   display:block;
+ }
+.tab-content>.tab-pane:not(.active) {
+    opacity: 0;
+ }
+</style>
+
+<div class="hr">&nbsp;</div>
+
+<div class="tk-page">
+    <div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 257px; overflow: hidden;">
+        <!-- Slides Container -->
+        <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
+
+            <div>
+                <img u="image" src="images/header_tk1.png"/>
+                <div style="position: absolute; top: 110px; left: 50px; width: 200px; height: 50px;color:#fff;">
+                    <h3 style="font-size:21px;font-weight:300;margin-top:20px;margin-left:20px;white-space:nowrap;">Tata Kelola</h3>
+                </div>
+            </div>
+            <div>
+                <img u="image" src="images/header_tk2.png"/>
+                <div style="position: absolute; top: 110px; left: 50px; width: 200px; height: 50px;color:#fff;">
+                    <h3 style="font-size:21px;font-weight:300;margin-top:20px;margin-left:20px;white-space:nowrap;">Tata Kelola</h3>
+                </div>
+            </div>
+            <div>
+                <img u="image" src="images/header_tk3.png"/>
+                <div style="position: absolute; top: 110px; left: 50px; width: 200px; height: 50px;color:#fff;">
+                    <h3 style="font-size:21px;font-weight:300;margin-top:20px;margin-left:20px;white-space:nowrap;">Tata Kelola</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tk-sdm" id="sumber">
+        <div class="container tk-content">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="tk-sdm-content">
+                        <h2>Sumber Daya Manusia</h2>
+                        <p>Insan PGN menentukan kinerja dan keberhasilan PGN dalam upayanya menjadi perusahaan kelas dunia sebagai sasaran jangka panjangnya. Bagi PGN, sumber daya manusia memegang peranan penting bagi pertumbuhan usahanya. Sejalan dengan itu, PGN membina komunikasi yang baik dengan para karyawannya, memperhatikan tingkat kesejahteraan mereka beserta keluarganya dan mengembangkan profesionalisme dan karir mereka sesuai dengan talenta yang dimiliki.</p>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="tk-sdm-img">
+                        <div class="tk-sdm-img-bg">
+                            <span class="tk-sdm-img-bg1"></span>
+                        </div>
+                        <img src="images/tk_sdm.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tk-profil" id="profil">
+        <div class="container tk-content">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="tk-profil-content">
+                        <h2>Profil Pekerja</h2>
+                        <p>
+                            Usaha PGN menciptakan lingkungan kerja yang kondusif memberikan hasil nyata, ditunjukkan dengan rendahnya tingkat turnover pekerja. Hal ini membuat biaya pengembangan kompetensi pekerja dan pengadaan pekerja (rekrutmen) semakin efisien, sehingga berpengaruh positif terhadap kinerja perusahaan.
+                            <br /><br />
+                            Sesuai Rencana Jangka Panjang Perusahaan, orientasi pengelolaan SDM dalam tahap Pengembangan Kapabilitas ke Area Bisnis Baru yang ditandai dengan realisasi investasi pengembangan bisnis ke hulu dan hilir
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="tk-slide">
+                        <h4>Manajemen Sumber Daya Manusia</h4>
+                        <div class="tk-slide-slide">
+                            <div data-nav="By Gender"><img src="images/tk_pk_by-gender.png" /></div>
+                            <div data-nav="By Education"><img src="images/tk_pk_by-edu.png" /></div>
+                            <div data-nav="By Age"><img src="images/tk_pk_by-age.png" /></div>
+                            <div data-nav="Total Employees"><img src="images/tk_pk_by-total-employes.png" /></div>
+                            <div data-nav="Years of Service"><img src="images/tk_pk_by-years-of-service.png" /></div>
+                            <div data-nav="Turn Over"><img src="images/tk_pk_by-turn-over.png" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tk-pengembangan" id="pengembangan">
+        <div class="container tk-content">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="tk-pengembangan-content">
+                        <h2>Pengembangan Kompetensi</h2>
+                        <p>
+                            PGN telah memiliki program pengembangan kompetensi yang terencana, sistematis dan terfokus sesuai perkembangan bisnis perusahaan. Salah satu program pengembangan kompetensi utama yang telah dilaksanakan secara konsisten adalah program pendidikan dan pelatihan (Diklat) yang mendukung proses pemeliharaan dan peningkatan kualitas SDM.
+                            <br /><br />
+                            PGN mengalokasikan rata-rata 6 mandays pelatihan untuk setiap pekerja guna mendukung pengembangan maupun pemenuhan atas gap kompetensi pekerja.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="tk-slide">
+                        <h4>Manajemen Sumber Daya Manusia</h4>
+                        <div class="tk-pengembangan-slide-wrapper">
+                            <div class="tk-pengembangan-slide-legend">
+                                <p>Legend:</p>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <ul>
+                                            <li><p><span><strong>PDO</strong>:</span> President Director's Office</p></li>
+                                            <li><p><span><strong>ITDD</strong>:</span> Infrastructure and Technology Directorate</p></li>
+                                            <li><p><span><strong>SBDD</strong>:</span> Strategy and Business Development Directorate</p></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <ul>
+                                            <li><p><span><strong>FD</strong>:</span> Finance Directorate</p></li>
+                                            <li><p><span><strong>CD</strong>:</span> Commerce Directorate</p></li>
+                                            <li><p><span><strong>HCGSD</strong>:</span> Human Capital and General Services Directorate</p></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tk-slide-slide">
+                                <div data-nav="Training Mandays"><img src="images/tk_pk_by-training-mandays.png" /></div>
+                                <div data-nav="Training Participants"><img src="images/tk_pk_by-training-participants.png" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tk-komitmen" id="komitmen">
+        <div class="container tk-content">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="tk-komitmen-content">
+                        <h2>Komitmen</h2>
+                        <p>
+                            PGN menjadikan Tata Kelola Perusahaan dan prinsip-prinsip Transparansi, Akuntabilitas, Pertanggungjawaban, Kemandirian dan Kewajaran sebagai dasar peningkatan kinerja. Perseroan juga terus melakukan pemutakhiran berbagai Pedoman, Prosedur Operasi, Manual dengan perubahan peraturan perundang-undangan yang berlaku serta program transformasi dan perkembangan Perusahaan yang dikuatkan dengan sosialisasi dan penerapannya.
+                        </p>
+                        <a href="#" class="button-standard">Download</a>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="tk-komitmen-img">
+                        <div class="tk-komitmen-img-bg">
+                            <span class="tk-komitmen-img-bg1"></span>
+                        </div>
+                        <img src="images/tk_komitmen1.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tk-struktur" id="struktur">
+        <div class="container tk-content">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="tk-struktur-content">
+                        <h2>Struktur Tata Kelola</h2>
+                        <p>
+                            Sesuai Undang-Undang No. 40 Tahun 2007 tentang Perseroan Terbatas, Organ Perseroan terdiri dari Rapat Umum Pemegang Saham,
+                            Dewan Komisaris dan Direksi. Organ Perseroan tersebut memainkan peran kunci dalam keberhasilan pelaksanaan Tata Kelola Perusahaan yang Baik dan menjalankan fungsinya atas dasar prinsip bahwa masing-masing organ mempunyai independensi dalam melaksanakan tugas,
+                            fungsi dan tanggung jawabnya untuk
+                            kepentingan Perseroan.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="tk-struktur-img">
+                        <img src="images/tk_stk.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tk-anggaran" id="anggaran">
+        <div class="container tk-content">
+            <div class="row">
+                <div class="col-md-6 col-sm-5">
+                    <div class="tk-anggaran-content">
+                        <h2>Anggaran Dasar<br />& Board Manual</h2>
+                        <p>
+                            Board Manual merupakan seperangkat petunjuk tata laksana hubungan Dewan Komisaris dan Direksi yang bertujuan menjelaskan tugas, tanggung jawab, hak dan kewenangan serta hubungan kerja antara Dewan Komisaris dan Direksi yang belum secara rinci diatur dalam Anggaran Dasar Perseroan maupun Peraturan Perundang-undangan. Board Manual disusun agar Direksi dan Komisaris dapat bekerja secara efektif dan efisien.
+                        </p>
+                        <a href="#" class="button-standard">Download</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-7 tk-anggaran-img">
+                    <div class="tk-anggaran-img-bg">
+                        <span class="tk-anggaran-img-bg1"></span>
+                    </div>
+                    <img src="images/tk_adbm1.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tk-komite" id="komite">
+        <div class="container tk-content">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="tk-komite-content">
+                        <h2>Komite</h2>
+                        <p>
+                            Saat ini PGN memiliki tiga komite untuk memastikan pengelolaan perusahaan dilakukan secara baik. Ketiga komite tersebut adalah Komite Audit; Komite Nominasi, Remunerasi dan Good Corporate Governance; serta Komite Pemantau Manajemen Risiko dan Pengembangan Usaha.
+                        </p>
+                        <a href="#" class="button-standard">Download</a>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="tk-slide tk-komite-slide">
+                        <h4><span>3</span> Fungsi <strong>Komite PGN</strong></h4>
+                        <div class="tk-slide-slide">
+                            <div data-nav="Komite Audit"><p>Komite Audit memantau pelaporan keuangan, manajemen risiko dan sistem pengendalian internal Perusahaan.</p></div>
+                            <div data-nav="Komite Nominasi"><p>Komite Nominasi, Remunerasi dan Good Corporate Governance mengkaji dan memberikan rekomendasi pada kebijakan dan sistem remunerasi untuk Dewan Komisaris dan Direksi serta meninjau prosedur dan kebijakan suksesi Dewan Komisaris dan Direksi.</p></div>
+                            <div data-nav="Komite Pemantau Manajemen Resiko"><p>Komite Pemantau Manajemen Risiko dan Pengembangan Usaha dimaksudkan untuk membantu Dewan Komisaris dalam melakukan pemantauan secara berkala dan memberikan rekomendasi atas kebijakan dan pelaksanaan Manajemen Risiko serta rencana dan pengembangan usahanya.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tk-sekretaris" id="sekretaris">
+        <div class="container tk-content">
+            <div class="row">
+                <div class="col-md-6 col-sm-5">
+                    <div class="tk-sekretaris-img">
+                        <img src="images/tk_sekertaris.jpg" />
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-7">
+                    <div class="tk-sekretaris-content">
+                        <div class="tk-sekretaris-content-bg">
+                            <span class="tk-sekretaris-content-bg1"></span>
+                        </div>
+                        <h2>Sekretaris Perusahaan</h2>
+                        <p>
+                            PGN memiliki Sekretaris Perusahaan yang antara lain bertanggung jawab mengarahkan, memonitor dan mengevaluasi pengelolaan legal affair dan contractual dan penanganan kasus dan konsultasi hukum, kepatuhan hukum dan compliance perusahaan, penyusunan kebijakan corporate relation dan corporate communication, pengelolaan corporate brand image serta kegiatan komunikasi dan pembinaan relasi baik internal dan eksternal perusahaan. Sekretaris Perusahaan juga bertanggungjawab dalam hal manajemen risiko serta menjalin relasi dan komunikasi yang baik sehingga menguatkan posisi dan citra perusahaan di mata stakeholder sesuai visi, misi dan strategi perusahaan.
+                        </p>
+                        <a href="#" class="button-standard">Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tk-tabs" id="pedoman">
+        <div class="container">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#tk-tab-1" aria-controls="tk-tab-1" role="tab" data-toggle="tab">Piagam Audit Internal</a></li>
+                <li role="presentation"><a href="#tk-tab-2" aria-controls="tk-tab-2" role="tab" data-toggle="tab">Pengendalian Gratifikasi</a></li>
+                <li role="presentation"><a href="#tk-tab-3" aria-controls="tk-tab-3" role="tab" data-toggle="tab">Manajemen Resiko</a></li>
+                <li role="presentation"><a href="#tk-tab-4" aria-controls="tk-tab-4" role="tab" data-toggle="tab">Kode Etik</a></li>
+                <li role="presentation"><a href="#tk-tab-5" aria-controls="tk-tab-5" role="tab" data-toggle="tab">Pedoman Tata Kelola Perusahaan</a></li>
+            </ul>
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="tk-tab-1">
+                            <p>
+                                Keberadaan Divisi Audit Internal yang profesional merupakan syarat dan berperan penting dalam mendorong serta menjaga pelaksanaan pengelolaan perusahaan. Agar pengawasan internal berjalan efektif, diterima, didukung satuan kerja lain serta memberikan nilai tambah bagi perusahaan maka perlu diatur struktur perusahaan, kewenangan, tugas, dan tanggung jawab serta ruang lingkup Divisi Audit Internal yang dituangkan dalam Piagam Audit Internal.
+                                <br /><br />
+                                Piagam ini dimaksudkan sebagai panduan bagi Divisi Audit Internal agar dapat melaksanakan fungsi dan tugas secara profesional serta untuk dipahami oleh satuan kerja lain agar mendukung kelancaran pelaksanaan tugas pengawasan internal secara efektif sesuai standar audit yang berlaku dan sejalan dengan kebutuhan PGN.
+                            </p>
+                            <a href="#" class="button-standard a b">Download</a>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tk-tab-2">
+                            <p>
+                                Tujuan dari penyusunan kebijakan ini adalah untuk memberikan arah dan acuan bagi seluruh Insan PGN yang berkenaan dengan benturan kepentingan, penerimaan, penolakan, pemberian dan permintaan gratifikasi di lingkungan Perseroan agar sesuai dengan prinsip Tata Kelola Perusahaan Yang Baik, sehingga dapat mendorong pelaksanaan etika usaha dan etika kerja, pencegahan benturan kepentingan, pencegahan kecurangan, serta penyimpangan perilaku lainnya. Kebijakan ini mengatur prinsip kehati-hatian yang terkait dengan benturan kepentingan, etika dalam penerimaan, penolakan, pemberian dan permintaan gratifikasi serta mekanisme pelaporannya di lingkungan Perusahaan.
+                            </p>
+                            <a href="#" class="button-standard a b">Download</a>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tk-tab-3">
+                            <p>
+                                Manajemen Risiko adalah salah satu pilar dari Tata Kelola yang wajib dilaksanakan secara menyeluruh di Perusahaan. Dalam mewujudkan tujuan dan target serta melaksanakan salah satu pilar Tata Kelola, Perusahaan menyadari pentingnya untuk mengelola risiko mulai dari aspek strategis sampai dengan operasional. Untuk mengelola risiko dengan tepat, PGN, sejak tahun 2008, melaksanakan implementasi Kerangka Manajemen Risiko yang terstruktur dengan tujuan untuk meningkatkan pengelolaan risiko dan meningkatkan performa Perusahaan. Kerangka ini memasukkan prinsip-prinsip transparansi, akuntabilitas, tanggung jawab, independen, kewajaran dan kesetaraan.
+                            </p>
+                            <a href="#" class="button-standard a b">Download</a>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tk-tab-4">
+                            <p>
+                                Perseroan telah memiliki Pedoman Etika Usaha dan Etika Kerja. Dalam pengembangan GCG, PGN telah merumuskan berbagai kebijakan yang menyangkut etika Perusahaan. PGN mengupayakan penerapan standar etika terbaik dalam menjalankan segenap aktivitas bisnisnya sesuai dengan visi, misi dan budaya yang dimiliki melalui implementasi Etika Usaha dan Etika Kerja Etika Usaha dan Etika Kerja merupakan tuntunan sikap dan perilaku yang dituntut dan berlaku bagi seluruh jajaran Perusahaan.
+                            </p>
+                            <a href="#" class="button-standard a b">Download</a>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tk-tab-5">
+                            <p>
+                                Panduan Tata Kelola Perusahaan merupakan pedoman dasar bagi PGN untuk menjalankan bisnis. Panduan tersebut juga memberikan arahan bagi Insan PGN untuk menerapkan prinsip-prinsip tata kelola perusahaan yang baik dalam aktivitas kerja.
+                            </p>
+                            <a href="#" class="button-standard a b">Download</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5 tk-tabs-img">
+                    <img src="images/tk_piagam-audit-internal_1.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tk-whistleblowing" id="whistleblowing">
+        <div class="container tk-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="tk-whistleblowing-content">
+                        <h2>Whistleblowing<br/>System</h2>
+                        <a href="?page=whistleblowing" class="button-tk-whistleblowing"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="slider-master/js/jssor.slider.min.js"></script>
+<script src="slick/slick.min.js"></script>
+
+<script>
+    jQuery(document).ready(function ($) {
+        // $('#carousel1').carousel({
+        //   interval: 1000
+        // });
+        var _SlideshowTransitions = [{
+            $Duration: 1200,
+            $Opacity: 2
+        }];
+
+        var options = {
+            $SlideDuration: 500,
+            $DragOrientation: 0,
+            $AutoPlay: 1,
+            $Idle: 1500,
+            $SlideshowOptions: {
+                $Class: $JssorSlideshowRunner$,
+                $Transitions: _SlideshowTransitions,
+                $TransitionsOrder: 1,
+                $ShowLink: true
+            }
+        };
+        var jssor_slider1 = new $JssorSlider$('slider1_container', options);
+
+        //responsive code begin
+        //remove responsive code if you don't want the slider scales
+        //while window resizing
+        function ScaleSlider() {
+            var parentWidth = $('#slider1_container').parent().width();
+            if (parentWidth) {
+                jssor_slider1.$ScaleWidth(parentWidth);
+            } else
+                window.setTimeout(ScaleSlider, 30);
+        }
+        //Scale slider while window load/resize/orientationchange.
+        $(window).bind("load", ScaleSlider);
+        $(window).bind("resize", ScaleSlider);
+        $(window).bind("orientationchange", ScaleSlider);
+        //responsive code end
+
+        $('.tk-slide-slide').slick({
+            arrows: false,
+            speed: 1000,
+            dots: true,
+            customPaging: function(slider, i) {
+                var nav = $(slider.$slides[i]).data('nav');
+                return '<a>'+nav+'</a>';
+            }
+        });
+    });
+</script>
+      
+      
+    <div class="container custom">
+    <div id="sitemap_wrapper">
+      <h2>​"KAMI PERUSAHAAN GAS NEGARA"</h2>
+      <a class="sitemap_link" role="button" data-toggle="collapse" href="#sitemap_acc" aria-expanded="false" aria-controls="collapseExample">
+        <span class="sitemap_text">SITE MAP</span><br/>
+        <img src="images/button-site-map.png" class="sitemap_btn"/>
+      </a>
+      <div class="collapse" id="sitemap_acc">
+          <footer>
+          <div class="footer" id="footer">
+              <div class="container">
+                  <div class="row">                      
+					  <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                          <h3> <a href="?page=home">Home </h3>
+                          <ul>
+                              <li> <a href="?page=home#apa"> Apa Yang Anda Butuhkan </a> </li>
+                              <li> <a href="?page=home#mengapa"> Mengapa Memilih PGN </a> </li>
+                              <li> <a href="?page=home#video" > Cara Berlangganan Gas </a> </li>
+                              <li> <a href="?page=home#video"> Video </a> </li>
+                              <li> <a href="?page=home#pgn" > PGN Mobile </a> </li>
+                              <li> <a href="?page=home#tata"> Tata Kelola </a> </li>
+                              <li> <a href="?page=home#tata"> Keberlanjutan </a> </li>
+                              <li> <a href="?page=home#tata"> Informasi Publik </a> </li>
+                          </ul>
+                      </div>
+                      <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                          <h3> <a href="?page=residensial">Residensial </h3>
+                          <ul>
+                              <li> <a href="?page=residensial#produk" > Produk & Layanan Kami </a> </li>
+                              <li> <a href="?page=residensial#peruntukan"> Peruntukan Gas Anda </a> </li>
+                              <li> <a href="?page=residensial#lima" > Kalkulator Energi Baik </a> </li>
+                              <li> <a href="?page=residensial#lima" > 5 Langkah Berlangganan Gas </a> </li>
+                              <li> <a href="?page=residensial#membayar"> Membayar Gaskita Makin Mudah</a> </li>
+                              <li> <a href="?page=residensial#membayar"> Tips Energi Baik</a> </li>
+                              <li> <a href="?page=residensial#right"> Right & Responsibilities</a> </li>
+                              <li> <a href="?page=residensial#faq"> Frequently Asked Questions</a> </li>
+                      </div>
+                      <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                          <h3><a href="?page=bisnis"> Bisnis </h3>
+                          <ul>
+                              <li> <a href="?page=bisnis#produk"> Produk & Layanan Kami </a> </li>
+                              <li> <a href="?page=bisnis#industri"> Industri Anda </a> </li>
+                              <li> <a href="?page=bisnis#lima"> Kalkulator Boiler & Listrik </a> </li>
+                              <li> <a href="?page=bisnis#lima"> 5 Langkah Berlangganan Gas </a> </li>
+                              <li> <a href="?page=bisnis#right"> Tips Energi Baik </a> </li>
+                              <li> <a href="?page=bisnis#right"> Right & Responsibilities </a> </li>
+                              <li> <a href="?page=bisnis#faq"> Frequently Asked Questions </a> </li>
+                          </ul>
+                      </div>
+                      <div class="col-lg-3  col-md-3 col-sm-3 col-xs-6">
+                          <h3> <a href="?page=transportasi">Transportasi </h3>
+                          <ul>
+                              <li> <a href="?page=transportasi#produk"> Produk & Layanan Kami </a> </li>
+                              <li> <a href="?page=transportasi#tips" > Lokasi SPBU & MRU </a> </li>
+                              <li> <a href="?page=transportasi#kenapa"> Kenapa Kendaraan Anda Memakai Gasku </a> </li>
+                              <li> <a href="?page=transportasi#tips"> Tips Energi Baik </a> </li>
+                              <li> <a href="?page=transportasi#faq"> Frequently Asked Questions </a> </li>
+                          </ul>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 hidden-sm hidden-xs">
+                          <h3> <a href="?page=tentang-kami"> Tentang Kami </h3>
+                          <ul>
+                              <li> <a href="tentang-kami.html#about_pgn"> Melayani Indonesia </a> </li>
+                             <li> <a href="tentang-kami.html#transformasi_kelas_dunia" > Transformasi Kelasi Dunia </a> </li>
+                             <li> <a href="tentang-kami.html#sejarah" > Sejarah </a> </li>
+                             <li> <a href="tentang-kami.html#kepemimpinan" > Kepemimpinan </a> </li>
+                             <li> <a href="tentang-kami.html#kegiatan_usaha"> Kegiatan Usaha </a> </li>
+                             <li> <a href="tentang-kami.html#pgn_group" > PGN Group </a> </li>
+                             <li> <a href="tentang-kami.html#sinergi_operasi"> Sinergi Operasi </a> </li>
+                             <li> <a href="tentang-kami.html#teknologi"> Teknologi </a> </li>
+                             <li> <a href="tentang-kami.html#infrastruktur"> Infrastruktur & Jaringan Gas Bumi</a> </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <!--/.row-->
+
+                  <div class="row">					  
+                      <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                          <h3><a href="?page=berita"> News </h3>
+                          <ul>
+                              <li> <a href="berita.html#berita"> Latest News </a> </li>
+                              <li> <a href="berita.html#acara"> Events </a> </li>
+                              <li> <a href="berita.html#siaran"> Press Release </a> </li>
+                          </ul>
+                      </div>
+                      <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                          <h3><a href="?page=tata-kelola"> Tata Kelola </h3>
+                          <ul>
+                              <li> <a href="tata-kelola.html#sumber"> Sumber Daya Manusia </a> </li>
+                              <li> <a href="tata-kelola.html#profil"> Profil Pekerja </a> </li>
+                              <li> <a href="tata-kelola.html#pengembangan"> Pengembangan Kompetensi</a> </li>
+                              <li> <a href="tata-kelola.html#komitmen"> Komitmen </a> </li>
+                              <li> <a href="tata-kelola.html#struktur"> Struktur Tata Kelola</a> </li>
+                              <li> <a href="tata-kelola.html#anggaran"> Anggaran Dasar & Board Manual</a> </li>
+                              <li> <a href="tata-kelola.html#komite"> Komite</a> </li>
+                              <li> <a href="tata-kelola.html#sekretaris"> Sekretaris Perusahaan</a> </li>
+                              <li> <a href="tata-kelola.html#pedoman"> Pedoman Tata Kelola Perusahaan</a> </li>
+                              <li> <a href="tata-kelola.html#whistleblowing"> Whistleblowing System</a> </li>
+                      </div>
+                      <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6 hidden-sm hidden-xs">
+                          <h3> <a href="?page=keberlanjutan">Keberlanjutan </h3>
+                          <ul>
+                              <li> <a href="keberlanjutan.html#mendorong">Mendorong Roda Ekonomi </a> </li>
+                              <li> <a href="keberlanjutan.html#kerja"> Kerjasama Bisnis </a> </li>
+                              <li> <a href="keberlanjutan.html#transformasi"> Transformasi Lingkungan </a> </li>
+                              <li> <a href="keberlanjutan.html#menjaga"> Menjaga Planet </a> </li>
+                              <li> <a href="keberlanjutan.html#fakta"> Fakta Hijau </a> </li>
+                              <li> <a href="keberlanjutan.html#tanggung"> Tanggung Jawab Sosial </a> </li>
+                              <li> <a href="keberlanjutan.html#penghargaan"> Penghargaan </a> </li>
+                          </ul>
+                      </div>
+                      <div class="col-lg-3  col-md-3 col-sm-3 col-xs-6 hidden-xs hidden-sm">
+                          <h3> <a href="?page=kip">Informasi Publik </h3>
+                          <ul>
+                              <li> <a href="kip.html#keterbukaan"> Keterbukaan Informasi Publik </a> </li>
+                              <li> <a href="kip.html#informasi"> Informasi Wajib </a> </li>
+                              <li> <a href="kip.html#penilaian"> Penilaian Lembaga Independen </a> </li>
+                              <li> <a href="kip.html#remurasi"> Remurasi Direksi, Komisaris dan Dewan Pengawas </a> </li>
+                              <li> <a href="kip.html#perkara"> Perkara Penting yang Dihadapi </a> </li>
+                              <li> <a href="kip.html#tata"> Tata Kelola Perusahaan yang Baik </a> </li>
+							  <li> <a href="kip.html#tata"> Pengadaan Barang dan Jasa </a> </li>
+							  <li> <a href="kip.html#tata"> Informasi terbaru </a> </li>
+							  <li> <a href="kip.html#tata"> Penghargaan </a> </li>
+                              <li> <a href="kip.html#informasitersedia"> Informasi Tersedia Setiap Ssat </a> </li>
+                          </ul>
+                      </div>
+                      <div class="col-lg-3  col-md-3 col-sm-3 col-xs-6 hidden-xs hidden-sm">
+                          <h3> <a href="investor.html.">Investor </h3>
+                          <ul>
+                              <li><a href="investor.html">Investor</a></li>
+                              <li><a href="our-shareholders.html">Our Shareholders</a></li>
+                              <li><a href="stock-information.html">Stock Information</a></li>
+                              <li><a href="financial-information.html">Financial Information</a></li>
+                              <li><a href="idx-announcements.html">IDX Announcements</a></li>
+                              <li><a href="eventsandpresentations.html">Events & Presentations</a></li>
+                              <li><a href="investor-services.html">Investor Services</a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <!--/.row-->
+                  <div class="row visible-sm visible-xs">				
+                    <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                        <h3> <a href="?page=kip">Informasi Publik </h3>
+                        <ul>
+							<li> <a href="kip.html#keterbukaan"> Keterbukaan Informasi Publik </a> </li>
+                              <li> <a href="kip.html#informasi"> Informasi Wajib </a> </li>
+                              <li> <a href="kip.html#penilaian"> Penilaian Lembaga Independen </a> </li>
+                              <li> <a href="kip.html#remurasi"> Remurasi Direksi, Komisaris dan Dewan Pengawas </a> </li>
+                              <li> <a href="kip.html#perkara"> Perkara Penting yang Dihadapi </a> </li>
+                              <li> <a href="kip.html#tata"> Tata Kelola Perusahaan yang Baik </a> </li>
+							  <li> <a href="kip.html#tata"> Pengadaan Barang dan Jasa </a> </li>
+							  <li> <a href="kip.html#tata"> Informasi terbaru </a> </li>
+							  <li> <a href="kip.html#tata"> Penghargaan </a> </li>
+                              <li> <a href="kip.html#informasitersedia"> Informasi Tersedia Setiap Ssat </a> </li>		 
+                        </ul>
+                    </div>
+                    <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                        <h3> <a href="?page=keberlanjutan">Keberlanjutan </h3>
+                        <ul>
+                            <li> <a href="keberlanjutan.html#mendorong">Mendorong Roda Ekonomi </a> </li>
+                              <li> <a href="keberlanjutan.html#kerja"> Kerjasama Bisnis </a> </li>
+                              <li> <a href="keberlanjutan.html#transformasi"> Transformasi Lingkungan </a> </li>
+                              <li> <a href="keberlanjutan.html#menjaga"> Menjaga Planet </a> </li>
+                              <li> <a href="keberlanjutan.html#fakta"> Fakta Hijau </a> </li>
+                              <li> <a href="keberlanjutan.html#tanggung"> Tanggung Jawab Sosial </a> </li>
+                              <li> <a href="keberlanjutan.html#penghargaan"> Penghargaan </a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6 visible-sm">
+                        <h3> <a href="?page=tentang-kami">Tentang Kami </h3>
+                        <ul>
+                            <li> <a href="tentang-kami.html#about_pgn"> Melayani Indonesia </a> </li>
+                             <li> <a href="tentang-kami.html#transformasi_kelas_dunia" > Transformasi Kelasi Dunia </a> </li>
+                             <li> <a href="tentang-kami.html#sejarah" > Sejarah </a> </li>
+                             <li> <a href="tentang-kami.html#kepemimpinan" > Kepemimpinan </a> </li>
+                             <li> <a href="tentang-kami.html#kegiatan_usaha"> Kegiatan Usaha </a> </li>
+                             <li> <a href="tentang-kami.html#pgn_group" > PGN Group </a> </li>
+                             <li> <a href="tentang-kami.html#sinergi_operasi"> Sinergi Operasi </a> </li>
+                             <li> <a href="tentang-kami.html#teknologi"> Teknologi </a> </li>
+                             <li> <a href="tentang-kami.html#infrastruktur"> Infrastruktur & Jaringan Gas Bumi</a> </li>
+                        </ul>
+                    </div>
+                  </div>
+
+                  <div class="row visible-xs">
+                    <div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                        <h3><a href="?page=tentang-kami"> Tentang Kami </h3>
+                        <ul>
+                            <li> <a href="tentang-kami.html#about_pgn"> Melayani Indonesia </a> </li>
+                             <li> <a href="tentang-kami.html#transformasi_kelas_dunia" > Transformasi Kelasi Dunia </a> </li>
+                             <li> <a href="tentang-kami.html#sejarah" > Sejarah </a> </li>
+                             <li> <a href="tentang-kami.html#kepemimpinan" > Kepemimpinan </a> </li>
+                             <li> <a href="tentang-kami.html#kegiatan_usaha"> Kegiatan Usaha </a> </li>
+                             <li> <a href="tentang-kami.html#pgn_group" > PGN Group </a> </li>
+                             <li> <a href="tentang-kami.html#sinergi_operasi"> Sinergi Operasi </a> </li>
+                             <li> <a href="tentang-kami.html#teknologi"> Teknologi </a> </li>
+                             <li> <a href="tentang-kami.html#infrastruktur"> Infrastruktur & Jaringan Gas Bumi</a> </li>
+                        </ul>
+                    </div>
+					<div class="col-lg-2  col-md-2 col-sm-3 col-xs-6">
+                          <h3> <a href="?page=investor">Investor </h3>
+                          <ul>
+                              <li><a href="investor.html">Investor</a></li>
+                              <li><a href="our-shareholders.html">Our Shareholders</a></li>
+                              <li><a href="stock-information.html">Stock Information</a></li>
+                              <li><a href="financial-information.html">Financial Information</a></li>
+                              <li><a href="idx-announcements.html">IDX Announcements</a></li>
+                              <li><a href="eventsandpresentations.html">Events & Presentations</a></li>
+                              <li><a href="investor-services.html">Investor Services</a></li>
+                          </ul>
+                      </div>
+                  </div>
+
+                  <div class="row">					  
+                      <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                          <h3> <a href="contactus.html">Contact Us </h3>
+                          <ul>
+                              <li> <a href="contactus.html#informasi"> Informasi Karir </a> </li>
+                              <li> <a href="contactus.html#hubungi"> Hubungi Kami </a> </li>
+                              <li> <a href="contactus.html#form"> Formulir Kontak </a> </li>
+                          </ul>
+                      </div>
+                      <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                          <h3> <a href="?page=procurement">Procurement </h3>
+                          <ul>
+                              <li> <a href="procurement.html#pengadaan"> Pengadaan </a> </li>
+                              <li> <a href="procurement.html#pengumuman"> Pengumuman </a> </li>
+                              <li> <a href="procurement.html#aplikasi"> Aplikasi Management & Pendaftaran Penyedia Barang/Jasa </a> </li>
+                      </div>
+                  </div>
+                  <!--/.row-->
+              </div>
+              <!--/.container-->
+          </div>
+          <!--/.footer-->
+
+          </footer>
+      </div>
+    </div>
+</div>
+
+<div class="container-fluid footer">
+    <div class="row">
+        <div class="footer_bg">
+            <p class="footer_text"> PT. Perusahaan Gas Negara (Persero) Tbk. All Rights Reserved © Copyright 2017 PGN</p>
+        </div>
+    </div>
+</div>
+
+	
+     <script src="jquery.easing.1.3.js"></script>
+	 <script src="jquery.nicescroll.js"></script>
+     <script src="jquery.nicescroll.plus.js"></script>
+	<script>
+  var seq = 0;
+
+  $(document).ready(function() {
+	$("html").niceScroll({styler:"fb",cursorcolor:"#000"});
+	
+	
+	//goSeq();
+	
+	$(window).load(function(){
+	  setTimeout(function(){
+	    $("#gmbox div").animate({'top':27},1400,"easeOutElastic");
+	  },1400);
+	});
+	
+	
+	
+  });
+</script>
+  </body>
+
+</html>
