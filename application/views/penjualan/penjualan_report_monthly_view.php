@@ -116,15 +116,15 @@ echo link_tag('css/morris.css');
                         <label for="message-text" class="control-label">Year:</label>
                         <select class="form-control" id="year-select" name="tahun">
                             <?php
-                                $year = date("Y");
-                                $year = $year+1;
-                                for($i=1; $i<= 10; $i++){
-                                    $print_year = $year-$i;
-                                    echo "<option value=".$print_year.">".$print_year."</option>";
-                            ?>
+                            $year = date("Y");
+                            $year = $year+1;
+                            for($i=1; $i<= 10; $i++){
+                                $print_year = $year-$i;
+                                echo "<option value=".$print_year.">".$print_year."</option>";
+                                ?>
 
                             <?php
-                                }
+                            }
                             ?>
                         </select>
                     </div>
@@ -149,21 +149,23 @@ echo link_tag('css/morris.css');
     var data_graph = <?=json_encode($data);?>;
     var json_data = JSON.stringify(data_graph);
 
-    new Morris.Line({
-        // ID of the element in which to draw the chart.
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    Morris.Line({
         element: 'line-chart',
-        // Chart data records -- each entry in this array corresponds to a point on
-        // the chart.
         data: data_graph,
-        // The name of the data record attribute that contains x-values.
         xkey: 'Tgl_Penjualan',
-        // A list of names of data record attributes that contain y-values.
         ykeys: ['Harga_Total'],
-        // Labels for the ykeys -- will be displayed when you hover over the
-        // chart.
-        xLabels : "day",
-        smooth : false,
-        labels: ['Harga_Total']
+        xLabels : "month",
+        labels: ['Harga_Total'],
+        xLabelFormat: function(x) { // <--- x.getMonth() returns valid index
+            var month = months[x.getMonth()];
+            return month;
+        },
+        dateFormat: function(x) {
+            var month = months[new Date(x).getMonth()];
+            return month;
+        }
     });
     $('#line-chart').hide();
 

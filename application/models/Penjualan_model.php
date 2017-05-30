@@ -16,23 +16,37 @@ class Penjualan_model extends CI_Model {
 		return $query->result_array();
 	}
 
-    function getPenjualanPerDay($start,$limit) //$num=10, $start=0
+    function getPenjualanPerDay($year,$month) //$num=10, $start=0
     {
         $this->db->select('a.Penjualan_ID, Kode_Bon, Date_Format(Tgl_Penjualan, "%Y-%m-%d") as Tgl_Penjualan,
         Nama_Pembeli, Status, Harga_Hutang,
         Discount, SUM(Harga_Total) as Harga_Total ');
         $this->db->from('tbltpenjualan a');
+        $this->db->where('YEAR(Tgl_Penjualan)=',$year);
+        $this->db->where('MONTH(Tgl_Penjualan)=',$month);
 
-        if($limit!=null || $start!=null){
-            $this->db->limit($limit, $start);
-        }
         $this->db->group_by('a.Tgl_Penjualan');
         $this->db->order_by('a.Tgl_Penjualan','asc');
 
         $query = $this->db->get();
         return $query->result_array();
     }
-    
+
+    function getPenjualanPerMonth($year) //$num=10, $start=0
+    {
+        $this->db->select('a.Penjualan_ID, Kode_Bon, Date_Format(Tgl_Penjualan, "%Y-%m") as Tgl_Penjualan,
+        Nama_Pembeli, Status, Harga_Hutang,
+        Discount, SUM(Harga_Total) as Harga_Total ');
+        $this->db->from('tbltpenjualan a');
+        $this->db->where('YEAR(Tgl_Penjualan)=',$year);
+
+        $this->db->group_by('MONTH(Tgl_Penjualan)');
+        $this->db->order_by('MONTH(Tgl_Penjualan)','asc');
+
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
    	function getBarangByID($id) {		
 		$this->db->select('*'); 
 		$this->db->from('tbltbarang a');

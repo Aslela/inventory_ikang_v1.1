@@ -14,19 +14,21 @@
     <?php $this->load->helper('HTML');
         // Bootstrap Core CSS
         echo link_tag('css/bootstrap.min.css');
+        echo link_tag('css/bootstrap-theme.min.css');
         echo link_tag('css/bootstrap-editable.css');
 
         echo link_tag('css/jquery-ui.min.css');
+        //Alert
+        echo link_tag('css/alert/alertify.min.css');
+        echo link_tag('css/alert/themes/default.min.css');
+
         //DataTables CSS
         echo link_tag('css/sb-admin-2.css');
+        echo link_tag('css/datatable/dataTables.bootstrap.min.css');
+        echo link_tag('css/datatable/select.bootstrap.min.css');
 
         //Custom Fonts
         echo link_tag('css/font-awesome.min.css');
-
-        //Alert
-        echo link_tag('css/alert/alertify.core.css');
-        echo link_tag('css/alert/alertify.default.css');
-
     ?>
     
     <style>
@@ -43,10 +45,16 @@
     <!-- jQuery -->
     <script src="<?php echo base_url(); ?>js/jquery.min.js"></script>
 
-   <script src="<?php echo base_url(); ?>js/jquery-ui-1.10.3.js"></script>
+    <script src="<?php echo base_url(); ?>js/jquery-ui-1.10.3.js"></script>
+    <!-- DataTables JavaScript -->
+    <script src="<?php echo base_url()?>js/datatable/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url()?>js/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="<?php echo base_url()?>js/datatable/dataTables.select.min.js"></script>
 
     <!-- Alert -->
-    <script src="<?php echo base_url(); ?>css/alert/alertify.min.js"></script>
+    <script src="<?php echo base_url(); ?>js/alertify.min.js"></script>
+    <!-- Validasi -->
+    <script src="<?php echo base_url(); ?>js/validate_master.js"></script>
 
 </head>
 

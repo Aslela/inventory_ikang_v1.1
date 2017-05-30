@@ -134,14 +134,29 @@ class Penjualan extends CI_Controller {
         $this->load->view('includes/template_cms', $data);
     }
 
-    function goToLaporanPenjualan($start=1){
-        $num_per_page = 10;
-        $start=($start-1)*$num_per_page;
-        $limit= $num_per_page;
+    function goToLaporanPenjualan(){
+        $tahun = $this->input->post('tahun');
+        $bulan = $this->input->post('bulan');
 
-        $result = $this->penjualan_model->getPenjualanPerDay($start, $limit);
+        if($tahun==null || $bulan==null ){
+            $tahun = date("Y");
+            $bulan = date("m");
+        }
+
+        $result = $this->penjualan_model->getPenjualanPerDay($tahun, $bulan);
 
         $data['main_content'] = 'penjualan/penjualan_report_view';
+        $data['data'] = $result;
+        $data['msg'] = null;
+        $this->load->view('includes/template_cms', $data);
+    }
+    function goToLaporanPenjualanBulanan(){
+
+        //$this->output->enable_profiler(TRUE);
+        $tahun = $this->input->post('tahun');
+        $result = $this->penjualan_model->getPenjualanPerMonth($tahun);
+
+        $data['main_content'] = 'penjualan/penjualan_report_monthly_view';
         $data['data'] = $result;
         $data['msg'] = null;
         $this->load->view('includes/template_cms', $data);
