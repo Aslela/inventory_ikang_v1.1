@@ -7,7 +7,7 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> --> 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     	
-	<title>Contact Us</title>
+	<title><?php echo $page_title;?></title>
     
 	<link rel="shortcut icon" type="image/x-icon" href="http://www.pgn.co.id/images/modules/favicon.ico" />
     
@@ -242,7 +242,7 @@ $(document).ready(function(){
     $('.flagger').removeClass('hide');$('.flagger').addClass('show');
   });
   $('#navbar').on('hide.bs.collapse', function () {
-    // do something…
+    // do somethingâ€¦
     // alert('hide');
     /*.navbar-inverse{
       background-color: #eee;
@@ -264,7 +264,7 @@ $(document).ready(function(){
     $('.navbar').addClass('navbar-fixed-top');
     $('#topbar').hide();
     $('html, body').addClass('overflowhidden');
-    // do something…
+    // do somethingâ€¦
   });
   
   // Windows resize for mobile menu scrolling
@@ -330,354 +330,19 @@ $(".dropdown").on("hide.bs.dropdown", function(event){
 })
 </script>
 
-    <link href="styles/css/contact-us.css" rel="stylesheet">
+    <?php
+      $page = isset($_REQUEST['page']) ? str_replace(['_', ' '], '-', $_REQUEST['page']) : 'home';
+      if(file_exists(__DIR__.'/pages/'.$page.'.php')){
+        include_once('pages/'.$page.'.php');
+      }else{
+        include_once('pages/home.php');
+      }
 
-<div class="hr hidden-xs">&nbsp;</div>
-
-<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 257px; overflow: hidden;">
-    <!-- Slides Container -->
-    <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
-
-        <div>
-            <img u="image" src="images/header-contact-us.png"/>           
-        </div>
-    </div>
-</div>
-<div id="breadcrumb">
-	<div id="breadcrumb-container">
-		<ol class="breadcrumb">
-			<li><a href="?page=home">Home</a></li>
-			<li class="active">Contact Us</li>        
-		</ol>
-	</div>		
-</div>
-
-<div class="container-fluid-cu">
-	<div align="center">
-		<div class="row contact-career contact-us-pd " id="informasi">
-			<div class="col-md-8 col-sm-6 contact-career-content">
-				<h2>Informasi Karir</h2>
-				<p>Kebijakan perekrutan PGN adalah setiap orang berhak ikut serta dalam proses pemilihan dan ditunjuk sebagai karyawan setelah menjalani masa percobaan dan orientasi awal. PGN telah menetapkan beberapa kriteria pemilihan dasar, termasuk kapasitas intelektual, kemampuan bekerja dalam tim, motivasi, kemampuan beradaptasi serta keinginan belajar.</p>
-				<div class="contact-career-more">
-					<a class="contact-career-more-toggle" role="button" data-toggle="collapse" href="#collapseContact" aria-expanded="false" aria-controls="collapseContact">Jika Anda ingin tahu lebih lanjut mengenai peluang untuk bergabung dalam tim PGN, klik link di bawah ini.<img src="images/button-site-map.png" /></a>
-					<div id="collapseContact" class="collapse contact-career-more-content">
-						<a href="?page=landingpageberita"target="_blank">Waspada Penipuan Rekrutmen Mengatasnamakan PT Perusahaan Gas Negara (Persero) Tbk</a>
-						<p class="contact-career-status">Saat ini tidak ada lowongan yang tersedia</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-6 contact-career-img no-pd-right">
-				<img src="images/karir_contact-us.png" />
-			</div>
-		</div>
-		<div class="row contact-map contact-us-pd" id="hubungi" >
-			<div class="col-sm-3 contact-map-address ">
-				<div class="contact-map-address-wrapper">
-					<h2>Hubungi Kami</h2>
-					<h6 style="font-size:16px;width:100%;">Lokasi Kantor Pusat & Anak Perusahaan</h6>
-					<select>
-						<option>Kantor Pusat</option>
-						<option>Anak Perusahaan</option>
-					</select>
-					<div class="contact-map-address-info">
-						<h4>Kantor Pusat</h4>
-						<p>
-							Jl. KH Zainul Arifin No. 20 Jakarta Pusat<br />
-							Jakarta 11140 Indonesia<br />
-							<strong>T</strong> 6221 633 4838<br />
-							<strong>F</strong> 6221 633 3080
-						</p>
-					</div>
-					<div class="btn-group contact-map-address-tool" data-toggle="buttons">
-						<label class="btn active">
-							<input type="radio" name="options" id="map" autocomplete="off" checked> Map
-						</label>
-
-						<label class="btn">
-							<input type="radio" name="options" id="hybrid" autocomplete="off"> Hybrid
-						</label>
-						<label class="btn">
-							<input type="radio" name="options" id="satellite" autocomplete="off"> Satellite
-						</label>
-						
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-9 contact-map-map no-pd-right">
-				<iframe class="actAsDiv" width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;q=Perusahaan%20gas%20negara%2C%20Jl.%20K.H.%20Zainul%20Arifin%20No.%2020%2C%20&amp;aq=0&amp;ie=UTF8&amp;t=m&amp;z=12&amp;iwloc=A&amp;output=embed"></iframe>
-			</div>
-		</div>
-	</div>
-    <div class="row contact-form" id="form">
-        <div class="col-sm-12">
-            <h2>Formulir Kontak</h2>
-        </div>
-        <form class="custom-form">
-            <div class="form-group col-xs-6">
-                <label for="name-input">Name:</label>
-                <input type="text" class="form-control form-control-no-border" id="name-input" placeholder="Enter Name">
-            </div>
-            <div class="form-group col-xs-6">
-                <label for="email-input">Email:</label>
-                <input type="email" class="form-control form-control-no-border" id="email-input" placeholder="Enter Email">
-            </div>
-            <div class="form-group col-xs-6">
-                <label for="address-input">Address:</label>
-                <input type="text" class="form-control form-control-no-border" id="address-input" placeholder="Enter Address">
-            </div>
-            <div class="form-group col-xs-6">
-                <label for="company-input">Company:</label>
-                <input type="text" class="form-control form-control-no-border" id="company-input" placeholder="Enter Company">
-            </div>
-            <div class="form-group col-xs-6">
-                <label for="country-input">Country</label>
-                <input type="text" class="form-control form-control-no-border" id="country-input" placeholder="Enter Country">
-            </div>
-            <div class="form-group col-xs-6">
-                <label for="phone-input">Phone:</label>
-                <input type="tel" class="form-control form-control-no-border" id="phone-input" placeholder="Enter Phone">
-            </div>
-            <div class="form-group col-xs-6">
-                <label for="challenge-input">Challenge Code</label>
-                <div class="form-captcha "><img class="img-responsive" src="images/captcha2.png" /></div>
-                <input type="text" class="form-control form-control-no-border" id="challenge-input" placeholder="Enter Image Text">
-            </div>
-            <div class="form-group col-xs-6">
-                <label for="subject-input">Subject:</label>
-                <input type="text" class="form-control form-control-no-border" id="subject-input" placeholder="Enter Subject">
-            </div>
-            <div class="form-group col-xs-6">
-                <label for="division-input">Directed to Division:</label>
-                <input type="text" class="form-control form-control-no-border" id="division-input" placeholder="">
-            </div>
-            <div class="form-group col-xs-12">
-                <label for="message-input">Message:</label>
-                <textarea rows="6" class="form-control form-control-no-border" id="message-input" placeholder="Enter Your Message"></textarea>
-            </div>
-            <div class="form-group col-xs-12">
-                <button type="button" class="btn btn-primary btn-custom padding-btn" style="height:30px;padding-top:4px;">Submit</button>&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-primary btn-custom padding-btn" style="height:30px;padding-top:4px;">Clear</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-<script src="slider-master/js/jssor.slider.min.js"></script>
-<script>
-    jQuery(document).ready(function ($) {
-        // $('#carousel1').carousel({
-        //   interval: 1000
-        // });
-        var _SlideshowTransitions = [{
-            $Duration: 1200,
-            $Opacity: 2
-        }];
-
-        var options = {
-            $SlideDuration: 500,
-            $DragOrientation: 0,
-            $AutoPlay: 1,
-            $Idle: 1500,
-            $SlideshowOptions: {
-                $Class: $JssorSlideshowRunner$,
-                $Transitions: _SlideshowTransitions,
-                $TransitionsOrder: 1,
-                $ShowLink: true}
-        };
-        var jssor_slider1 = new $JssorSlider$('slider1_container', options);
-
-        //responsive code begin
-        //remove responsive code if you don't want the slider scales
-        //while window resizing
-        function ScaleSlider() {
-            var parentWidth = $('#slider1_container').parent().width();
-            if (parentWidth) {
-                jssor_slider1.$ScaleWidth(parentWidth);
-            } else
-                window.setTimeout(ScaleSlider, 30);
-        }
-        //Scale slider after document ready
-
-        // slider acara lainnya
-        function slideUpArtikelLainnya() {
-            var h, ctn;
-            h = $(".wrapper-slide-acaralainnya").height();
-            $(".wrapper-slide-acaralainnya").css("height", h);
-            $(".list.acara.slide-down").animate({top: -h}, {
-                queue: false,
-                duration: 1000,
-                start: function () {
-                    ctn = '<li>\n\
-                                        <div class="date-acaralainnya">\n\
-                                            2 April 2013\n\
-                                        </div>\n\
-                                        <div class="content-acaralainnya">\n\
-                                            <a href="?page=landingpageeventlainnya">Pemanggilan Rapat Umum Pemegang Saham Tahunan PT. Perusahaan Gas Negara (Persero) TBK.</a>\n\
-                                        </div>\n\
-                                    </li>\n\
-                                    <li>\n\
-                                        <div class="date-acaralainnya">\n\
-                                            7 Mei 2012\n\
-                                        </div>\n\
-                                        <div class="content-acaralainnya">\n\
-                                            <a href="?page=landingpageeventlainnya">Pemanggilan Rapat Umum Pemegang Saham Tahunan PT. Perusahaan Gas Negara (Persero) TBK.</a>\n\
-                                        </div>\n\
-                                    </li>\n\
-                                    <li>\n\
-                                        <div class="date-acaralainnya">\n\
-                                            11 Oktober 2011\n\
-                                        </div>\n\
-                                        <div class="content-acaralainnya">\n\
-                                            <a href="?page=landingpageeventlainnya">PGN dan BNI Bersinergi Permudah Pembayaran Gas</a>\n\
-                                        </div>\n\
-                                    </li>';
-                    $("ul.list.acara.slide-down").append(ctn);
-                },
-                complete: function () {
-                    for (i = 0; i < 3; i++) {
-                        $("ul.list.acara.slide-down li").eq(i).remove();
-                    }
-                    ;
-                    $(".list.acara.slide-down").css("top", 0);
-                },
-                progress: function (animation, progress) {
-
-                }
-            });
-
-        }
-
-        function do_slide() {
-            interval = setInterval(function () {
-                slideUpArtikelLainnya();
-            }, 5000);
-        }
-        // end
-        ScaleSlider();
-
-        $("span.down-nav").on('click', function () {
-            clearInterval(interval); // stop slider when click
-            slideUpArtikelLainnya();
-        });
-
-        $("span.down-nav").on('mouseleave', function () {
-            do_slide(); // when mouse leave, run slider againt
-        });
-
-
-        do_slide(); // auto slide running here
-        $(window).bind("resize", function () {
-            $(".wrapper-slide-acaralainnya").css("height", 'auto');
-            $(".wrapper-slide-list").css("width", '100%');
-        });
-
-        $("ul.pagination").find("li a").each(function () {
-
-            $(this).on('click', function () {
-                var ctn, current_el, width, wrapper_list, page, prev_page, dir, sign, content;
-                var opt_animate = {};
-                var opt_resetdir = {};
-
-                current_el = $(this);
-                if (current_el.parent().hasClass('active'))
-                    return false;
-
-                if (current_el.parent().hasClass('clikpage'))
-                    return false;
-
-                page = parseInt(current_el.text());
-                prev_page = current_el.closest('.wrapper-procurement-list').find('.wrapper-slide-list').attr('page');
-
-                if (typeof prev_page == 'undefined')
-                    prev_page = 1;
-
-                ctn = current_el.closest('.wrapper-procurement-list').find('ul.list.content');
-                width = ctn[0].clientWidth;
-                wrapper_list = current_el.closest('.wrapper-procurement-list').find('.wrapper-slide-list').css('width', (width * 2));
-
-                if (page < prev_page) {
-                    dir = 'right';
-                    sign = +width;
-                    opt_animate[dir] = 0;
-                    opt_resetdir[dir] = '0px';
-                    opt_resetdir['width'] = width;
-                    current_el.closest('.wrapper-procurement-list').find('.wrapper-slide-list').css('right', +width);
-                } else {
-                    dir = 'left';
-                    sign = -width;
-                    opt_animate[dir] = -width;
-                    opt_resetdir[dir] = '0px';
-                    opt_resetdir['width'] = width;
-                }
-                ;
-
-                current_el.closest('.wrapper-procurement-list').find('.wrapper-slide-list').animate(opt_animate, {
-                    queue: false,
-                    duration: 1000,
-                    start: function () {
-                        if (page < prev_page) {
-                            current_el.closest('.wrapper-procurement-list').find('.wrapper-slide-list').prepend('<ul class="list content row">' + ctn[0].innerHTML + '</ul>');
-                        } else {
-                            current_el.closest('.wrapper-procurement-list').find('.wrapper-slide-list').append('<ul class="list content row">' + ctn[0].innerHTML + '</ul>');
-                        }
-
-                        current_el.closest('.wrapper-procurement-list').find(".wrapper-slide-list ul").css("width", "50%");
-                        current_el.closest('ul.pagination').find('li').each(function (i, el) {
-                            $(el).removeClass('active');
-                            current_el.parent().addClass('active');
-                            $(el).addClass('clikpage');
-                        });
-                    },
-                    complete: function () {
-                        wrapper_list.find(ctn.selector).each(function (i, element) {
-                            if (page > prev_page) {
-                                if (i == 0) {
-                                    $(element).remove();
-                                }
-                            } else {
-                                if (i == 1) {
-                                    $(element).remove();
-                                }
-                            }
-
-                        });
-                        current_el.closest('.wrapper-procurement-list').find('.wrapper-slide-list').css(opt_resetdir);
-                        current_el.closest('.wrapper-procurement-list').find(".wrapper-slide-list ul").css("width", "100%");
-                        current_el.closest('.wrapper-procurement-list').find('.wrapper-slide-list').attr('page', page);
-
-                        current_el.closest('.wrapper-procurement-list').find('.wrapper-slide-list').css({'right': ""});
-                        current_el.closest('.wrapper-procurement-list').find('.wrapper-slide-list').css({'left': ""});
-
-                        current_el.closest('ul.pagination').find('li').each(function (i, el) {
-                            $(el).removeClass('clikpage');
-                        });
-                    },
-                    progress: function (animate, progress) {
-
-                    }
-                });
-            });
-        })
-
-        //Scale slider while window load/resize/orientationchange.
-        $(window).bind("load", ScaleSlider);
-        $(window).bind("resize", ScaleSlider);
-        $(window).bind("orientationchange", ScaleSlider);
-        //responsive code end
-		
-		// Informasi Karir, change icon 
-		$("#collapseContact").on('show.bs.collapse', function(){		
-			$(".contact-career-more-toggle img").attr("src","images/button-up-site-map.png");
-		});
-		$("#collapseContact").on('hide.bs.collapse', function(){
-			$(".contact-career-more-toggle img").attr("src","images/button-site-map.png");
-		});
-    });
-</script>
+    ?>
     
 	<div class="container custom">
     <div id="sitemap_wrapper">
-      <h2>?"KAMI PERUSAHAAN GAS NEGARA"</h2>
+      <h2>â€‹"KAMI PERUSAHAAN GAS NEGARA"</h2>
       <a class="sitemap_link" role="button" data-toggle="collapse" href="#sitemap_acc" aria-expanded="false" aria-controls="collapseExample">
         <span class="sitemap_text">SITE MAP</span><br/>
         <img src="images/button-site-map.png" class="sitemap_btn"/>
@@ -919,7 +584,7 @@ $(".dropdown").on("hide.bs.dropdown", function(event){
 <div class="container-fluid footer">
     <div class="row">
         <div class="footer_bg">
-            <p class="footer_text"> PT. Perusahaan Gas Negara (Persero) Tbk. All Rights Reserved © Copyright 2017 PGN</p>
+            <p class="footer_text"> PT. Perusahaan Gas Negara (Persero) Tbk. All Rights Reserved Â© Copyright 2017 PGN</p>
         </div>
     </div>
 </div>
